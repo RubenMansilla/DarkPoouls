@@ -1,19 +1,17 @@
 package modelo;
 
-public class Objeto {
+public abstract class Objeto {
 	
 	private String nombre;
-	private int usos = 1;
-	
-	public Objeto() {
-		
-	}
+    private int cantidad = 0;
 
-	public Objeto(String nombre, int usos) {
-		this.nombre = nombre;
-		this.usos = usos;
-	}
+    public Objeto() {
+    }
 
+    public Objeto(String nombre, int cantidad) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+    }
 	public String getNombre() {
 		return nombre;
 	}
@@ -22,18 +20,16 @@ public class Objeto {
 		this.nombre = nombre;
 	}
 
-	public int getUsos() {
-		return usos;
+	public int getCantidad() {
+		return cantidad;
 	}
 
-	public void setUsos(int usos) {
-		this.usos = usos;
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
 	}
 
 	@Override
 	public String toString() {
-		return "Objeto [nombre=" + nombre + ", usos=" + usos + "]";
+		return nombre + ", cantidad = " + cantidad;
 	}
-	
-
 }

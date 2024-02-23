@@ -11,12 +11,12 @@ public abstract class Personaje {
 	private int resistencia;
 	private int fe;
 	//private ArrayList<ListaHabilidades> listaHabilidades;
-	//private ArrayList<Inventario> inventario;
+	private ArrayList<Inventario> inventario;
 	
 	//Constructores
 	public Personaje () {
 		//listaHabilidades = new ArrayList<>;
-		//inventario = new ArrayList<>;
+		 this.inventario = new ArrayList<>();
 	}
 
 	public Personaje(int vitalidad, int fuerza, int resistencia, int fe) {
@@ -26,7 +26,7 @@ public abstract class Personaje {
 		this.resistencia = resistencia;
 		this.fe = fe;
 		//this.listaHabilidades = new ArrayList<ListaHabilidades>;
-		//this.inventario = new ArrayList<Inventario>;
+		this.inventario = new ArrayList<Inventario>();
 	}
 
 	//Getters y Setters
@@ -67,8 +67,17 @@ public abstract class Personaje {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
+	
+	public void crearInventario(Inventario objeto) {
+        this.inventario.add(objeto);
+    }
 
-	//Metodos varios
+    public void eliminaragregarInventario(Inventario objeto) {
+        this.inventario.remove(objeto);
+    }
+
+//Metodos varios
+	
 	//Se suben nivel y estadísticas
 	public void subirNivel() {
 		setNivel(nivel + 1);
@@ -77,20 +86,12 @@ public abstract class Personaje {
 		setResistencia(resistencia + 2);
 		setFe(fe + 2);
 	}
-	//Métodos de impresión
+
 	@Override
 	public String toString() {
-		return "Personaje [nivel=" + nivel + ", vitalidad=" + vitalidad + ", fuerza=" + fuerza + ", resistencia="
-				+ resistencia + ", fe=" + fe + "]";
+		return " nivel = " + nivel + ", vitalidad = " + vitalidad + ", fuerza = " + fuerza + ", resistencia="
+				+ resistencia + ", fe = " + fe + ", inventario = " + inventario;
 	}
 	
-	
-
-	
-	
-	
-	
-	
-	
-	
+		
 }
