@@ -47,7 +47,7 @@ public class Inventario {
 		}
 
 		if (objetoEncontrado) {
-			inventario.removeIf(o -> o.getCantidad() <= 0);
+			inventario.remove(objeto);
 		}
 	}
 

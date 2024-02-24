@@ -23,7 +23,6 @@ public class Main {
 		Estus e1 = new Estus();
 		i1.agregarObjeto(e1);
 		i1.agregarObjeto(e1);
-		i1.agregarObjeto(e1);
 		System.out.println(demonio);
 		
 		
