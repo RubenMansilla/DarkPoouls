@@ -4,7 +4,6 @@ public class Estus extends Objeto {
 
 	public Estus() {
 		super();
-		super.setCantidad(getCantidad() + 1);
 		super.setNombre("Estus");
 	}
 

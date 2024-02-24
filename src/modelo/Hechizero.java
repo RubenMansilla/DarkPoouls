@@ -1,20 +1,26 @@
 package modelo;
 
 public class Hechizero extends Personaje {
+	
+	private String nombre;
+	
 	//Constructor 
-	public Hechizero() {
+	public Hechizero(String nombre) {
 		super();
+		this.nombre = nombre;
 		super.setVitalidad(8);
 		super.setFuerza(9);
 		super.setResistencia(8);
 		super.setFe(8);
 	}
-	public Hechizero(int vitalidad, int fuerza, int resistencia, int fe) {
-		super(vitalidad, fuerza, resistencia, fe);	
+	public Hechizero(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {
+		super(vitalidad, fuerza, resistencia, fe);
+		this.nombre = nombre;
 	}
+	
 	@Override
 	public String toString() {
-		return "Hechizero [toString()=" + super.toString() + "]";
+		return "Hechizero [nombre=" + nombre + " " + super.toString() + "]";
 	}
 	
 

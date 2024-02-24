@@ -3,7 +3,7 @@ package modelo;
 public abstract class Objeto {
 	
 	private String nombre;
-    private int cantidad = 0;
+    private int cantidad = 1;
 
     public Objeto() {
     }

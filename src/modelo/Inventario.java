@@ -11,7 +11,7 @@ public class Inventario {
 	}
 
 	public void agregarObjeto(Objeto objeto) {
-
+		
 		boolean objetoExistente = false;
 
 		for (Objeto tipoObjeto : inventario) {
@@ -29,7 +29,7 @@ public class Inventario {
 	}
 
 	public void eliminarObjeto(Objeto objeto) {
-
+		
 		boolean objetoEncontrado = false;
 
 		for (Objeto tipoObjeto : inventario) {
@@ -47,7 +47,7 @@ public class Inventario {
 		}
 
 		if (objetoEncontrado) {
-			inventario.remove(objeto);
+			inventario.removeIf(o -> o.getCantidad() <= 0);
 		}
 	}
 

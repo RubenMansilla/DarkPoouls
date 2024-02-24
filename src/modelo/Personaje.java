@@ -10,13 +10,13 @@ public abstract class Personaje {
 	private int fuerza;
 	private int resistencia;
 	private int fe;
-	//private ArrayList<ListaHabilidades> listaHabilidades;
 	private ArrayList<Inventario> inventario;
+	//private ArrayList<ListaHabilidades> listaHabilidades;
 	
 	//Constructores
 	public Personaje () {
 		//listaHabilidades = new ArrayList<>;
-		 this.inventario = new ArrayList<>();
+		this.inventario = new ArrayList<>();
 	}
 
 	public Personaje(int vitalidad, int fuerza, int resistencia, int fe) {

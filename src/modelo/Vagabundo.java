@@ -1,20 +1,26 @@
 package modelo;
 
 public class Vagabundo extends Personaje {
+	
+	private String nombre;
+	
 	//Constructor 
-	public Vagabundo() {
+	public Vagabundo(String nombre) {
 		super();
+		this.nombre = nombre;
 		super.setVitalidad(10);
 		super.setFuerza(10);
 		super.setResistencia(12);
 		super.setFe(8);
 	}
-	public Vagabundo(int vitalidad, int fuerza, int resistencia, int fe) {
-		super(vitalidad, fuerza, resistencia, fe);	
+	public Vagabundo(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {
+		super(vitalidad, fuerza, resistencia, fe);
+		this.nombre = nombre;
 	}
+	
 	@Override
 	public String toString() {
-		return "Vagabundo [toString()=" + super.toString() + "]";
+		return "Vagabundo [nombre=" + nombre + ", toString()=" + super.toString() + "]";
 	}
 	
 
