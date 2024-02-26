@@ -59,6 +59,15 @@ public class Main {
 		demonio.reiniciarEstadisticas();
 		System.out.println();
 		System.out.println(demonio);
+		
+		Berserker bersek = new Berserker();
+		demonio.usarHabilidad(bersek);
+		System.out.println();
+		System.out.println(demonio);
+		
+		demonio.reiniciarEstadisticas();
+		System.out.println();
+		System.out.println(demonio);
 
 	}
 

@@ -3,8 +3,8 @@ package modelo;
 import java.util.ArrayList;
 
 public abstract class Personaje {
-	
-	//Atrivutos
+
+	// Atrivutos
 	private int nivel = 1;
 	private int vitalidad;
 	private int vidaMaxima;
@@ -14,11 +14,11 @@ public abstract class Personaje {
 	private int resistenciaMaxima;
 	private int fe;
 	private ArrayList<Inventario> inventario;
-	//private ArrayList<ListaHabilidades> listaHabilidades;
-	
-	//Constructores
-	public Personaje () {
-		//listaHabilidades = new ArrayList<>;
+	// private ArrayList<ListaHabilidades> listaHabilidades;
+
+	// Constructores
+	public Personaje() {
+		// listaHabilidades = new ArrayList<>;
 		this.inventario = new ArrayList<>();
 	}
 
@@ -29,24 +29,24 @@ public abstract class Personaje {
 		this.resistencia = resistencia;
 		this.fe = fe;
 		calcularVidaMaxima();
-		//this.listaHabilidades = new ArrayList<ListaHabilidades>;
+		// this.listaHabilidades = new ArrayList<ListaHabilidades>;
 		this.inventario = new ArrayList<Inventario>();
 	}
 
-	//Getters y Setters
+	// Getters y Setters
 	public int getVitalidad() {
 		return vitalidad;
 	}
 
 	public void setVitalidad(int nuevaVitalidad) {
-        if (nuevaVitalidad > this.vitalidad) {
-            this.vitalidad = nuevaVitalidad;
-            calcularVidaMaxima();  // Llama a calcularVidaMaxima solo si la vitalidad aumenta
-        }else {
-        	this.vitalidad = nuevaVitalidad;
-        }
-    }
-	
+		if (nuevaVitalidad > this.vitalidad) {
+			this.vitalidad = nuevaVitalidad;
+			calcularVidaMaxima(); // Llama a calcularVidaMaxima solo si la vitalidad aumenta
+		} else {
+			this.vitalidad = nuevaVitalidad;
+		}
+	}
+
 	public int getVidaMaxima() {
 		return vidaMaxima;
 	}
@@ -74,11 +74,11 @@ public abstract class Personaje {
 	public int getFe() {
 		return fe;
 	}
-	
+
 	public void setFe(int fe) {
 		this.fe = fe;
 	}
-	
+
 	public int getNivel() {
 		return nivel;
 	}
@@ -86,7 +86,7 @@ public abstract class Personaje {
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-	
+
 	public int getFuerzaMaxima() {
 		return fuerzaMaxima;
 	}
@@ -102,50 +102,51 @@ public abstract class Personaje {
 	public void setResistenciaMaxima(int resistenciaMaxima) {
 		this.resistenciaMaxima = resistenciaMaxima;
 	}
-	
-	public void crearInventario(Inventario objeto) {
-        this.inventario.add(objeto);
-    }
 
-    public void eliminaragregarInventario(Inventario objeto) {
-        this.inventario.remove(objeto);
-    }
-    
-    
+	public void crearInventario(Inventario objeto) {
+		this.inventario.add(objeto);
+	}
+
+	public void eliminaragregarInventario(Inventario objeto) {
+		this.inventario.remove(objeto);
+	}
 
 //Metodos varios
 
-	//Se suben nivel y estadísticas
-    public void subirNivel() {
-    	
-    	this.setNivel(nivel + 1);
-        this.setVitalidad(vitalidad + 2);
-        this.setFuerza(fuerza + 2);
-        this.setFuerzaMaxima(this.getFuerza());
-        this.setResistencia(resistencia + 2);
-        this.setResistenciaMaxima(this.getResistencia());
-        this.setFe(fe + 2);
-    }
-	
+	// Se suben nivel y estadísticas
+	public void subirNivel() {
+
+		this.setNivel(nivel + 1);
+		this.setVitalidad(vitalidad + 2);
+		this.setFuerza(fuerza + 2);
+		this.setFuerzaMaxima(this.getFuerza());
+		this.setResistencia(resistencia + 2);
+		this.setResistenciaMaxima(this.getResistencia());
+		this.setFe(fe + 2);
+	}
+
 	private void calcularVidaMaxima() {
-        this.vidaMaxima = this.vitalidad;
-    }
-	
+		this.vidaMaxima = this.vitalidad;
+	}
+
 	public void reiniciarEstadisticas() {
 		this.setVitalidad(this.getVidaMaxima());
 		this.setFuerza(this.getFuerzaMaxima());
 		this.setResistencia(this.getResistenciaMaxima());
 	}
-	
+
 	public void usarObjeto(Objeto objeto) {
-            objeto.usarObjeto(this);
-    }
+		objeto.usarObjeto(this);
+	}
+
+	public void usarHabilidad(Habilidad habilidad) {
+		habilidad.usarHabilidad(this);
+	}
 
 	@Override
 	public String toString() {
 		return " nivel = " + nivel + ", vitalidad = " + vitalidad + ", fuerza = " + fuerza + ", resistencia = "
 				+ resistencia + ", fe = " + fe + ", inventario = " + inventario;
 	}
-	
-		
+
 }

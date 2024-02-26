@@ -5,9 +5,9 @@ public abstract class Habilidad {
 	private String nombre;
 	private String descripcion;
 	private int costeFe;
-	
+
 	public Habilidad() {
-		
+
 	}
 
 	public Habilidad(String nombre, String descripcion, int costeMana) {
@@ -40,9 +40,11 @@ public abstract class Habilidad {
 		this.costeFe = costeMana;
 	}
 
+	public abstract void usarHabilidad(Personaje personaje);
+
 	@Override
 	public String toString() {
 		return "Habilidad [nombre=" + nombre + ", descripcion=" + descripcion + ", costeMana=" + costeFe + "]";
 	}
-	
+
 }
