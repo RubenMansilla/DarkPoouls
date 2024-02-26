@@ -7,12 +7,12 @@ public class Creatina extends Objeto {
 		super.setNombre("Creatina");
 	}
 
-	public Creatina(String nombre, int cantidad) {
-		super(nombre, cantidad);
+	public Creatina(String nombre, String descripcion, int cantidad) {
+		super(nombre, descripcion, cantidad);
 	}
 
+	public void usarObjeto(Personaje personaje) {
+		personaje.setFuerza(personaje.getFuerza() + 4);
+	}
 
-
-	
-	
 }

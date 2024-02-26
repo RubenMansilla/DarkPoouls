@@ -10,9 +10,12 @@ public class Bandido extends Personaje {
 		this.nombre = nombre;
 		super.setVitalidad(12);
 		super.setFuerza(14);
+		super.setFuerzaMaxima(14); // Establece el valor por defecto de fuerzaMaxima
 		super.setResistencia(11);
+		super.setResistenciaMaxima(11);
 		super.setFe(10);
 	}
+	
 	public Bandido(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {
 		super(vitalidad, fuerza, resistencia, fe);
 		this.nombre = nombre;

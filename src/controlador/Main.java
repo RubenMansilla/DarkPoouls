@@ -20,20 +20,46 @@ public class Main {
 		Inventario i1 = new Inventario();
 		
 		demonio.crearInventario(i1);
+		Creatina creatina = new Creatina();
 		Estus e1 = new Estus();
 		i1.agregarObjeto(e1);
 		i1.agregarObjeto(e1);
+		i1.agregarObjeto(creatina);
 		System.out.println(demonio);
 		
 		
 		i1.eliminarObjeto(e1);
+		demonio.setVitalidad(4);
 		System.out.println();
 		System.out.println(demonio);
-		i1.eliminarObjeto(e1);
+		System.out.println();
+		System.out.println(demonio.getVidaMaxima());
+		demonio.usarObjeto(e1);
 		System.out.println();
 		System.out.println(demonio);
 		
+		System.out.println();
+		System.out.println(demonio.getFuerzaMaxima());
+		System.out.println(demonio.getResistenciaMaxima());
 		
+		demonio.subirNivel();
+		System.out.println();
+		System.out.println(demonio);
+		
+		System.out.println();
+		System.out.println(demonio.getFuerzaMaxima());
+		System.out.println(demonio.getResistenciaMaxima());
+		System.out.println();
+		
+		demonio.usarObjeto(creatina);
+		System.out.println(demonio);
+		System.out.println();
+		System.out.println(demonio.getFuerzaMaxima());
+
+		demonio.reiniciarEstadisticas();
+		System.out.println();
+		System.out.println(demonio);
+
 	}
 
 }
