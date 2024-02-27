@@ -5,6 +5,8 @@ import modelo.*;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		System.out.println(Dialogos.cajaInicio());
 
 		
 		Marginado caballero = new Marginado("ruben");
