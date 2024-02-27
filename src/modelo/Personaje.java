@@ -14,6 +14,8 @@ public class Personaje {
 	private int resistenciaMaxima;
 	private int fe;
 	private int feMaxima;
+	private Arma arma;
+	private Armadura armadura;
 	private ArrayList<Inventario> inventario;
 	private ArrayList<ListaDeHabilidades> listaDeHabilidades;
 
@@ -161,12 +163,22 @@ public class Personaje {
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
 	}
+	
+	public void equiparArma(Arma nuevaArma) {
+        this.arma = nuevaArma;
+        this.fuerza = this.fuerza + nuevaArma.getDaño();
+    }
+	
+	public void equiparArmadura(Armadura nuevaArmadura) {
+        this.armadura = nuevaArmadura;
+        this.fuerza = this.fuerza + nuevaArmadura.getDefensa();
+    }
 
 	@Override
 	public String toString() {
-		return "Personaje nivel = " + nivel + ", vitalidad = " + vitalidad + ", fuerza = " + fuerza + ", resistencia = "
-				+ resistencia + resistenciaMaxima + ", fe = " + fe + ", inventario = " + inventario
-				+ ", lista De Habilidades = " + listaDeHabilidades;
+		return "Personaje [nivel=" + nivel + ", vitalidad=" + vitalidad + ", fuerza=" + fuerza + ", resistencia="
+				+ resistencia + ", fe=" + fe + ", arma=" + arma + ", inventario=" + inventario + ", listaDeHabilidades="
+				+ listaDeHabilidades + "]";
 	}
 
 }

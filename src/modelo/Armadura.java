@@ -1,19 +1,19 @@
 package modelo;
 
-public class Arma {
-	
+public class Armadura {
+
 	private String nombre;
 	private String descripcion;
-	private int daño;
-	
-	public Arma() {
-		
+	private int defensa;
+
+	public Armadura() {
+
 	}
 
-	public Arma(String nombre, String descripcion, int daño) {
+	public Armadura(String nombre, String descripcion, int daño) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.daño = daño;
+		this.defensa = daño;
 	}
 
 	public String getNombre() {
@@ -32,17 +32,17 @@ public class Arma {
 		this.descripcion = descripcion;
 	}
 
-	public int getDaño() {
-		return daño;
+	public int getDefensa() {
+		return defensa;
 	}
 
-	public void setDaño(int daño) {
-		this.daño = daño;
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
 	}
 
 	@Override
 	public String toString() {
-		return "Arma [nombre = " + nombre + ", daño = " + daño + "]";
+		return "Armadura [nombre=" + nombre + ", descripcion=" + descripcion + ", defensa=" + defensa + "]";
 	}
 	
 
