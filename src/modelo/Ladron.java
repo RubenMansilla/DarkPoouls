@@ -9,9 +9,13 @@ public class Ladron extends Personaje {
 		super();
 		this.nombre = nombre;
 		super.setVitalidad(9);
+		super.setVidaMaxima(9);
 		super.setFuerza(9);
+		super.setFuerzaMaxima(9);
 		super.setResistencia(10);
+		super.setResistenciaMaxima(10);
 		super.setFe(11);
+		super.setFeMaxima(11);
 	}
 	
 	public Ladron(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {

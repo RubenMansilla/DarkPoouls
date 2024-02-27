@@ -2,26 +2,27 @@ package modelo;
 
 public class CaballeroHueco extends Personaje {
 	
-	private String nombre;
-	
 	//Constructor 
-	public CaballeroHueco(String nombre) {
+	public CaballeroHueco() {
 		super();
-		this.nombre = nombre;
 		super.setVitalidad(30);
+		super.setVidaMaxima(30);
 		super.setFuerza(10);
+		super.setFuerzaMaxima(10);
 		super.setResistencia(12);
+		super.setResistenciaMaxima(12);
 		super.setFe(20);
+		super.setFeMaxima(20);
 	}
-	public CaballeroHueco(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {
+	public CaballeroHueco(int vitalidad, int fuerza, int resistencia, int fe) {
 		super(vitalidad, fuerza, resistencia, fe);
-		this.nombre = nombre;
 		
 	}
 	
 	@Override
 	public String toString() {
-		return "Caballero Hueco [nombre=" + nombre + " " + super.toString() + "]";
+		return "CaballeroHueco [toString()=" + super.toString() + "]";
 	}
-
+	
+	
 }

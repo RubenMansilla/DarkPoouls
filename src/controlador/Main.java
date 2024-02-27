@@ -68,6 +68,16 @@ public class Main {
 		demonio.reiniciarEstadisticas();
 		System.out.println();
 		System.out.println(demonio);
+		
+		CuerpoDeCristo cristo = new CuerpoDeCristo();
+		i1.agregarObjeto(cristo);
+		
+		demonio.setFe(4);
+		System.out.println();
+		System.out.println(demonio);
+		demonio.usarObjeto(cristo);
+		System.out.println();
+		System.out.println(demonio);
 
 	}
 

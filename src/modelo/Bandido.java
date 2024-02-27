@@ -14,6 +14,7 @@ public class Bandido extends Personaje {
 		super.setResistencia(11);
 		super.setResistenciaMaxima(11);
 		super.setFe(10);
+		super.setFeMaxima(10);
 	}
 	
 	public Bandido(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {

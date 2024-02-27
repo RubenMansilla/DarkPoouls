@@ -4,7 +4,7 @@ public class EscudoMagico extends Habilidad {
 	
 	public EscudoMagico() {
 		super.setNombre("Berserker");
-		super.setDescripcion("");
+		super.setDescripcion("Envuelve a tu personaje en una barrera que refleja parte de los ataques");
 		super.setCosteFe(10);
 	}
 
@@ -13,6 +13,13 @@ public class EscudoMagico extends Habilidad {
 	}
 	
 	public void usarHabilidad(Personaje personaje) {
-		 personaje.setFuerza(personaje.getFuerza() + 4);
+		 personaje.setResistencia(personaje.getResistencia() + 10);
 	}
+
+	@Override
+	public String toString() {
+		return "Escudo Magico " + super.toString() + "]";
+	}
+	
+	
 }

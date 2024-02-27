@@ -13,6 +13,7 @@ public abstract class Personaje {
 	private int resistencia;
 	private int resistenciaMaxima;
 	private int fe;
+	private int feMaxima;
 	private ArrayList<Inventario> inventario;
 	// private ArrayList<ListaHabilidades> listaHabilidades;
 
@@ -102,6 +103,15 @@ public abstract class Personaje {
 	public void setResistenciaMaxima(int resistenciaMaxima) {
 		this.resistenciaMaxima = resistenciaMaxima;
 	}
+	
+	public int getFeMaxima() {
+		return feMaxima;
+	}
+
+	public void setFeMaxima(int feMaxima) {
+		this.feMaxima = feMaxima;
+	}
+
 
 	public void crearInventario(Inventario objeto) {
 		this.inventario.add(objeto);
@@ -110,10 +120,13 @@ public abstract class Personaje {
 	public void eliminaragregarInventario(Inventario objeto) {
 		this.inventario.remove(objeto);
 	}
+	
+	
 
 //Metodos varios
 
 	// Se suben nivel y estadísticas
+	
 	public void subirNivel() {
 
 		this.setNivel(nivel + 1);
@@ -123,6 +136,7 @@ public abstract class Personaje {
 		this.setResistencia(resistencia + 2);
 		this.setResistenciaMaxima(this.getResistencia());
 		this.setFe(fe + 2);
+		this.setFeMaxima(this.getFe());
 	}
 
 	private void calcularVidaMaxima() {

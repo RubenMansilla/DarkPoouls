@@ -5,7 +5,7 @@ public class Estus extends Objeto {
 	public Estus() {
 		super();
 		super.setNombre("Estus");
-		super.setDescripcion("");
+		super.setDescripcion("Objeto sagrado que restaura la vitalidad de tu personaje al instante");
 	}
 
 	public Estus(String nombre, String descripcion, int cantidad) {
