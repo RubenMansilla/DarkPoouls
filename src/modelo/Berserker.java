@@ -22,7 +22,5 @@ public class Berserker extends Habilidad {
 	public String toString() {
 		return "Berserker " + super.toString() + "]";
 	}
-	
-	
 
 }

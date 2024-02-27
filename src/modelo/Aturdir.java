@@ -28,8 +28,6 @@ public class Aturdir extends Habilidad {
 	public String toString() {
 		return "Aturdir " + super.toString() + "]";
 	}
-	
-	
 
 		
 }

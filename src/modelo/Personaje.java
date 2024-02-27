@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public abstract class Personaje {
+public class Personaje {
 
 	// Atrivutos
 	private int nivel = 1;
@@ -15,11 +15,11 @@ public abstract class Personaje {
 	private int fe;
 	private int feMaxima;
 	private ArrayList<Inventario> inventario;
-	// private ArrayList<ListaHabilidades> listaHabilidades;
+	private ArrayList<ListaDeHabilidades> listaDeHabilidades;
 
 	// Constructores
 	public Personaje() {
-		// listaHabilidades = new ArrayList<>;
+		this.listaDeHabilidades = new ArrayList<>();
 		this.inventario = new ArrayList<>();
 	}
 
@@ -103,7 +103,7 @@ public abstract class Personaje {
 	public void setResistenciaMaxima(int resistenciaMaxima) {
 		this.resistenciaMaxima = resistenciaMaxima;
 	}
-	
+
 	public int getFeMaxima() {
 		return feMaxima;
 	}
@@ -112,21 +112,26 @@ public abstract class Personaje {
 		this.feMaxima = feMaxima;
 	}
 
-
-	public void crearInventario(Inventario objeto) {
+	public void agregarInventario(Inventario objeto) {
 		this.inventario.add(objeto);
 	}
 
-	public void eliminaragregarInventario(Inventario objeto) {
+	public void eliminarInventario(Inventario objeto) {
 		this.inventario.remove(objeto);
 	}
-	
-	
+
+	public void agregarListaDeHabilidades(ListaDeHabilidades habilidad) {
+		this.listaDeHabilidades.add(habilidad);
+	}
+
+	public void eliminarListaDeHabilidades(ListaDeHabilidades habilidad) {
+		this.listaDeHabilidades.remove(habilidad);
+	}
 
 //Metodos varios
 
 	// Se suben nivel y estadísticas
-	
+
 	public void subirNivel() {
 
 		this.setNivel(nivel + 1);
@@ -159,8 +164,9 @@ public abstract class Personaje {
 
 	@Override
 	public String toString() {
-		return " nivel = " + nivel + ", vitalidad = " + vitalidad + ", fuerza = " + fuerza + ", resistencia = "
-				+ resistencia + ", fe = " + fe + ", inventario = " + inventario;
+		return "Personaje nivel = " + nivel + ", vitalidad = " + vitalidad + ", fuerza = " + fuerza + ", resistencia = "
+				+ resistencia + resistenciaMaxima + ", fe = " + fe + ", inventario = " + inventario
+				+ ", lista De Habilidades = " + listaDeHabilidades;
 	}
 
 }

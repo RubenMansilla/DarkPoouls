@@ -38,11 +38,11 @@ public abstract class Objeto {
 		this.descripcion = descripcion;
 	}
 	
-	 public abstract void usarObjeto(Personaje personaje);
+	public abstract void usarObjeto(Personaje personaje);
 
 	@Override
 	public String toString() {
-		return "Objeto [nombre=" + nombre + ", descripcion=" + descripcion + ", cantidad=" + cantidad + "]";
+		return "Objeto [nombre=" + nombre + ", cantidad=" + cantidad;
 	}
 	
 }

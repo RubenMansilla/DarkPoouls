@@ -1,19 +1,19 @@
 package modelo;
 
-public abstract class Habilidad {
-
+public abstract class Arma {
+	
 	private String nombre;
 	private String descripcion;
-	private int costeFe;
-
-	public Habilidad() {
-
+	private int daño;
+	
+	public Arma() {
+		
 	}
 
-	public Habilidad(String nombre, String descripcion, int costeMana) {
+	public Arma(String nombre, String descripcion, int daño) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.costeFe = costeMana;
+		this.daño = daño;
 	}
 
 	public String getNombre() {
@@ -32,19 +32,19 @@ public abstract class Habilidad {
 		this.descripcion = descripcion;
 	}
 
-	public int getCosteFe() {
-		return costeFe;
+	public int getDaño() {
+		return daño;
 	}
 
-	public void setCosteFe(int costeMana) {
-		this.costeFe = costeMana;
+	public void setDaño(int daño) {
+		this.daño = daño;
 	}
-
-	public abstract void usarHabilidad(Personaje personaje);
 
 	@Override
 	public String toString() {
-		return "Habilidad [nombre = " + nombre + " " + costeFe;
+		return "Arma [nombre = " + nombre + ", daño = " + daño + "]";
 	}
+	
+	
 
 }

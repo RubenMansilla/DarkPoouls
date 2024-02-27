@@ -24,7 +24,7 @@ public class Marginado extends Personaje {
 	
 	@Override
 	public String toString() {
-		return "Marginado [nombre=" + nombre + " " + super.toString() + "]";
+		return "Marginado [nombre=" + nombre + " " + super.toString();
 	}
 	
 }
