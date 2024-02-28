@@ -171,7 +171,7 @@ public class Personaje {
 	
 	public void equiparArmadura(Armadura nuevaArmadura) {
         this.armadura = nuevaArmadura;
-        this.fuerza = this.fuerza + nuevaArmadura.getDefensa();
+        this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
     }
 
 	@Override
