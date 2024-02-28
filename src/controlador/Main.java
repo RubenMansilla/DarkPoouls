@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.*;
+import view.Dialogos;
 
 public class Main {
 
@@ -9,6 +10,7 @@ public class Main {
 		System.out.println(Dialogos.cajaErrorInicio());
 		System.out.println();
 
+		/*
 		Marginado marginado = new Marginado("ruben");
 		Estus estus = new Estus();
 		Creatina cretina = new Creatina();
@@ -41,6 +43,19 @@ public class Main {
 
 
 		System.out.println(marginado);
+		*/
+		Uchigatana katana = new Uchigatana("excalibur");
+		DemonioRefugio demonio = new DemonioRefugio();
+		Marginado marginado = new Marginado("ruben");
+		marginado.equiparArma(katana);
+		
+		System.out.println(marginado);
+		System.out.println();
+		System.out.println(demonio);
+		System.out.println();
+		
+		
+		marginado.luchar(demonio);
 
 	}
 

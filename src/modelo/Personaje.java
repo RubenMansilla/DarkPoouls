@@ -174,36 +174,39 @@ public class Personaje {
         this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
     }
 	
-	public void atacar(Personaje enemigo) {
+	public void luchar(Personaje enemigo) {
 		
 	    // Calcular el daño base del ataque (fuerza)
-	    int daño = this.fuerza;
+	    int dañoPersonaje = this.fuerza;
 
 	    // Verificar si el personaje tiene un arma y si es una Katana
 	    if (this.arma instanceof Katana) {
 	        // Calcular el daño adicional de la habilidad de la Katana
-	    	daño += ((Katana) arma).habilidadArma();
+	    	dañoPersonaje += ((Katana) arma).habilidadArma();
 	    } else if (this.arma instanceof EspadaOxidada) {
 	        // Ejecutar la habilidad de la Espada Oxidada
 	        ((EspadaOxidada) arma).habilidadArma(enemigo);
 	    }
 
 	    // Restar el daño al enemigo
-	    enemigo.setVitalidad(enemigo.getVitalidad() - (daño - enemigo.getResistencia()));
+	    enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
 
 	    // Imprimir mensaje de ataque
-	    System.out.println(this.toString() + " ataca a " + enemigo.toString() + " y le hace " + daño + " puntos de daño.");
-	}
-	
-	public void serAtacado(Personaje personaje) {
-	    // Calcular el daño base del ataque del enemigo
-	    int daño = personaje.getFuerza();
-
-	    // Restar el daño al personaje
-	    this.setVitalidad(this.getVitalidad() - (daño - personaje.getResistencia()));
-
-	    // Imprimir mensaje de ataque del enemigo
-	    System.out.println(personaje.toString() + " ataca a " + this.toString() + " y le hace " + daño + " puntos de daño.");
+	    System.out.println("Ruben ataca a Demonio y le hace " + dañoPersonaje + " puntos de daño.");
+	    System.out.println();
+	    System.out.println(enemigo.getVitalidad());
+	    
+	    
+	    // Ser atacado 
+	    int dañoEnemigo = enemigo.getFuerza();
+	    
+	    this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
+	    
+	    System.out.println();
+	    
+	    System.out.println("Demonio ataca a Ruben y le hace " + dañoEnemigo + " puntos de daño.");
+	    System.out.println();
+	    System.out.println(this.getVitalidad());
 	}
 
 

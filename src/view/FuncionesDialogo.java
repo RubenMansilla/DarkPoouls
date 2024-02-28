@@ -1,7 +1,7 @@
-package modelo;
+package view;
 
 public class FuncionesDialogo {
-	public static int anchoPredeterminado = 71;
+	public static int anchoPredeterminado = 120;
 
 	/**
 	 * Agrega color a un mensaje de texto

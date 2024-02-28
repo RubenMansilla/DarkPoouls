@@ -10,7 +10,7 @@ public class DemonioRefugio extends Personaje {
 	//Constructor 
 	public DemonioRefugio() {
 		super();
-		super.setVitalidad(12);
+		super.setVitalidad(40);
 		super.setFuerza(14);
 		super.setFuerzaMaxima(14);
 		super.setResistencia(11);

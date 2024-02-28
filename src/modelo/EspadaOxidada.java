@@ -8,6 +8,7 @@ public class EspadaOxidada extends Arma {
 		super();
 		super.setNombre(nombre);
 		super.setDaño(5);
+		super.setDescripcion("Quebaranta huesos: reduce la resistencia del enemigo");
 	}
 
 	public EspadaOxidada(String nombre, String descripcion, int daño) {

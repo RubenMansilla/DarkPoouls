@@ -26,8 +26,9 @@ public class Katana extends Arma {
 		int probSangrado = random.nextInt(4) + 1;
 		
 		if (probSangrado == 1) {
-			dañoSangrado = random.nextInt(10) + 1;
+			dañoSangrado += random.nextInt(10) + 1;
 			
+			System.out.println("Se aplica sangrado");
 		}
 
 		return dañoSangrado;

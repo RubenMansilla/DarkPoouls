@@ -1,4 +1,4 @@
-package modelo;
+package view;
 
 public class Dialogos {
 	
