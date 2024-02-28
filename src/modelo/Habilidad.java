@@ -44,7 +44,7 @@ public abstract class Habilidad {
 
 	@Override
 	public String toString() {
-		return "Habilidad [nombre = " + nombre + " " + costeFe;
+		return "Habilidad [nombre = " + nombre + " coste de fe = " + costeFe;
 	}
 
 }
