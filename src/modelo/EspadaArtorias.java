@@ -2,20 +2,18 @@ package modelo;
 
 import java.util.Random;
 
-public class EspadaOxidada extends Arma {
-
-	public EspadaOxidada(String nombre) {
-		super();
-		super.setNombre(nombre);
-		super.setDaño(5);
+public class EspadaArtorias extends EspadaOxidada {
+	public EspadaArtorias(String nombre) {
+		super(nombre);
+		super.setDaño(10);
 	}
 
-	public EspadaOxidada(String nombre, String descripcion, int daño) {
+	public EspadaArtorias(String nombre, String descripcion, int daño) {
 		super(nombre, descripcion, daño);
 	}
 
 	
-	public void habilidadArma(Personaje enemigo) {
+	/*public void habilidadArma(Personaje enemigo) {
 		
 		Random random = new Random();
 
@@ -23,8 +21,8 @@ public class EspadaOxidada extends Arma {
 		
 		if (probHabilidad == 1) {
 			enemigo.setResistencia(enemigo.getResistencia() - 3);
-			
 		}
-
+		}*/
 	}
-}
+
+

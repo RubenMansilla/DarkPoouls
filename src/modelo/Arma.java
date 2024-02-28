@@ -46,5 +46,6 @@ public abstract class Arma {
 		return "Arma [nombre = " + nombre + ", daño = " + daño + "]";
 	}
 	
+	
 
 }

@@ -30,14 +30,15 @@ public class Main {
 		marginado.agregarListaDeHabilidades(habilidades);
 
 		Katana katana = new Katana("excalibur");
-		Katana katana2 = new Katana("pedro");
+		ConjuntoAnticuado armadura = new ConjuntoAnticuado("g");
+		
 
 		marginado.equiparArma(katana);
 
 		System.out.println(marginado);
 		System.out.println();
+		marginado.equiparArmadura(armadura);
 
-		marginado.equiparArma(katana2);
 
 		System.out.println(marginado);
 
