@@ -1,6 +1,6 @@
 package modelo;
 
-public class Arma {
+public abstract class Arma {
 	
 	private String nombre;
 	private String descripcion;
@@ -39,6 +39,7 @@ public class Arma {
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
+	
 
 	@Override
 	public String toString() {

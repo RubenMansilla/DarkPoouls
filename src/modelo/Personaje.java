@@ -32,7 +32,7 @@ public class Personaje {
 		this.resistencia = resistencia;
 		this.fe = fe;
 		calcularVidaMaxima();
-		// this.listaHabilidades = new ArrayList<ListaHabilidades>;
+		this.listaDeHabilidades = new ArrayList<ListaDeHabilidades>();
 		this.inventario = new ArrayList<Inventario>();
 	}
 
@@ -173,6 +173,39 @@ public class Personaje {
         this.armadura = nuevaArmadura;
         this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
     }
+	
+	public void atacar(Personaje enemigo) {
+		
+	    // Calcular el daño base del ataque (fuerza)
+	    int daño = this.fuerza;
+
+	    // Verificar si el personaje tiene un arma y si es una Katana
+	    if (this.arma instanceof Katana) {
+	        // Calcular el daño adicional de la habilidad de la Katana
+	    	daño += ((Katana) arma).habilidadArma();
+	    } else if (this.arma instanceof EspadaOxidada) {
+	        // Ejecutar la habilidad de la Espada Oxidada
+	        ((EspadaOxidada) arma).habilidadArma(enemigo);
+	    }
+
+	    // Restar el daño al enemigo
+	    enemigo.setVitalidad(enemigo.getVitalidad() - (daño - enemigo.getResistencia()));
+
+	    // Imprimir mensaje de ataque
+	    System.out.println(this.toString() + " ataca a " + enemigo.toString() + " y le hace " + daño + " puntos de daño.");
+	}
+	
+	public void serAtacado(Personaje personaje) {
+	    // Calcular el daño base del ataque del enemigo
+	    int daño = personaje.getFuerza();
+
+	    // Restar el daño al personaje
+	    this.setVitalidad(this.getVitalidad() - (daño - personaje.getResistencia()));
+
+	    // Imprimir mensaje de ataque del enemigo
+	    System.out.println(personaje.toString() + " ataca a " + this.toString() + " y le hace " + daño + " puntos de daño.");
+	}
+
 
 	@Override
 	public String toString() {
