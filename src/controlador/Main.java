@@ -57,7 +57,7 @@ public class Main {
 		System.out.println();
 		
 		
-		marginado.luchar(demonio);
+		marginado.atacar(demonio);
 		
 	}
 

@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Personaje {
 
@@ -217,7 +218,7 @@ public class Personaje {
         this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
     }
 	
-	public void luchar(Personaje enemigo) {
+	public void atacar(Personaje enemigo) {
 		
 	    // Calcular el daño base del ataque (fuerza)
 	    int dañoPersonaje = this.fuerza;
@@ -239,17 +240,25 @@ public class Personaje {
 	    System.out.println();
 	    System.out.println(enemigo.getVitalidad());
 	    
+	    Random random = new Random();
+
+		int probAtaqueEnemigo = random.nextInt(10) + 1;
+		
+		if (probAtaqueEnemigo == 1) {
+			// Ser atacado 
+		    int dañoEnemigo = enemigo.getFuerza();
+		    
+		    this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
+		    
+		    System.out.println();
+		    
+		    System.out.println(enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
+		    System.out.println();
+		    System.out.println(this.getVitalidad());
+		}else {
+			System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
+		}
 	    
-	    // Ser atacado 
-	    int dañoEnemigo = enemigo.getFuerza();
-	    
-	    this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
-	    
-	    System.out.println();
-	    
-	    System.out.println(enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
-	    System.out.println();
-	    System.out.println(this.getVitalidad());
 	}
 
 
