@@ -5,6 +5,7 @@ public class Esqueleto extends Personaje {
 	//Constructor 
 	public Esqueleto() {
 		super();
+		super.setNombre("Esqueleto");
 		super.setVitalidad(9);
 		super.setVidaMaxima(9);
 		super.setFuerza(14);

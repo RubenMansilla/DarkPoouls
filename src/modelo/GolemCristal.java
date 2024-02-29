@@ -5,6 +5,7 @@ public class GolemCristal extends Personaje {
 	//Constructor 
 	public GolemCristal() {
 		super();
+		super.setNombre("Golem de Cristal");
 		super.setVitalidad(30);
 		super.setVidaMaxima(30);
 		super.setFuerza(6);

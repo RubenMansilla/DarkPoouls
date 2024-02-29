@@ -7,7 +7,7 @@ public class Cazador extends Personaje {
 	//Constructor 
 	public Cazador(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(11);
 		super.setVidaMaxima(11);
 		super.setFuerza(12);

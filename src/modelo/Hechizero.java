@@ -7,7 +7,7 @@ public class Hechizero extends Personaje {
 	//Constructor 
 	public Hechizero(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(8);
 		super.setVidaMaxima(8);
 		super.setFuerza(9);

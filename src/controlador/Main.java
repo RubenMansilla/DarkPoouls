@@ -48,7 +48,7 @@ public class Main {
 		*/
 		Uchigatana katana = new Uchigatana("excalibur");
 		DemonioRefugio demonio = new DemonioRefugio();
-		Marginado marginado = new Marginado("ruben");
+		Marginado marginado = new Marginado("rdasdadn");
 		marginado.equiparArma(katana);
 		
 		System.out.println(marginado);

@@ -10,6 +10,7 @@ public class GolemHierro extends Personaje {
 	
 	public GolemHierro() {
 		super();
+		super.setNombre("Golem de Hierro");
 		super.setVitalidad(12);
 		super.setVidaMaxima(12);
 		super.setFuerza(14);

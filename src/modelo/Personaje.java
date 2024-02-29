@@ -6,6 +6,7 @@ public class Personaje {
 
 	// Atrivutos
 	private int nivel = 1;
+	protected String nombre;
 	private int vitalidad;
 	private int vidaMaxima;
 	private int fuerza;
@@ -129,10 +130,52 @@ public class Personaje {
 	public void eliminarListaDeHabilidades(ListaDeHabilidades habilidad) {
 		this.listaDeHabilidades.remove(habilidad);
 	}
+	
+	public String getNombre() {
+		return nombre;
+	}
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Arma getArma() {
+		return arma;
+	}
+
+	public void setArma(Arma arma) {
+		this.arma = arma;
+	}
+
+	public Armadura getArmadura() {
+		return armadura;
+	}
+
+	public void setArmadura(Armadura armadura) {
+		this.armadura = armadura;
+	}
+
+	public ArrayList<Inventario> getInventario() {
+		return inventario;
+	}
+
+	public void setInventario(ArrayList<Inventario> inventario) {
+		this.inventario = inventario;
+	}
+
+	public ArrayList<ListaDeHabilidades> getListaDeHabilidades() {
+		return listaDeHabilidades;
+	}
+
+	public void setListaDeHabilidades(ArrayList<ListaDeHabilidades> listaDeHabilidades) {
+		this.listaDeHabilidades = listaDeHabilidades;
+	}
+	
 //Metodos varios
 
 	// Se suben nivel y estadísticas
+
+	
 
 	public void subirNivel() {
 
@@ -192,7 +235,7 @@ public class Personaje {
 	    enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
 
 	    // Imprimir mensaje de ataque
-	    System.out.println("Ruben ataca a Demonio y le hace " + dañoPersonaje + " puntos de daño.");
+	    System.out.println(this.nombre + " ataca a " + enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño.");
 	    System.out.println();
 	    System.out.println(enemigo.getVitalidad());
 	    
@@ -204,7 +247,7 @@ public class Personaje {
 	    
 	    System.out.println();
 	    
-	    System.out.println("Demonio ataca a Ruben y le hace " + dañoEnemigo + " puntos de daño.");
+	    System.out.println(enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
 	    System.out.println();
 	    System.out.println(this.getVitalidad());
 	}

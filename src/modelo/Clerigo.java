@@ -7,7 +7,7 @@ public class Clerigo extends Personaje {
 	//Constructor 
 	public Clerigo(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(11);
 		super.setVidaMaxima(11);
 		super.setFuerza(12);

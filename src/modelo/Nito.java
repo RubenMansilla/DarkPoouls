@@ -8,6 +8,7 @@ public class Nito extends Personaje {
 	//Constructor 
 	public Nito() {
 		super();
+		super.setNombre("Nito");
 		super.setVitalidad(12);
 		super.setVidaMaxima(12);
 		super.setFuerza(14);

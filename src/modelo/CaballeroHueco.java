@@ -5,6 +5,7 @@ public class CaballeroHueco extends Personaje {
 	//Constructor 
 	public CaballeroHueco() {
 		super();
+		super.setNombre("Caballero Hueco");
 		super.setVitalidad(30);
 		super.setVidaMaxima(30);
 		super.setFuerza(10);

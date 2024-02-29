@@ -7,7 +7,7 @@ public class Ladron extends Personaje {
 	//Constructor 
 	public Ladron(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(9);
 		super.setVidaMaxima(9);
 		super.setFuerza(9);

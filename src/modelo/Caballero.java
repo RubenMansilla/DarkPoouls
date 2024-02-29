@@ -7,7 +7,7 @@ public class Caballero extends Personaje {
 	//Constructor 
 	public Caballero(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(14);
 		super.setVidaMaxima(14);
 		super.setFuerza(11);

@@ -8,7 +8,7 @@ public class Guerrero extends Personaje {
 	
 	public Guerrero(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(11);
 		super.setVidaMaxima(11);
 		super.setFuerza(13);

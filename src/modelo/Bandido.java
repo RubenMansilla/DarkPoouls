@@ -2,12 +2,10 @@ package modelo;
 
 public class Bandido extends Personaje {
 	
-	private String nombre;
-	
 	//Constructor 
 	public Bandido(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(12);
 		super.setFuerza(14);
 		super.setFuerzaMaxima(14); // Establece el valor por defecto de fuerzaMaxima

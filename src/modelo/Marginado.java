@@ -7,7 +7,7 @@ public class Marginado extends Personaje {
 	//Constructor 
 	public Marginado(String nombre) {
 		super();
-		this.nombre = nombre;
+		super.setNombre(nombre);
 		super.setVitalidad(8);
 		super.setVidaMaxima(8);
 		super.setFuerza(8);
