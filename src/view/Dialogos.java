@@ -1,5 +1,7 @@
 package view;
 
+import modelo.*;
+
 public class Dialogos {
 	
 	/* Modelos */
@@ -23,10 +25,10 @@ public class Dialogos {
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
 	}
 
-	/*public static String modeloCajaNarrador(String[] texto) {
+	public static String modeloCajaBatalla(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.PURPLE);
-	}*/
+	}
 
 	public static String modeloCajaFinal(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
@@ -52,7 +54,13 @@ public class Dialogos {
 				""};
 		return modeloCajaProta(textoParaCaja);
 	}
-
+	public static String cajaBatalla(Personaje personaje) {
+		String[] textoParaCaja = {"",
+				"Mitras caminas por los campos de Lordran te topas con un: " +personaje.getNombre()
+				
+		};
+		return null;
+	}
 	/*public static String cajaInicio() {
 		String[] textoParaCaja = { "Año 2026",
 				"Hoy por fin es el día de la misión, el ser humano no pisa la luna desde el 72" };
