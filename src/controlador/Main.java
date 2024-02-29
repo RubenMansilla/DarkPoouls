@@ -1,14 +1,16 @@
 package controlador;
 
 import modelo.*;
+
 import view.Dialogos;
 
 public class Main {
 
 	public static void main(String[] args) {
 
+		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(Dialogos.cajaErrorInicio());
-		System.out.println();
+		System.out.println(Dialogos.cajaProta());
 
 		/*
 		Marginado marginado = new Marginado("ruben");
@@ -56,7 +58,7 @@ public class Main {
 		
 		
 		marginado.luchar(demonio);
-
+		
 	}
 
 }
