@@ -1,6 +1,6 @@
 package modelo;
 
-public class Armadura {
+public abstract class Armadura {
 
 	private String nombre;
 	private String descripcion;

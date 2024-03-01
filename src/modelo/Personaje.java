@@ -3,7 +3,7 @@ package modelo;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Personaje {
+public abstract class Personaje {
 
 	// Atrivutos
 	private int nivel = 1;
