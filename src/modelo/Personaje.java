@@ -244,7 +244,7 @@ public class Personaje {
 
 		int probAtaqueEnemigo = random.nextInt(10) + 1;
 		
-		if (probAtaqueEnemigo !== 1) {
+		if (probAtaqueEnemigo != 1) {
 			// Ser atacado 
 		    int dañoEnemigo = enemigo.getFuerza();
 		    
