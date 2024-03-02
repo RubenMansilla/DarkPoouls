@@ -3,13 +3,12 @@ package modelo;
 public class Muramasa extends Katana {
 	
 
-	public Muramasa(String nombre) {
-		super(nombre);
+	public Muramasa() {
 		super.setDaño(5);
 	}
 	
-	public Muramasa(String nombre, String descripcion, int daño) {
-		super(nombre, descripcion, daño);
+	public Muramasa(String descripcion, int daño) {
+		super(descripcion, daño);
 	}
 
 }

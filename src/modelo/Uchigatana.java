@@ -2,13 +2,13 @@ package modelo;
 
 public class Uchigatana extends Katana {
 	
-	public Uchigatana(String nombre) {
-		super(nombre);
+	public Uchigatana() {
+		super();
 		super.setDaño(8);
 	}
 	
-	public Uchigatana(String nombre, String descripcion, int daño) {
-		super(nombre, descripcion, daño);
+	public Uchigatana(String descripcion, int daño) {
+		super(descripcion, daño);
 	}
 	
 	

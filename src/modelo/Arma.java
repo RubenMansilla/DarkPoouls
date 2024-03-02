@@ -2,26 +2,15 @@ package modelo;
 
 public abstract class Arma {
 	
-	private String nombre;
 	private String descripcion;
 	private int daño;
 	
 	public Arma() {
-		
 	}
 
-	public Arma(String nombre, String descripcion, int daño) {
-		this.nombre = nombre;
+	public Arma(String descripcion, int daño) {
 		this.descripcion = descripcion;
 		this.daño = daño;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public String getDescripcion() {
@@ -39,13 +28,10 @@ public abstract class Arma {
 	public void setDaño(int daño) {
 		this.daño = daño;
 	}
-	
 
 	@Override
 	public String toString() {
-		return "Arma [nombre = " + nombre + ", daño = " + daño + "]";
+		return "[descripcion=" + descripcion + ", daño=" + daño + "]";
 	}
-	
-	
 
 }

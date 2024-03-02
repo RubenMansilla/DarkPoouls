@@ -56,7 +56,7 @@ public class Dialogos {
 	}
 	public static String cajaBatalla(Personaje personaje) {
 		String[] textoParaCaja = {"",
-				"Mitras caminas por los campos de Lordran te topas con un: " +personaje.getNombre()
+				"Mientras caminas por los campos de Lordran te topas con un: " +personaje.getNombre()
 				
 		};
 		return null;
@@ -71,6 +71,64 @@ public class Dialogos {
 
 	public static String cajaErrorInicio() {
 		String[] textoParaCaja = { "Error:", "¡Vaya!, parece que tiene que empezar su nombre por una letra" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaPersonaje(Personaje personaje){
+		String[] textoParaCaja = { "",
+				"Nombre: " + personaje.getNombre(),
+				"Nivel: " + personaje.getNivel(),
+				"Vitalidad: " + personaje.getVitalidad(),
+				"Fuerza: " + personaje.getFuerza(),
+				"Resistencia: " + personaje.getResistencia(),
+				"Fe: " + personaje.getFe(),
+				"Arma: " + personaje.getArma(),
+				"Armadura: " + personaje.getArmadura(),
+				"Inventario: " + personaje.getInventario(),
+				"Habilidades" + personaje.getListaDeHabilidades(),
+				""
+				};
+		return modeloCajaProta(textoParaCaja);
+	}
+	
+	public static String cajaEnemigo(Personaje personaje){
+		String[] textoParaCaja = { "",
+				"Nombre: " + personaje.getNombre(),
+				"Nivel: " + personaje.getNivel(),
+				"Vitalidad: " + personaje.getVitalidad(),
+				"Fuerza: " + personaje.getFuerza(),
+				"Resistencia: " + personaje.getResistencia(),
+				"Fe: " + personaje.getFe(),
+				""
+				};
+		return modeloCajaProta(textoParaCaja);
+	}
+	
+	public static String EstadoPersonaje(Personaje personaje){
+		String[] textoParaCaja = { "",
+				"" + personaje.getNombre(),
+				"Nivel: " + personaje.getNivel(),
+				"Vitalidad: " + personaje.getVitalidad(),
+				"Fuerza: " + personaje.getFuerza(),
+				"Resistencia: " + personaje.getResistencia(),
+				"Fe: " + personaje.getFe(),
+				"Inventario: " + personaje.getInventario(),
+				"Habilidades" + personaje.getListaDeHabilidades(),
+				""
+				};
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String EstadoEnemigo(Personaje personaje){
+		String[] textoParaCaja = { "",
+				"Nombre: " + personaje.getNombre(),
+				"Nivel: " + personaje.getNivel(),
+				"Vitalidad: " + personaje.getVitalidad(),
+				"Fuerza: " + personaje.getFuerza(),
+				"Resistencia: " + personaje.getResistencia(),
+				"Fe: " + personaje.getFe(),
+				""
+				};
 		return modeloCajaError(textoParaCaja);
 	}
 

@@ -19,9 +19,11 @@ public class Aturdir extends Habilidad {
 	}
 	
 	public void usarHabilidad(Personaje personaje, Personaje enemigo) {
-		System.out.println(personaje + "aturde mediante una patada en la joya de la corona");
-		personaje.setFe(personaje.getFe() - getCosteFe());
-		enemigo.setFuerza(enemigo.getFuerza() - 6);
+		if (personaje.getFe() > getCosteFe()) {
+			System.out.println(personaje + "aturde mediante una patada en la joya de la corona");
+			personaje.setFe(personaje.getFe() - getCosteFe());
+			enemigo.setFuerza(enemigo.getFuerza() - 6);
+		}
 	}
 
 	@Override

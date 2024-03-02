@@ -42,7 +42,7 @@ public abstract class Objeto {
 
 	@Override
 	public String toString() {
-		return "Objeto [nombre=" + nombre + ", cantidad=" + cantidad;
+	    return "\n - " + nombre + " (" + cantidad + ")\n";
 	}
 	
 }

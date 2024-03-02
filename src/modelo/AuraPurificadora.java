@@ -13,7 +13,10 @@ public class AuraPurificadora extends Habilidad {
 	}
 
 	public void usarHabilidad(Personaje personaje) {
-		personaje.setVitalidad(personaje.getVitalidad() + 12);
+		
+		if (personaje.getFe() > getCosteFe()) {		
+			personaje.setVitalidad(personaje.getVitalidad() + 12);
+		}
 
 	}
 

@@ -3,7 +3,7 @@ package modelo;
 public class EscudoMagico extends Habilidad {
 	
 	public EscudoMagico() {
-		super.setNombre("Berserker");
+		super.setNombre("Escudo Magico");
 		super.setDescripcion("Envuelve a tu personaje en una barrera que refleja parte de los ataques");
 		super.setCosteFe(10);
 	}
@@ -13,7 +13,13 @@ public class EscudoMagico extends Habilidad {
 	}
 	
 	public void usarHabilidad(Personaje personaje) {
-		 personaje.setResistencia(personaje.getResistencia() + 10);
+		if (personaje.getFe() > getCosteFe()) {
+			System.out.println(personaje.getNombre() + " utiliza Berserker");
+			personaje.setResistencia(personaje.getResistencia() + 10);
+			personaje.setFe(personaje.getFe() - getCosteFe());
+		}else {
+			System.out.println("No dispones de la Fe suficiente");
+		}
 	}
 
 	@Override

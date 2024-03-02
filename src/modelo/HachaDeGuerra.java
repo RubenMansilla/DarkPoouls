@@ -4,14 +4,13 @@ import java.util.Random;
 
 public class HachaDeGuerra extends Arma {
 
-		public HachaDeGuerra(String nombre) {
+		public HachaDeGuerra() {
 			super();
-			super.setNombre(nombre);
 			super.setDaño(5);
 		}
 
-		public HachaDeGuerra(String nombre, String descripcion, int daño) {
-			super(nombre, descripcion, daño);
+		public HachaDeGuerra(String descripcion, int daño) {
+			super(descripcion, daño);
 		}
 
 		

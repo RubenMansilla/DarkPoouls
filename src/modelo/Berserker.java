@@ -3,7 +3,7 @@ package modelo;
 public class Berserker extends Habilidad {
 
 	public Berserker() {
-		super.setNombre("Berserker");
+		super.setNombre("berserker");
 		super.setDescripcion("Desata tu ferocidad interna, convirtiéndote en un tornado de destrucción en el campo de batalla");
 		super.setCosteFe(10);
 	}
@@ -13,8 +13,16 @@ public class Berserker extends Habilidad {
 	}
 
 	public void usarHabilidad(Personaje personaje) {
-		personaje.setFuerza(personaje.getFuerza() + 8);
-		personaje.setVitalidad(personaje.getVitalidad() - (personaje.getVitalidad() / 4));
+		
+		if (personaje.getFe() > getCosteFe()) {
+			System.out.println(personaje.getNombre() + " utiliza Berserker");
+			personaje.setFuerza(personaje.getFuerza() + 8);
+			personaje.setVitalidad(personaje.getVitalidad() - (personaje.getVitalidad() / 4));
+			personaje.setFe(personaje.getFe() - getCosteFe());
+		}else {
+			System.out.println("No dispones de la Fe suficiente");
+		}
+		
 
 	}
 

@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
+import view.*;
 
 public abstract class Personaje {
 
@@ -18,8 +21,8 @@ public abstract class Personaje {
 	private int feMaxima;
 	private Arma arma;
 	private Armadura armadura;
-	private ArrayList<Inventario> inventario;
-	private ArrayList<ListaDeHabilidades> listaDeHabilidades;
+	private ArrayList<Objeto> inventario;
+	private ArrayList<Habilidad> listaDeHabilidades;
 
 	// Constructores
 	public Personaje() {
@@ -34,8 +37,9 @@ public abstract class Personaje {
 		this.resistencia = resistencia;
 		this.fe = fe;
 		calcularVidaMaxima();
-		this.listaDeHabilidades = new ArrayList<ListaDeHabilidades>();
-		this.inventario = new ArrayList<Inventario>();
+		this.listaDeHabilidades = new ArrayList<Habilidad>();
+		this.inventario = new ArrayList<Objeto>();
+		;
 	}
 
 	// Getters y Setters
@@ -116,22 +120,6 @@ public abstract class Personaje {
 		this.feMaxima = feMaxima;
 	}
 
-	public void agregarInventario(Inventario objeto) {
-		this.inventario.add(objeto);
-	}
-
-	public void eliminarInventario(Inventario objeto) {
-		this.inventario.remove(objeto);
-	}
-
-	public void agregarListaDeHabilidades(ListaDeHabilidades habilidad) {
-		this.listaDeHabilidades.add(habilidad);
-	}
-
-	public void eliminarListaDeHabilidades(ListaDeHabilidades habilidad) {
-		this.listaDeHabilidades.remove(habilidad);
-	}
-	
 	public String getNombre() {
 		return nombre;
 	}
@@ -156,27 +144,82 @@ public abstract class Personaje {
 		this.armadura = armadura;
 	}
 
-	public ArrayList<Inventario> getInventario() {
+	public ArrayList<Objeto> getInventario() {
 		return inventario;
 	}
 
-	public void setInventario(ArrayList<Inventario> inventario) {
+	public void setInventario(ArrayList<Objeto> inventario) {
 		this.inventario = inventario;
 	}
 
-	public ArrayList<ListaDeHabilidades> getListaDeHabilidades() {
+	public ArrayList<Habilidad> getListaDeHabilidades() {
 		return listaDeHabilidades;
 	}
 
-	public void setListaDeHabilidades(ArrayList<ListaDeHabilidades> listaDeHabilidades) {
+	public void setListaDeHabilidades(ArrayList<Habilidad> listaDeHabilidades) {
 		this.listaDeHabilidades = listaDeHabilidades;
 	}
-	
+
 //Metodos varios
 
-	// Se suben nivel y estadísticas
+	public void agregarObjeto(Objeto objeto) {
+		boolean objetoExistente = false;
 
-	
+		for (Objeto tipoObjeto : inventario) {
+
+			if (tipoObjeto.getNombre().equals(objeto.getNombre())) {
+
+				tipoObjeto.setCantidad(tipoObjeto.getCantidad() + 1);
+				objetoExistente = true;
+			}
+		}
+
+		if (!objetoExistente) {
+			inventario.add(objeto);
+		}
+	}
+
+	public void eliminarObjeto(Objeto objeto) {
+		boolean objetoEncontrado = false;
+
+		for (Objeto tipoObjeto : inventario) {
+
+			if (tipoObjeto.getNombre().equals(objeto.getNombre())) {
+
+				int nuevaCantidad = tipoObjeto.getCantidad() - 1;
+
+				if (nuevaCantidad > 0) {
+					tipoObjeto.setCantidad(nuevaCantidad);
+				} else {
+					objetoEncontrado = true;
+				}
+			}
+		}
+
+		if (objetoEncontrado) {
+			inventario.remove(objeto);
+		}
+	}
+
+	public void agregarHabilidad(Habilidad habilidad) {
+		this.listaDeHabilidades.add(habilidad);
+	}
+
+	public void eliminarHabilidad(Habilidad habilidad) {
+		this.listaDeHabilidades.remove(habilidad);
+	}
+
+	public void equiparArma(Arma nuevaArma) {
+		this.arma = nuevaArma;
+		this.fuerza = this.fuerza + nuevaArma.getDaño();
+	}
+
+	public void equiparArmadura(Armadura nuevaArmadura) {
+		this.armadura = nuevaArmadura;
+		this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
+	}
+
+	// Se suben nivel y estadísticas
 
 	public void subirNivel() {
 
@@ -207,66 +250,140 @@ public abstract class Personaje {
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
 	}
-	
-	public void equiparArma(Arma nuevaArma) {
-        this.arma = nuevaArma;
-        this.fuerza = this.fuerza + nuevaArma.getDaño();
-    }
-	
-	public void equiparArmadura(Armadura nuevaArmadura) {
-        this.armadura = nuevaArmadura;
-        this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
-    }
-	
+
 	public void atacar(Personaje enemigo) {
-		
-	    // Calcular el daño base del ataque (fuerza)
-	    int dañoPersonaje = this.fuerza;
 
-	    // Verificar si el personaje tiene un arma y si es una Katana
-	    if (this.arma instanceof Katana) {
-	        // Calcular el daño adicional de la habilidad de la Katana
-	    	dañoPersonaje += ((Katana) arma).habilidadArma();
-	    } else if (this.arma instanceof EspadaOxidada) {
-	        // Ejecutar la habilidad de la Espada Oxidada
-	        ((EspadaOxidada) arma).habilidadArma(enemigo);
-	    }
+		// Calcular el daño base del ataque (fuerza)
+		int dañoPersonaje = this.fuerza;
 
-	    // Restar el daño al enemigo
-	    enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
+		// Verificar si el personaje tiene un arma y si es una Katana
+		if (this.arma instanceof Katana) {
+			// Calcular el daño adicional de la habilidad de la Katana
+			dañoPersonaje += ((Katana) arma).habilidadArma();
+		} else if (this.arma instanceof EspadaOxidada) {
+			// Ejecutar la habilidad de la Espada Oxidada
+			((EspadaOxidada) arma).habilidadArma(enemigo);
+		}
 
-	    // Imprimir mensaje de ataque
-	    System.out.println(this.nombre + " ataca a " + enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño.");
-	    System.out.println();
-	    System.out.println(enemigo.getVitalidad());
-	    
-	    Random random = new Random();
+		// Restar el daño al enemigo
+		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
+
+		// Imprimir mensaje de ataque
+		System.out.println(
+				this.nombre + " ataca a " + enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño.");
+		System.out.println();
+		System.out.println(enemigo.getVitalidad());
+
+		Random random = new Random();
 
 		int probAtaqueEnemigo = random.nextInt(10) + 1;
-		
+
 		if (probAtaqueEnemigo != 1) {
-			// Ser atacado 
-		    int dañoEnemigo = enemigo.getFuerza();
-		    
-		    this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
-		    
-		    System.out.println();
-		    
-		    System.out.println(enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
-		    System.out.println();
-		    System.out.println(this.getVitalidad());
-		}else {
+			// Ser atacado
+			int dañoEnemigo = enemigo.getFuerza();
+
+			this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
+
+			System.out.println();
+
+			System.out.println(
+					enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
+			System.out.println();
+			System.out.println(this.getVitalidad());
+		} else {
 			System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
 		}
-	    
+
+	}
+
+	public void batalla(Personaje enemigo) {
+	    Scanner scanner = new Scanner(System.in);
+	    int opcion;
+
+	    while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
+	        System.out.println("Turno de " + this.nombre);
+	        System.out.println("1. Atacar");
+	        System.out.println("2. Usar Objeto");
+	        System.out.println("3. Usar Habilidad");
+	        System.out.print("Elige una opción: ");
+
+	        opcion = scanner.nextInt();
+
+	        while (opcion != 1 && opcion != 2 && opcion != 3) {
+	            System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+	            opcion = scanner.nextInt();
+	        }
+
+	        // Atacar normalmente
+	        if (opcion == 1) {
+	            this.atacar(enemigo);
+	        } else if (opcion == 2) {
+	            // Usar objeto
+	            if (!inventario.isEmpty()) {
+	                System.out.println("Objetos disponibles:");
+	                for (int i = 0; i < inventario.size(); i++) {
+	                    System.out.println((i + 1) + ". " + inventario.get(i).getNombre());
+	                }
+
+	                int indiceObjeto;
+
+	                do {
+	                    System.out.print("Elige un objeto introduciendo su número: ");
+	                    indiceObjeto = scanner.nextInt();
+
+	                    if (indiceObjeto <= 0 || indiceObjeto > inventario.size()) {
+	                        System.out.println("Opción no válida. Inténtalo de nuevo.");
+	                    }
+
+	                } while (indiceObjeto <= 0 || indiceObjeto > inventario.size());
+
+	                // Llamar al método usarObjeto con el objeto seleccionado
+	                this.usarObjeto(inventario.get(indiceObjeto - 1));
+	            } else {
+	                System.out.println("No tienes objetos en el inventario.");
+	            }
+	        } else if (opcion == 3) {
+	            // Usar habilidad
+	            if (!listaDeHabilidades.isEmpty()) {
+	                System.out.println("Habilidades disponibles:");
+	                for (int i = 0; i < listaDeHabilidades.size(); i++) {
+	                    System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
+	                }
+
+	                int indiceHabilidad;
+	                do {
+	                    System.out.print("Elige una habilidad introduciendo su número: ");
+	                    indiceHabilidad = scanner.nextInt();
+
+	                    if (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size()) {
+	                        System.out.println("Opción no válida. Intenta de nuevo.");
+	                    }
+	                } while (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size());
+
+	                // Llamar al método usarHabilidad con la habilidad seleccionada
+	                this.usarHabilidad(listaDeHabilidades.get(indiceHabilidad - 1));
+	            } else {
+	                System.out.println("No tienes habilidades en la lista.");
+	            }
+	        }
+
+	        // Fin del turno, imprimir estado actual de los personajes
+	        System.out.println("Estado después del turno:");
+	        System.out.println(Dialogos.EstadoPersonaje(this));
+	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
+	    }
 	}
 
 
 	@Override
 	public String toString() {
-		return "Personaje [nivel=" + nivel + ", vitalidad=" + vitalidad + ", fuerza=" + fuerza + ", resistencia="
-				+ resistencia + ", fe=" + fe + ", arma=" + arma + ", inventario=" + inventario + ", listaDeHabilidades="
-				+ listaDeHabilidades + "]";
+		return "\nNivel = " + nivel + "\nVitalidad = " + vitalidad + "\nFuerza = " + fuerza + "\nResistencia="
+				+ resistencia + "\nFe=" + fe + "\nArma --> " + arma + "\nArmadura" + armadura + "\n" + inventario.size()
+				+ "\n" + listaDeHabilidades;
+	}
+
+	public void personaje() {
+
 	}
 
 }

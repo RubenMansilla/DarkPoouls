@@ -4,15 +4,14 @@ import java.util.Random;
 
 public class EspadaOxidada extends Arma {
 
-	public EspadaOxidada(String nombre) {
+	public EspadaOxidada() {
 		super();
-		super.setNombre(nombre);
 		super.setDaño(5);
 		super.setDescripcion("Quebaranta huesos: reduce la resistencia del enemigo");
 	}
 
-	public EspadaOxidada(String nombre, String descripcion, int daño) {
-		super(nombre, descripcion, daño);
+	public EspadaOxidada(String descripcion, int daño) {
+		super(descripcion, daño);
 	}
 
 	

@@ -4,16 +4,14 @@ import java.util.Random;
 
 public class Katana extends Arma {
 
-	public Katana(String nombre) {
-		super();
-		super.setNombre(nombre);
+	public Katana() {
 		super.setDaño(2);
 		super.setDescripcion("Sangrado: otorga al portador la capacidad de infligir hemorragias en sus oponentes\r\n"
 				+ "");
 	}
 
-	public Katana(String nombre, String descripcion, int daño) {
-		super(nombre, descripcion, daño);
+	public Katana(String descripcion, int daño) {
+		super(descripcion, daño);
 	}
 
 	

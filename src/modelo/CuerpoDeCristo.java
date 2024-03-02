@@ -4,7 +4,7 @@ public class CuerpoDeCristo extends Objeto {
 	
 	public CuerpoDeCristo() {
 		super();
-		super.setNombre("Cuerpo De Cristo");
+		super.setNombre("Cuerpo de Cristo");
 		super.setDescripcion("Esencia que permite a tu héroe recuperar la conexión espiritual perdida");
 	}
 
@@ -13,6 +13,7 @@ public class CuerpoDeCristo extends Objeto {
 	}
 	
 	 public void usarObjeto(Personaje personaje) {
+		 System.out.println("Utilizas Cuerpo de Cristo");
 		 personaje.setFe(personaje.getFeMaxima());
 	 }
 

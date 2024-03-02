@@ -2,7 +2,6 @@ package modelo;
 
 public abstract class Armadura {
 
-	private String nombre;
 	private String descripcion;
 	private int defensa;
 
@@ -10,18 +9,9 @@ public abstract class Armadura {
 
 	}
 
-	public Armadura(String nombre, String descripcion, int daño) {
-		this.nombre = nombre;
+	public Armadura(String descripcion, int daño) {
 		this.descripcion = descripcion;
 		this.defensa = daño;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
 	}
 
 	public String getDescripcion() {
@@ -42,7 +32,7 @@ public abstract class Armadura {
 
 	@Override
 	public String toString() {
-		return "Armadura [nombre=" + nombre + ", descripcion=" + descripcion + ", defensa=" + defensa + "]";
+		return "[descripcion=" + descripcion + ", defensa=" + defensa + "]";
 	}
 	
 
