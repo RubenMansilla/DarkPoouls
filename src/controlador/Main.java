@@ -15,6 +15,7 @@ public class Main {
 		System.out.println(Dialogos.cajaProta());
 
 		*/
+		
 		Uchigatana katana = new Uchigatana();
 		DemonioRefugio demonio = new DemonioRefugio();
 		Marginado marginado = new Marginado("Ruben");
@@ -28,7 +29,7 @@ public class Main {
 		Berserker berserker = new Berserker();
 		EscudoMagico escudoMagico = new EscudoMagico();
 		
-
+		
 		marginado.agregarObjeto(cuerpoDeCristo);
 		marginado.agregarObjeto(cretina);
 		marginado.agregarObjeto(cretina);
@@ -39,7 +40,7 @@ public class Main {
 		
 		
 		System.out.println(Dialogos.cajaPersonaje(marginado));
-		
+		System.out.println(Dialogos.cajaBossDerrotado(demonio));
 		marginado.batalla(demonio);
 		
 	}
