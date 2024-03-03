@@ -186,6 +186,9 @@ public class Main {
 
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+		
+		System.out.println();
+		System.out.println("Mientras recorres tu camino te encuentras");
 
 		personajeElegido.batalla(esqueleto);
 		if (personajeElegido.getVitalidad() < 0) {
