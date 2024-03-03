@@ -5,7 +5,7 @@ public class AuraPurificadora extends Habilidad {
 	public AuraPurificadora() {
 		super.setNombre("Aura Purificadora");
 		super.setDescripcion("Campo de energía que cura al personaje");
-		super.setCosteFe(10);
+		super.setCosteFe(6);
 	}
 
 	public AuraPurificadora(String nombre, String descripcion, int costeMana) {
@@ -16,6 +16,7 @@ public class AuraPurificadora extends Habilidad {
 		
 		if (personaje.getFe() > getCosteFe()) {		
 			personaje.setVitalidad(personaje.getVitalidad() + 12);
+			personaje.setFe(personaje.getFe() - getCosteFe());
 		}
 
 	}

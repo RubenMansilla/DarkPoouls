@@ -6,7 +6,8 @@ public class HachaDeMano extends Arma {
 
 		public HachaDeMano() {
 			super();
-			super.setDaño(5);
+			super.setDaño(6);
+			super.setDescripcion("Sin descripcion");
 		}
 
 		public HachaDeMano(String descripcion, int daño) {

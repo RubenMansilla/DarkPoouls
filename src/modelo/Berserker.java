@@ -5,7 +5,7 @@ public class Berserker extends Habilidad {
 	public Berserker() {
 		super.setNombre("berserker");
 		super.setDescripcion("Desata tu ferocidad interna, convirtiéndote en un tornado de destrucción en el campo de batalla");
-		super.setCosteFe(10);
+		super.setCosteFe(6);
 	}
 
 	public Berserker(String nombre, String descripcion, int costeMana) {

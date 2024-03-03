@@ -58,6 +58,44 @@ public class Dialogos {
 				""};
 		return modeloCajaProta(textoParaCaja);
 	}
+	
+	public static String cajaEscogerPersonaje(){
+		String[] textoParaCaja = { "",
+				"Escoge tu Personaje",
+				"1 - Bandido",
+				"2 - Caballero",
+				"3 - Cazador",
+				"4 - Clerigo",
+				"5 - Guerrero",
+				"6 - Ladrón",
+				"7 - Marginado",
+				"8 - Piromantico",
+				"9 - Vagabundo",
+				""};
+		return modeloCajaProta(textoParaCaja);
+	}
+	
+	public static String cajaEscogerArma(){
+		String[] textoParaCaja = { "",
+				"Escoge el Arma que portaras",
+				"1 - Katana",
+				"2 - Espada Oxidada",
+				"3 - Hacha de Mano",
+				""};
+		return modeloCajaProta(textoParaCaja);
+	}
+	
+	public static String cajaEscogerHabilidad(){
+		String[] textoParaCaja = { "",
+				"Escoge una Habilidad entre estas",
+				"1 - Berserker",
+				"2 - Aura Purificadora",
+				"3 - Escudo Mágico",
+				"4 - Aturdir",
+				""};
+		return modeloCajaProta(textoParaCaja);
+	}
+	
 	public static String cajaBatalla(Personaje personaje) {
 		String[] textoParaCaja = {"",
 				"Mientras caminas por los campos de Lordran te topas con un: " +personaje.getNombre()
@@ -139,18 +177,6 @@ public class Dialogos {
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
 	}
-	/*public static String cajaInicio() {
-		String[] textoParaCaja = { "Año 2026",
-				"Hoy por fin es el día de la misión, el ser humano no pisa la luna desde el 72" };
-		return modeloCajaNarrador(textoParaCaja);
-	}*/
-
-	/* Cajas de texto de Error */
-
-	public static String cajaErrorInicio() {
-		String[] textoParaCaja = { "Error:", "¡Vaya!, parece que tiene que empezar su nombre por una letra" };
-		return modeloCajaError(textoParaCaja);
-	}
 	
 	public static String cajaPersonaje(Personaje personaje){
 		String[] textoParaCaja = { "",
@@ -207,6 +233,26 @@ public class Dialogos {
 				"Fe: " + personaje.getFe(),
 				""
 				};
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorInicio() {
+		String[] textoParaCaja = { "Error:", "¡Vaya!, parece que tiene que su nombre tiene que empezar por una letra" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorOpcionPersonje() {
+		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente al personaje" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorOpcionArma() {
+		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente al arma" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorOpcionHabilidad() {
+		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente a la habilidad" };
 		return modeloCajaError(textoParaCaja);
 	}
 

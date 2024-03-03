@@ -5,7 +5,7 @@ public class EscudoMagico extends Habilidad {
 	public EscudoMagico() {
 		super.setNombre("Escudo Magico");
 		super.setDescripcion("Envuelve a tu personaje en una barrera que refleja parte de los ataques");
-		super.setCosteFe(10);
+		super.setCosteFe(6);
 	}
 
 	public EscudoMagico(String nombre, String descripcion, int costeMana) {

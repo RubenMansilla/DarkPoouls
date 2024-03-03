@@ -32,7 +32,7 @@ public abstract class Armadura {
 
 	@Override
 	public String toString() {
-		return "[descripcion=" + descripcion + ", defensa=" + defensa + "]";
+		return "[descripcion = " + descripcion + ", defensa = " + defensa + "]";
 	}
 	
 

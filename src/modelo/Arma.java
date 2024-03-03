@@ -31,7 +31,7 @@ public abstract class Arma {
 
 	@Override
 	public String toString() {
-		return "[descripcion=" + descripcion + ", daño=" + daño + "]";
+		return "[descripcion = " + descripcion + ", daño = " + daño + "]";
 	}
 
 }

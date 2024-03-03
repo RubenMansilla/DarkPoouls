@@ -12,7 +12,7 @@ public class Marginado extends Personaje {
 		super.setFuerzaMaxima(8);
 		super.setResistencia(8);
 		super.setResistenciaMaxima(8);
-		super.setFe(18);
+		super.setFe(8);
 		super.setFeMaxima(18);
 	}
 	public Marginado(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {
