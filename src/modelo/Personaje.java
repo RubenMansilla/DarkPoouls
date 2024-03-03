@@ -300,6 +300,9 @@ public abstract class Personaje {
 	    Scanner scanner = new Scanner(System.in);
 	    int opcion;
 
+	    boolean objetoUsado = false;
+	    boolean habilidadUsada = false;
+
 	    while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
 	        System.out.println("Turno de " + this.nombre);
 	        System.out.println("1. Atacar");
@@ -317,9 +320,12 @@ public abstract class Personaje {
 	        // Atacar normalmente
 	        if (opcion == 1) {
 	            this.atacar(enemigo);
+	            // Reiniciar el uso de objeto y habilidad al atacar
+	            objetoUsado = false;
+	            habilidadUsada = false;
 	        } else if (opcion == 2) {
 	            // Usar objeto
-	            if (!inventario.isEmpty()) {
+	            if (!inventario.isEmpty() && !objetoUsado) {
 	                System.out.println("Objetos disponibles:");
 	                for (int i = 0; i < inventario.size(); i++) {
 	                    System.out.println((i + 1) + ". " + inventario.get(i).getNombre());
@@ -339,12 +345,15 @@ public abstract class Personaje {
 
 	                // Llamar al método usarObjeto con el objeto seleccionado
 	                this.usarObjeto(inventario.get(indiceObjeto - 1));
+
+	                // Marcar el objeto como usado
+	                objetoUsado = true;
 	            } else {
-	                System.out.println("No tienes objetos en el inventario.");
+	                System.out.println("No puedes usar más objetos en este turno.");
 	            }
 	        } else if (opcion == 3) {
 	            // Usar habilidad
-	            if (!listaDeHabilidades.isEmpty()) {
+	            if (!listaDeHabilidades.isEmpty() && !habilidadUsada) {
 	                System.out.println("Habilidades disponibles:");
 	                for (int i = 0; i < listaDeHabilidades.size(); i++) {
 	                    System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
@@ -362,8 +371,11 @@ public abstract class Personaje {
 
 	                // Llamar al método usarHabilidad con la habilidad seleccionada
 	                this.usarHabilidad(listaDeHabilidades.get(indiceHabilidad - 1));
+
+	                // Marcar la habilidad como usada
+	                habilidadUsada = true;
 	            } else {
-	                System.out.println("No tienes habilidades en la lista.");
+	                System.out.println("No puedes usar más habilidades en este turno.");
 	            }
 	        }
 
@@ -373,6 +385,7 @@ public abstract class Personaje {
 	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
 	    }
 	}
+
 
 
 	@Override
