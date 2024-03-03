@@ -12,6 +12,20 @@ public class Main {
 
 	public static void main(String[] args) {
 
+		String nombreFinal = null;
+
+		String finalDeLaPartida = aventura(nombreFinal);
+
+		if (finalDeLaPartida.equals("derrota")) {
+			System.out.println(Recursos.gameOver);
+		} else if (finalDeLaPartida.equals("fin de la partida")) {
+			System.out.println(Recursos.finDelJuego);
+		}
+
+	}
+
+	public static String aventura(String nombreFinal) {
+
 		Scanner sc = new Scanner(System.in);
 
 		// Enemigos
@@ -31,10 +45,14 @@ public class Main {
 
 		// Armadura
 		ConjuntoAnticuado conjuntoAnticuado = new ConjuntoAnticuado();
+		ConjuntoHierro conjuntoHierro = new ConjuntoHierro();
+		ConjuntoTitanita conjuntoTitanita = new ConjuntoTitanita();
 
 		// Objetos del personaje
 		Personaje personajeElegido = null;
 		Arma armaElegida = null;
+		Arma armaEvolucionada = null;
+		Arma armaEvolucionada2 = null;
 		Habilidad habilidadElegida = null;
 
 		// Variables
@@ -61,15 +79,15 @@ public class Main {
 		System.out.println("Ingrese el numero correspondiente al personaje: ");
 
 		while (!sc.hasNextInt()) {
-		    System.out.println(Dialogos.cajaErrorOpcionPersonje());
-		    sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
+			System.out.println(Dialogos.cajaErrorOpcionPersonje());
+			sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
 		}
 
 		opcion = sc.nextInt();
 
 		while (opcion < 1 || opcion > 9) {
-		    System.out.println(Dialogos.cajaErrorOpcionPersonje());
-		    opcion = sc.nextInt();
+			System.out.println(Dialogos.cajaErrorOpcionPersonje());
+			opcion = sc.nextInt();
 		}
 
 		if (opcion == 1) {
@@ -93,7 +111,7 @@ public class Main {
 		}
 
 		sc.nextLine();
-		
+
 		System.out.println();
 
 		System.out.println(centrarLinea("Presione START para continuar"));
@@ -108,7 +126,7 @@ public class Main {
 		}
 
 		opcion = sc.nextInt();
-		
+
 		while (opcion < 1 || opcion > 3) {
 			System.out.println(Dialogos.cajaErrorOpcionArma());
 			opcion = sc.nextInt();
@@ -116,33 +134,39 @@ public class Main {
 
 		if (opcion == 1) {
 			armaElegida = new Katana();
+			armaEvolucionada = new Muramasa();
+			armaEvolucionada2 = new Uchigatana();
 		} else if (opcion == 2) {
 			armaElegida = new EspadaOxidada();
+			armaEvolucionada = new Excalibur();
+			armaEvolucionada2 = new EspadaArtorias();
 		} else if (opcion == 3) {
 			armaElegida = new HachaDeMano();
+			armaEvolucionada = new HachaDeGuerra();
+			armaEvolucionada2 = new HachaDragon();
 		}
-		
+
 		System.out.println();
 
 		sc.nextLine();
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-		
+
 		System.out.println(Dialogos.cajaEscogerHabilidad());
 		System.out.println("Ingrese el numero correspondiente a la habilidad: ");
-		
+
 		while (!sc.hasNextInt()) {
 			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
 			sc.next();
 		}
-		
+
 		opcion = sc.nextInt();
 
 		while (opcion < 1 || opcion > 4) {
 			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
 			opcion = sc.nextInt();
 		}
-		
+
 		if (opcion == 1) {
 			habilidadElegida = new Berserker();
 		} else if (opcion == 2) {
@@ -152,20 +176,69 @@ public class Main {
 		} else if (opcion == 4) {
 			habilidadElegida = new Aturdir();
 		}
-		
+
 		personajeElegido.equiparArma(armaElegida);
 		personajeElegido.equiparArmadura(conjuntoAnticuado);
 		personajeElegido.agregarHabilidad(habilidadElegida);
 
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+
+		personajeElegido.batalla(esqueleto);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
 		
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));	
 		
+		personajeElegido.batalla(golemCristal);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		
+		System.out.println();
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		
 		
+		personajeElegido.batalla(caballeroHueco);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		
+		System.out.println();
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		
+		System.out.println("Tu arma evoluciona");
+		personajeElegido.equiparArma(armaEvolucionada);
+		
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		
+		System.out.println("Tu armadura evoluciona");
+		personajeElegido.equiparArmadura(conjuntoHierro);
+		
+		System.out.println();
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
 
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+		
+		
+		
+		return "finDeLaPartida";
 	}
 
 }

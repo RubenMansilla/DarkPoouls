@@ -231,6 +231,8 @@ public abstract class Personaje {
 		this.setResistenciaMaxima(this.getResistencia());
 		this.setFe(fe + 2);
 		this.setFeMaxima(this.getFe());
+		
+		System.out.println(FuncionesDialogo.centrarLinea(this.getNombre() + " sube de nivel (nivel:" + this.getNivel() + ")") );
 	}
 
 	private void calcularVidaMaxima() {
@@ -272,7 +274,6 @@ public abstract class Personaje {
 		System.out.println(
 				this.nombre + " ataca a " + enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño.");
 		System.out.println();
-		System.out.println(enemigo.getVitalidad());
 
 		Random random = new Random();
 
@@ -289,7 +290,6 @@ public abstract class Personaje {
 			System.out.println(
 					enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
 			System.out.println();
-			System.out.println(this.getVitalidad());
 		} else {
 			System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
 		}
@@ -304,7 +304,7 @@ public abstract class Personaje {
 	    boolean habilidadUsada = false;
 
 	    while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
-	        System.out.println("Turno de " + this.nombre);
+	        System.out.println("");
 	        System.out.println("1. Atacar");
 	        System.out.println("2. Usar Objeto");
 	        System.out.println("3. Usar Habilidad");
@@ -384,6 +384,13 @@ public abstract class Personaje {
 	        System.out.println(Dialogos.EstadoPersonaje(this));
 	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
 	    }
+	    
+	    if (enemigo.getVitalidad() < 0) {
+	    	System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
+	    	this.subirNivel();
+	    	this.reiniciarEstadisticas();
+	    	enemigo.reiniciarEstadisticas();
+	    }
 	}
 
 
@@ -393,10 +400,6 @@ public abstract class Personaje {
 		return "\nNivel = " + nivel + "\nVitalidad = " + vitalidad + "\nFuerza = " + fuerza + "\nResistencia="
 				+ resistencia + "\nFe=" + fe + "\nArma --> " + arma + "\nArmadura" + armadura + "\n" + inventario.size()
 				+ "\n" + listaDeHabilidades;
-	}
-
-	public void personaje() {
-
 	}
 
 }

@@ -1,7 +1,8 @@
 package modelo;
 
 public class ConjuntoHierro extends Armadura{
-	public ConjuntoHierro(String nombre) {
+	
+	public ConjuntoHierro() {
 		super();
 		super.setDefensa(4);
 	}

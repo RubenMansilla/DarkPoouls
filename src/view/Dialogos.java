@@ -211,7 +211,6 @@ public class Dialogos {
 	public static String EstadoPersonaje(Personaje personaje){
 		String[] textoParaCaja = { "",
 				"" + personaje.getNombre(),
-				"Nivel: " + personaje.getNivel(),
 				"Vitalidad: " + personaje.getVitalidad(),
 				"Fuerza: " + personaje.getFuerza(),
 				"Resistencia: " + personaje.getResistencia(),
@@ -225,7 +224,7 @@ public class Dialogos {
 	
 	public static String EstadoEnemigo(Personaje personaje){
 		String[] textoParaCaja = { "",
-				"Nombre: " + personaje.getNombre(),
+				"" + personaje.getNombre(),
 				"Nivel: " + personaje.getNivel(),
 				"Vitalidad: " + personaje.getVitalidad(),
 				"Fuerza: " + personaje.getFuerza(),
