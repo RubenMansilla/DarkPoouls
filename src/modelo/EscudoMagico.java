@@ -14,7 +14,7 @@ public class EscudoMagico extends Habilidad {
 	
 	public void usarHabilidad(Personaje personaje) {
 		if (personaje.getFe() > getCosteFe()) {
-			System.out.println(personaje.getNombre() + " utiliza Berserker");
+			System.out.println(personaje.getNombre() + " utiliza Escudo Magico");
 			personaje.setResistencia(personaje.getResistencia() + 10);
 			personaje.setFe(personaje.getFe() - getCosteFe());
 		}else {
