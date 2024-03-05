@@ -186,6 +186,25 @@ public class Main {
 
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+				
+		System.out.println();
+		System.out.println(Dialogos.cajaIntroduccion());
+		System.out.println(Dialogos.cajaProta(personajeElegido));
+		
+		
+		
+		System.out.println();
+		//System.out.println("Mientras recorres tu camino te encuentras");
+		System.out.println(Dialogos.cajaBoss(demonio));
+		personajeElegido.batalla(demonio);
+		if (personajeElegido.getVitalidad() < 0) {
+			System.out.println(Recursos.gameOver);
+			return "derrota";
+		}
+		System.out.println(Dialogos.cajaBossDerrotado(demonio));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
 		
 		System.out.println();
 		System.out.println("Mientras recorres tu camino te encuentras");
@@ -193,11 +212,11 @@ public class Main {
 		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
 		personajeElegido.batalla(esqueleto);
 		if (personajeElegido.getVitalidad() < 0) {
-			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
 		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 
@@ -212,6 +231,7 @@ public class Main {
 		
 		System.out.println();
 		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 
@@ -227,6 +247,7 @@ public class Main {
 		
 		System.out.println();
 		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		

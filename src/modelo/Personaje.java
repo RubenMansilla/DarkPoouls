@@ -241,8 +241,7 @@ public abstract class Personaje {
 		this.setFe(fe + 2);
 		this.setFeMaxima(this.getFe());
 
-		System.out.println(
-				FuncionesDialogo.centrarLinea(this.getNombre() + " sube de nivel (nivel:" + this.getNivel() + ")"));
+		System.out.println(Dialogos.subirNivel(this));
 	}
 
 	private void calcularVidaMaxima() {
@@ -316,6 +315,7 @@ public abstract class Personaje {
 	public void batalla(Personaje enemigo) {
 		Scanner scanner = new Scanner(System.in);
 		int opcion;
+		int batallas = 0;
 
 		boolean objetoUsado = false;
 		boolean habilidadUsada = false;
@@ -440,8 +440,11 @@ public abstract class Personaje {
 			System.out.println(centrarLinea("Presione START para continuar"));
 			scanner.nextLine();
 			System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
-			this.subirNivel();
 			enemigo.reiniciarEstadisticas();
+			batallas++;
+			if (batallas == 2) {
+				this.subirNivel();
+			}
 		}
 	}
 

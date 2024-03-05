@@ -14,6 +14,10 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCaja(texto);
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.GREEN);
 	}
+	public static String modeloCajaNivel(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCaja(texto);
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.GREEN);
+	}
 	public static String modeloCajaArma(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCaja(texto);
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.MAGENTA);
@@ -65,10 +69,27 @@ public class Dialogos {
 	}
 	public static String cajaProta(Personaje personaje){
 		String[] textoParaCaja = { "",
-				"Yo soy Sir" +personaje.getNombre()+ " , La espada ardiente. ",
+				"Yo soy Sir " +personaje.getNombre()+",",
+				" La espada ardiente. ",
 				"Durante algún tiempo fui el verdugo de Gwyn, Señor de la eniza. Debido a mi lealtad y logros fui nombrado como el quinto miembro de 'Los caballeros de Gwyn'.",
 				"En algún momento de la guerra quedé encerrado en unas catacumbas para pasar mis últimos días. Ahora que he conseguido liberarme, quiero saber el resultado de la guerra y porqué nadie me nombra junto a mis compañeros",
 				""};
+		return modeloCajaProta(textoParaCaja);
+	}
+	public static String reiniciarEstadisticas(Personaje personaje) {
+		String []textoParaCaja = {"",
+				personaje.getNombre()+ " descansa después de su ardua batalla ",
+				"(Tus estadísticas vuelven al máximo)",
+				""		
+		};
+		return modeloCajaProta(textoParaCaja);
+	}
+	public static String subirNivel(Personaje personaje) {
+		String []textoParaCaja = {"",
+				"Has recogido las suficientes almas, subes de nivel.",
+				"Nivel: " + personaje.getNivel(),
+				""		
+		};
 		return modeloCajaProta(textoParaCaja);
 	}
 	
@@ -113,22 +134,22 @@ public class Dialogos {
 	
 	public static String cajaBatalla(Personaje personaje) {
 		String[] textoParaCaja = {"",
-				"Mientras caminas por los campos de Lordran te topas con un: " +personaje.getNombre()
+				"Mientras caminas por los campos de Lordran te topas con el: " +personaje.getNombre()
 				
 		};
 		return modeloCajaBatalla(textoParaCaja);
 	}
 	public static String cajaBoss(DemonioRefugio personaje) {
 		String[] textoParaCaja = {"",
-				"Cuando encuentras la salida de las catacumbas, te topas con un: " +personaje.getNombre()+
-				" Tu no deberías estar aquí, recluso. No deberías haber salido de tu celda. Ahora, pagarás por tu osadía",
+				"Cuando encuentras la salida de las catacumbas, te topas con un: " +personaje.getNombre()+ ".",
+				" 'Tu no deberías estar aquí, recluso. No deberías haber salido de tu celda. Ahora, pagarás por tu osadía'",
 				""
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
 	}
 	public static String cajaBossDerrotado(DemonioRefugio personaje) {
 		String[] textoParaCaja = {"",
-				"Has derrotado a: " +personaje.getNombre()+
+				"Has derrotado a: " +personaje.getNombre()+("."),
 				" El demonio cae al suelo, y con su último aliento te dice: 'Yo pude haber fallado en detenerte, pero el mundo exterior ya no es lo que era antes.'",
 				""
 		};
