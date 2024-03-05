@@ -25,6 +25,7 @@ public abstract class Personaje {
 	private Armadura armadura;
 	private ArrayList<Objeto> inventario;
 	private ArrayList<Habilidad> listaDeHabilidades;
+	private int batallas = 0;
 
 	// Constructores
 	public Personaje() {
@@ -315,7 +316,7 @@ public abstract class Personaje {
 	public void batalla(Personaje enemigo) {
 		Scanner scanner = new Scanner(System.in);
 		int opcion;
-		int batallas = 0;
+		
 
 		boolean objetoUsado = false;
 		boolean habilidadUsada = false;
@@ -434,6 +435,7 @@ public abstract class Personaje {
 		}
 
 		// Verificar si el personaje ha sido derrotado
+		batallas++;
 		if (enemigo.getVitalidad() <= 0) {
 
 			scanner.nextLine();
@@ -441,10 +443,10 @@ public abstract class Personaje {
 			scanner.nextLine();
 			System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
 			enemigo.reiniciarEstadisticas();
-			batallas++;
-			if (batallas == 2) {
-				this.subirNivel();
 			}
+		if (batallas == 2) {
+			this.subirNivel();
+			batallas = 0;
 		}
 	}
 
