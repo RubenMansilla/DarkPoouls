@@ -161,7 +161,7 @@ public abstract class Personaje {
 	}
 
 //Metodos varios
-
+	// Agregar y eliminar objetos y habilidades
 	public void agregarObjeto(Objeto objeto) {
 		boolean objetoExistente = false;
 
@@ -178,7 +178,7 @@ public abstract class Personaje {
 			inventario.add(objeto);
 		}
 	}
-
+	// Eliminar objeto
 	public void eliminarObjeto(Objeto objeto) {
 		boolean objetoEncontrado = false;
 
@@ -200,20 +200,20 @@ public abstract class Personaje {
 			inventario.remove(objeto);
 		}
 	}
-
+	// Agregar y eliminar habilidades
 	public void agregarHabilidad(Habilidad habilidad) {
 		this.listaDeHabilidades.add(habilidad);
 	}
-
+	// Eliminar habilidades
 	public void eliminarHabilidad(Habilidad habilidad) {
 		this.listaDeHabilidades.remove(habilidad);
 	}
-
+	// Equipar arma
 	public void equiparArma(Arma nuevaArma) {
 		this.arma = nuevaArma;
 		this.fuerza = this.fuerza + nuevaArma.getDaño();
 	}
-
+	// Equipar armadura
 	public void equiparArmadura(Armadura nuevaArmadura) {
 		this.armadura = nuevaArmadura;
 		this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
@@ -238,21 +238,21 @@ public abstract class Personaje {
 	private void calcularVidaMaxima() {
 		this.vidaMaxima = this.vitalidad;
 	}
-
+	// Reiniciar estadísticas	
 	public void reiniciarEstadisticas() {
 		this.setVitalidad(this.getVidaMaxima());
 		this.setFuerza(this.getFuerzaMaxima());
 		this.setResistencia(this.getResistenciaMaxima());
 	}
-
+	// Usar objetos y habilidades
 	public void usarObjeto(Objeto objeto) {
 		objeto.usarObjeto(this);
 	}
-
+	// Usar habilidades
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
 	}
-
+	// Atacar
 	public void atacar(Personaje enemigo) {
 
 		// Calcular el daño base del ataque (fuerza)
@@ -295,14 +295,14 @@ public abstract class Personaje {
 		}
 
 	}
-
+	// Batalla
 	public void batalla(Personaje enemigo) {
 	    Scanner scanner = new Scanner(System.in);
 	    int opcion;
 
 	    boolean objetoUsado = false;
 	    boolean habilidadUsada = false;
-
+		// Mientras ambos personajes tengan vitalidad
 	    while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
 	        System.out.println("");
 	        System.out.println("1. Atacar");
@@ -311,7 +311,7 @@ public abstract class Personaje {
 	        System.out.print("Elige una opción: ");
 
 	        opcion = scanner.nextInt();
-
+			// Validar la opción
 	        while (opcion != 1 && opcion != 2 && opcion != 3) {
 	            System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
 	            opcion = scanner.nextInt();
@@ -332,7 +332,7 @@ public abstract class Personaje {
 	                }
 
 	                int indiceObjeto;
-
+					// Validar el índice del objeto
 	                do {
 	                    System.out.print("Elige un objeto introduciendo su número: ");
 	                    indiceObjeto = scanner.nextInt();
@@ -384,7 +384,7 @@ public abstract class Personaje {
 	        System.out.println(Dialogos.EstadoPersonaje(this));
 	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
 	    }
-	    
+	    // Verificar si el personaje ha sido derrotado
 	    if (enemigo.getVitalidad() < 0) {
 	    	System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
 	    	this.subirNivel();

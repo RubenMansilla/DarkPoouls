@@ -13,7 +13,7 @@ public class Katana extends Arma {
 		super(descripcion, daño);
 	}
 
-	
+	// Habilidad de la katana
 	public int habilidadArma() {
 
 		int dañoSangrado = 0;

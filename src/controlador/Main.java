@@ -89,7 +89,7 @@ public class Main {
 			System.out.println(Dialogos.cajaErrorOpcionPersonje());
 			opcion = sc.nextInt();
 		}
-
+		// Dependiendo de la opción elegida, se crea un personaje
 		if (opcion == 1) {
 			personajeElegido = new Bandido(nombre);
 		} else if (opcion == 2) {
@@ -126,7 +126,7 @@ public class Main {
 		}
 
 		opcion = sc.nextInt();
-
+		// Dependiendo de la opción elegida, se crea un arma
 		while (opcion < 1 || opcion > 3) {
 			System.out.println(Dialogos.cajaErrorOpcionArma());
 			opcion = sc.nextInt();
@@ -161,7 +161,7 @@ public class Main {
 		}
 
 		opcion = sc.nextInt();
-
+		// Dependiendo de la opción elegida, se crea una habilidad
 		while (opcion < 1 || opcion > 4) {
 			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
 			opcion = sc.nextInt();

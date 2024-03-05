@@ -13,17 +13,4 @@ public class HachaDeGuerra extends Arma {
 			super(descripcion, daño);
 		}
 
-		
-		public void habilidadArma(Personaje enemigo) {
-			
-			Random random = new Random();
-
-			int probHabilidad = random.nextInt(4) + 1;
-			
-			if (probHabilidad == 1) {
-				enemigo.setResistencia(enemigo.getResistencia() - 3);
-				
-			}
-
-		}
 	}
