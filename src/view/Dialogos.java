@@ -94,10 +94,12 @@ public class Dialogos {
 	public static String cajaEscogerHabilidad(){
 		String[] textoParaCaja = { "",
 				"Escoge una Habilidad entre estas",
-				"1 - Berserker",
-				"2 - Aura Purificadora",
-				"3 - Escudo Mágico",
-				"4 - Aturdir",
+				"",
+				"1 - Berserker: desata tu ferocidad interna, convirtiéndote en un tornado de destrucción en el campo de batalla",
+				"",
+				"2 - Aura Purificadora: campo de energía que cura al personaje",
+				"",
+				"3 - Escudo Mágico: envuelve a tu personaje en una barrera que refleja parte de los ataques",
 				""};
 		return modeloCajaProta(textoParaCaja);
 	}

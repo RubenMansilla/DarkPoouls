@@ -31,5 +31,12 @@ public class Katana extends Arma {
 		return dañoSangrado;
 
 	}
+
+	@Override
+	public String toString() {
+		return "Katana [Descripcion=  " + getDescripcion() + ", Daño()= " + getDaño() + "]";
+	}
+	
+	
 	
 }

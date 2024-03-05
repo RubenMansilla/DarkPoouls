@@ -180,6 +180,7 @@ public abstract class Personaje {
 			inventario.add(objeto);
 		}
 	}
+
 	// Eliminar objeto
 	public void eliminarObjeto(Objeto objeto) {
 		boolean objetoEncontrado = false;
@@ -202,19 +203,23 @@ public abstract class Personaje {
 			inventario.remove(objeto);
 		}
 	}
+
 	// Agregar y eliminar habilidades
 	public void agregarHabilidad(Habilidad habilidad) {
 		this.listaDeHabilidades.add(habilidad);
 	}
+
 	// Eliminar habilidades
 	public void eliminarHabilidad(Habilidad habilidad) {
 		this.listaDeHabilidades.remove(habilidad);
 	}
+
 	// Equipar arma
 	public void equiparArma(Arma nuevaArma) {
 		this.arma = nuevaArma;
 		this.fuerza = this.fuerza + nuevaArma.getDaño();
 	}
+
 	// Equipar armadura
 	public void equiparArmadura(Armadura nuevaArmadura) {
 		this.armadura = nuevaArmadura;
@@ -225,6 +230,8 @@ public abstract class Personaje {
 
 	public void subirNivel() {
 
+		this.reiniciarEstadisticas();
+
 		this.setNivel(nivel + 1);
 		this.setVitalidad(vitalidad + 2);
 		this.setFuerza(fuerza + 2);
@@ -233,27 +240,32 @@ public abstract class Personaje {
 		this.setResistenciaMaxima(this.getResistencia());
 		this.setFe(fe + 2);
 		this.setFeMaxima(this.getFe());
-		
-		System.out.println(FuncionesDialogo.centrarLinea(this.getNombre() + " sube de nivel (nivel:" + this.getNivel() + ")") );
+
+		System.out.println(
+				FuncionesDialogo.centrarLinea(this.getNombre() + " sube de nivel (nivel:" + this.getNivel() + ")"));
 	}
 
 	private void calcularVidaMaxima() {
 		this.vidaMaxima = this.vitalidad;
 	}
-	// Reiniciar estadísticas	
+
+	// Reiniciar estadísticas
 	public void reiniciarEstadisticas() {
 		this.setVitalidad(this.getVidaMaxima());
 		this.setFuerza(this.getFuerzaMaxima());
 		this.setResistencia(this.getResistenciaMaxima());
 	}
+
 	// Usar objetos y habilidades
 	public void usarObjeto(Objeto objeto) {
 		objeto.usarObjeto(this);
 	}
+
 	// Usar habilidades
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
 	}
+
 	// Atacar
 	public void atacar(Personaje enemigo) {
 
@@ -277,145 +289,146 @@ public abstract class Personaje {
 		System.out.println(Dialogos.cajaResultadoAtaque(this, enemigo, dañoPersonaje));
 		System.out.println();
 
-		Random random = new Random();
+		if (enemigo.getVitalidad() > 0) {
+			Random random = new Random();
 
-		int probAtaqueEnemigo = random.nextInt(10) + 1;
+			int probAtaqueEnemigo = random.nextInt(10) + 1;
 
-		if (probAtaqueEnemigo != 1) {
-			// Ser atacado
-			int dañoEnemigo = enemigo.getFuerza();
+			if (probAtaqueEnemigo != 1) {
+				// Ser atacado
+				int dañoEnemigo = enemigo.getFuerza();
 
-			this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
+				this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
 
-			System.out.println();
-			System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, dañoEnemigo));
-			System.out.println();
-		} else {
-			System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
+				System.out.println();
+				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, dañoEnemigo));
+				System.out.println();
+			} else {
+				System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
+			}
+		}else {
+			enemigo.setVitalidad(0);
 		}
 
 	}
+
 	// Batalla
 	public void batalla(Personaje enemigo) {
-	    Scanner scanner = new Scanner(System.in);
-	    int opcion;
+		Scanner scanner = new Scanner(System.in);
+		int opcion;
 
-	    boolean objetoUsado = false;
-	    boolean habilidadUsada = false;
+		boolean objetoUsado = false;
+		boolean habilidadUsada = false;
 		// Mientras ambos personajes tengan vitalidad
-	    while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
-	        System.out.println("");
-	        System.out.println("1. Atacar");
-	        System.out.println("2. Usar Objeto");
-	        System.out.println("3. Usar Habilidad");
-	        System.out.print("Elige una opción: ");
-	        
-	        while (!scanner.hasNextInt()) {
-	        	 System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+		while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
+			System.out.println("");
+			System.out.println("1. Atacar");
+			System.out.println("2. Usar Objeto");
+			System.out.println("3. Usar Habilidad");
+			System.out.print("Elige una opción: ");
+
+			while (!scanner.hasNextInt()) {
+				System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
 				scanner.next();
 			}
 
-	        opcion = scanner.nextInt();
+			opcion = scanner.nextInt();
 			// Validar la opción
-	        while (opcion != 1 && opcion != 2 && opcion != 3) {
-	            System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
-	            opcion = scanner.nextInt();
-	        }
+			while (opcion != 1 && opcion != 2 && opcion != 3) {
+				System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+				opcion = scanner.nextInt();
+			}
 
-	        // Atacar normalmente
-	        if (opcion == 1) {
-	            this.atacar(enemigo);
-	            // Reiniciar el uso de objeto y habilidad al atacar
-	            objetoUsado = false;
-	            habilidadUsada = false;
-	            scanner.nextLine();
-	            System.out.println(centrarLinea("Presione START para continuar"));
-	    		scanner.nextLine();
-	        } else if (opcion == 2) {
-	            // Usar objeto
-	            if (!inventario.isEmpty() && !objetoUsado) {
-	                System.out.println("Objetos disponibles:");
-	                for (int i = 0; i < inventario.size(); i++) {
-	                    System.out.println((i + 1) + ". " + inventario.get(i).getNombre());
-	                }
+			// Atacar normalmente
+			if (opcion == 1) {
+				this.atacar(enemigo);
+				// Reiniciar el uso de objeto y habilidad al atacar
+				objetoUsado = false;
+				habilidadUsada = false;
+				scanner.nextLine();
+				System.out.println(centrarLinea("Presione START para continuar"));
+				scanner.nextLine();
+			} else if (opcion == 2) {
+				// Usar objeto
+				if (!inventario.isEmpty() && !objetoUsado) {
+					System.out.println("Objetos disponibles:");
+					for (int i = 0; i < inventario.size(); i++) {
+						System.out.println((i + 1) + ". " + inventario.get(i).getNombre());
+					}
 
-	                int indiceObjeto;
+					int indiceObjeto;
 					// Validar el índice del objeto
-	                do {
-	                    System.out.print("Elige un objeto introduciendo su número: ");
-	                    indiceObjeto = scanner.nextInt();
+					do {
+						System.out.print("Elige un objeto introduciendo su número: ");
+						indiceObjeto = scanner.nextInt();
 
-	                    if (indiceObjeto <= 0 || indiceObjeto > inventario.size()) {
-	                        System.out.println("Opción no válida. Inténtalo de nuevo.");
-	                    }
+						if (indiceObjeto <= 0 || indiceObjeto > inventario.size()) {
+							System.out.println("Opción no válida. Inténtalo de nuevo.");
+						}
 
-	                } while (indiceObjeto <= 0 || indiceObjeto > inventario.size());
+					} while (indiceObjeto <= 0 || indiceObjeto > inventario.size());
 
-	                // Llamar al método usarObjeto con el objeto seleccionado
-	                this.usarObjeto(inventario.get(indiceObjeto - 1));
+					// Llamar al método usarObjeto con el objeto seleccionado
+					this.usarObjeto(inventario.get(indiceObjeto - 1));
 
-	                // Marcar el objeto como usado
-	                objetoUsado = true;
-	            } else {
-	                System.out.println("No puedes usar más objetos en este turno.");
-	            }
-	            
-	            scanner.nextLine();
-	            System.out.println(centrarLinea("Presione START para continuar"));
-	    		scanner.nextLine();
-	        } else if (opcion == 3) {
-	            // Usar habilidad
-	            if (!listaDeHabilidades.isEmpty() && !habilidadUsada) {
-	                System.out.println("Habilidades disponibles:");
-	                for (int i = 0; i < listaDeHabilidades.size(); i++) {
-	                    System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
-	                }
+					// Marcar el objeto como usado
+					objetoUsado = true;
+				} else {
+					System.out.println("No puedes usar más objetos en este turno.");
+				}
 
-	                int indiceHabilidad;
-	                do {
-	                    System.out.print("Elige una habilidad introduciendo su número: ");
-	                    indiceHabilidad = scanner.nextInt();
+				scanner.nextLine();
+				System.out.println(centrarLinea("Presione START para continuar"));
+				scanner.nextLine();
+			} else if (opcion == 3) {
+				// Usar habilidad
+				if (!listaDeHabilidades.isEmpty() && !habilidadUsada) {
+					System.out.println("Habilidades disponibles:");
+					for (int i = 0; i < listaDeHabilidades.size(); i++) {
+						System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
+					}
 
-	                    if (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size()) {
-	                        System.out.println("Opción no válida. Intenta de nuevo.");
-	                    }
-	                } while (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size());
+					int indiceHabilidad;
+					do {
+						System.out.print("Elige una habilidad introduciendo su número: ");
+						indiceHabilidad = scanner.nextInt();
 
-	                // Llamar al método usarHabilidad con la habilidad seleccionada
-	                this.usarHabilidad(listaDeHabilidades.get(indiceHabilidad - 1));
+						if (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size()) {
+							System.out.println("Opción no válida. Intenta de nuevo.");
+						}
+					} while (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size());
 
-	                // Marcar la habilidad como usada
-	                habilidadUsada = true;
-	            } else {
-	                System.out.println("No puedes usar más habilidades en este turno.");
-	            }
-	            
-	            scanner.nextLine();
-	            System.out.println(centrarLinea("Presione START para continuar"));
-	    		scanner.nextLine();
-	        }
+					// Llamar al método usarHabilidad con la habilidad seleccionada
+					this.usarHabilidad(listaDeHabilidades.get(indiceHabilidad - 1));
 
-	        // Fin del turno, imprimir estado actual de los personajes
-	        System.out.println("Estado después del turno:");
-	        System.out.println(Dialogos.EstadoPersonaje(this));
-	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
-	    }
-	    
-	    
-	    // Verificar si el personaje ha sido derrotado
-	    if (enemigo.getVitalidad() < 0) {
-	    	
-	    	scanner.nextLine();
-            System.out.println(centrarLinea("Presione START para continuar"));
-    		scanner.nextLine();
-	    	System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
-	    	this.subirNivel();
-	    	this.reiniciarEstadisticas();
-	    	enemigo.reiniciarEstadisticas();
-	    }
+					// Marcar la habilidad como usada
+					habilidadUsada = true;
+				} else {
+					System.out.println("No puedes usar más habilidades en este turno.");
+				}
+
+				scanner.nextLine();
+				System.out.println(centrarLinea("Presione START para continuar"));
+				scanner.nextLine();
+			}
+
+			// Fin del turno, imprimir estado actual de los personajes
+			System.out.println("Estado después del turno:");
+			System.out.println(Dialogos.EstadoPersonaje(this));
+			System.out.println(Dialogos.EstadoEnemigo(enemigo));
+		}
+
+		// Verificar si el personaje ha sido derrotado
+		if (enemigo.getVitalidad() <= 0) {
+
+			scanner.nextLine();
+			System.out.println(centrarLinea("Presione START para continuar"));
+			scanner.nextLine();
+			System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
+			this.subirNivel();
+			enemigo.reiniciarEstadisticas();
+		}
 	}
-
-
 
 	@Override
 	public String toString() {

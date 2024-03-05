@@ -40,11 +40,11 @@ public abstract class Habilidad {
 		this.costeFe = costeMana;
 	}
 
-	public abstract void usarHabilidad(Personaje personaje);
-
 	@Override
 	public String toString() {
 		return "Habilidad [nombre = " + nombre + " coste de fe = " + costeFe;
 	}
+
+	protected abstract void usarHabilidad(Personaje personaje);
 
 }

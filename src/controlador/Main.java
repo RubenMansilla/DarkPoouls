@@ -173,8 +173,6 @@ public class Main {
 			habilidadElegida = new AuraPurificadora();
 		} else if (opcion == 3) {
 			habilidadElegida = new EscudoMagico();
-		} else if (opcion == 4) {
-			habilidadElegida = new Aturdir();
 		}
 
 		personajeElegido.equiparArma(armaElegida);
@@ -194,8 +192,6 @@ public class Main {
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
-		
-		System.out.println(esqueleto);
 		
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
