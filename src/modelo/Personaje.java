@@ -319,6 +319,21 @@ public abstract class Personaje {
 
 		boolean objetoUsado = false;
 		boolean habilidadUsada = false;
+		
+		System.out.println(FuncionesDialogo.centrarLinea("" + this.getNombre()));
+		System.out.println();
+		System.out.println(Recursos.vs);
+		System.out.println();
+		System.out.println(FuncionesDialogo.centrarLinea("" + enemigo.getNombre()));
+		
+		scanner.nextLine();
+		System.out.println(centrarLinea("Presione START para continuar"));
+		scanner.nextLine();
+		
+		System.out.println(Dialogos.cajaPersonaje(this));
+		System.out.println(Dialogos.cajaEnemigo(enemigo));
+		
+		
 		// Mientras ambos personajes tengan vitalidad
 		while (this.getVitalidad() > 0 && enemigo.getVitalidad() > 0) {
 			System.out.println("");
