@@ -195,6 +195,8 @@ public class Main {
 			return "derrota";
 		}
 		
+		System.out.println(esqueleto);
+		
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 

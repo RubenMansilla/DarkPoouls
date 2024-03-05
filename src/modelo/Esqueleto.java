@@ -22,7 +22,7 @@ public class Esqueleto extends Personaje {
 	
 	@Override
 	public String toString() {
-		return "DemonioRefugio ["+super.toString()+  "]";
+		return "Esqueleto ["+super.toString()+  "]";
 	}
 	
 	

@@ -273,8 +273,8 @@ public abstract class Personaje {
 		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
 
 		// Imprimir mensaje de ataque
-		System.out.println(
-				this.nombre + " ataca a " + enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño.");
+		System.out.println();
+		System.out.println(Dialogos.cajaResultadoAtaque(this, enemigo, dañoPersonaje));
 		System.out.println();
 
 		Random random = new Random();
@@ -288,9 +288,7 @@ public abstract class Personaje {
 			this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
 
 			System.out.println();
-
-			System.out.println(
-					enemigo.getNombre() + " ataca a " + this.nombre + " y le hace " + dañoEnemigo + " puntos de daño.");
+			System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, dañoEnemigo));
 			System.out.println();
 		} else {
 			System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
@@ -311,6 +309,11 @@ public abstract class Personaje {
 	        System.out.println("2. Usar Objeto");
 	        System.out.println("3. Usar Habilidad");
 	        System.out.print("Elige una opción: ");
+	        
+	        while (!scanner.hasNextInt()) {
+	        	 System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+				scanner.next();
+			}
 
 	        opcion = scanner.nextInt();
 			// Validar la opción
@@ -356,6 +359,10 @@ public abstract class Personaje {
 	            } else {
 	                System.out.println("No puedes usar más objetos en este turno.");
 	            }
+	            
+	            scanner.nextLine();
+	            System.out.println(centrarLinea("Presione START para continuar"));
+	    		scanner.nextLine();
 	        } else if (opcion == 3) {
 	            // Usar habilidad
 	            if (!listaDeHabilidades.isEmpty() && !habilidadUsada) {
@@ -382,6 +389,10 @@ public abstract class Personaje {
 	            } else {
 	                System.out.println("No puedes usar más habilidades en este turno.");
 	            }
+	            
+	            scanner.nextLine();
+	            System.out.println(centrarLinea("Presione START para continuar"));
+	    		scanner.nextLine();
 	        }
 
 	        // Fin del turno, imprimir estado actual de los personajes
@@ -389,8 +400,14 @@ public abstract class Personaje {
 	        System.out.println(Dialogos.EstadoPersonaje(this));
 	        System.out.println(Dialogos.EstadoEnemigo(enemigo));
 	    }
+	    
+	    
 	    // Verificar si el personaje ha sido derrotado
 	    if (enemigo.getVitalidad() < 0) {
+	    	
+	    	scanner.nextLine();
+            System.out.println(centrarLinea("Presione START para continuar"));
+    		scanner.nextLine();
 	    	System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
 	    	this.subirNivel();
 	    	this.reiniciarEstadisticas();

@@ -38,6 +38,12 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.YELLOW);
 	}
+	
+	public static String modeloCajaAtaque(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.WHITE_BACKGROUND + Recursos.BLACK);
+	}
+
 
 	/* Cajas de texto de Inicio */
 
@@ -254,5 +260,11 @@ public class Dialogos {
 		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente a la habilidad" };
 		return modeloCajaError(textoParaCaja);
 	}
+	
+	public static String cajaResultadoAtaque(Personaje personaje, Personaje enemigo, int dañoPersonaje) {
+		String[] textoParaCaja = {personaje.getNombre() + "ataca a " +  enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño"};
+		return modeloCajaAtaque(textoParaCaja);
+	}
+
 
 }
