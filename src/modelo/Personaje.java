@@ -1,5 +1,7 @@
 package modelo;
 
+import static view.FuncionesDialogo.centrarLinea;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -323,6 +325,9 @@ public abstract class Personaje {
 	            // Reiniciar el uso de objeto y habilidad al atacar
 	            objetoUsado = false;
 	            habilidadUsada = false;
+	            scanner.nextLine();
+	            System.out.println(centrarLinea("Presione START para continuar"));
+	    		scanner.nextLine();
 	        } else if (opcion == 2) {
 	            // Usar objeto
 	            if (!inventario.isEmpty() && !objetoUsado) {
