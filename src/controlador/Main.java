@@ -57,6 +57,13 @@ public class Main {
 
 		// Variables
 		int opcion = 0;
+		String armaElegidaNombre = "";
+		String armaEvolucionadaNombre= "";
+		String armaEvolucionadaNombre2 = "";
+		String armaduraElegidaNombre = "Conjunto Anticuado";
+		String armaduraEvolucionadaNombre= "Conjunto de Hierro";
+		String armaduraEvolucionadaNombre2 = "Conjunto de Titanita";
+
 		
 		System.out.println(Recursos.vs);
 
@@ -136,16 +143,25 @@ public class Main {
 
 		if (opcion == 1) {
 			armaElegida = new Katana();
+			armaElegidaNombre = "Katana";
 			armaEvolucionada = new Muramasa();
+			armaEvolucionadaNombre = "Muramasa";
 			armaEvolucionada2 = new Uchigatana();
+			armaEvolucionadaNombre2 = "Uchigatana" ;
 		} else if (opcion == 2) {
 			armaElegida = new EspadaOxidada();
+			armaElegidaNombre = "Espada";
 			armaEvolucionada = new Excalibur();
+			armaEvolucionadaNombre = "Excalibur";
 			armaEvolucionada2 = new EspadaArtorias();
+			armaEvolucionadaNombre2 =  "Espada de Artorias";
 		} else if (opcion == 3) {
 			armaElegida = new HachaDeMano();
+			armaElegidaNombre = "Hacha de Mano";
 			armaEvolucionada = new HachaDeGuerra();
+			armaEvolucionadaNombre = "Hacha de Guerra";
 			armaEvolucionada2 = new HachaDragon();
+			armaEvolucionadaNombre2 = "Hacha del Dragon" ;
 		}
 
 		System.out.println();
@@ -191,6 +207,7 @@ public class Main {
 		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(Dialogos.cajaProta(personajeElegido));
 		
+		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaduraElegidaNombre,armaEvolucionadaNombre , armaduraEvolucionadaNombre));
 		
 		
 		System.out.println();
@@ -198,7 +215,6 @@ public class Main {
 		System.out.println(Dialogos.cajaBoss(demonio));
 		personajeElegido.batalla(demonio);
 		if (personajeElegido.getVitalidad() < 0) {
-			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(demonio));
@@ -225,7 +241,6 @@ public class Main {
 		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
 		personajeElegido.batalla(golemCristal);
 		if (personajeElegido.getVitalidad() < 0) {
-			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
@@ -241,7 +256,6 @@ public class Main {
 		System.out.println(Dialogos.cajaCHEncuentro(personajeElegido, caballeroHueco));
 		personajeElegido.batalla(caballeroHueco);
 		if (personajeElegido.getVitalidad() < 0) {
-			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
@@ -251,13 +265,8 @@ public class Main {
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		
-		System.out.println("Tu arma evoluciona");
-		personajeElegido.equiparArma(armaEvolucionada);
 		
-		System.out.println(centrarLinea("Presione START para continuar"));
-		sc.nextLine();
-		
-		System.out.println("Tu armadura evoluciona");
+		personajeElegido.equiparArma(armaEvolucionada);		
 		personajeElegido.equiparArmadura(conjuntoHierro);
 		
 		System.out.println();
