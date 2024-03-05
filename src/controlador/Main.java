@@ -57,6 +57,8 @@ public class Main {
 
 		// Variables
 		int opcion = 0;
+		
+		System.out.println(Recursos.vs);
 
 		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(centrarLinea("Presione START para continuar"));
