@@ -164,7 +164,7 @@ public class Main {
 
 		opcion = sc.nextInt();
 		// Dependiendo de la opción elegida, se crea una habilidad
-		while (opcion < 1 || opcion > 4) {
+		while (opcion < 1 || opcion > 3) {
 			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
 			opcion = sc.nextInt();
 		}
@@ -189,37 +189,44 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("Mientras recorres tu camino te encuentras");
-
+		
+		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
 		personajeElegido.batalla(esqueleto);
 		if (personajeElegido.getVitalidad() < 0) {
+			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
+		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));	
-		
+		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
 		personajeElegido.batalla(golemCristal);
 		if (personajeElegido.getVitalidad() < 0) {
+			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
 		System.out.println();
+		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		
-		
+		System.out.println(Dialogos.cajaCHEncuentro(personajeElegido, caballeroHueco));
 		personajeElegido.batalla(caballeroHueco);
 		if (personajeElegido.getVitalidad() < 0) {
+			System.out.println(Recursos.gameOver);
 			return "derrota";
 		}
 		
 		System.out.println();
+		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		

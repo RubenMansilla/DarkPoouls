@@ -14,6 +14,10 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCaja(texto);
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.GREEN);
 	}
+	public static String modeloCajaArma(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCaja(texto);
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.MAGENTA);
+	}
 
 	public static String modeloCajaError(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '!');
@@ -26,8 +30,11 @@ public class Dialogos {
 	}
 	public static String modeloCajaBossDerrotado(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '*', '*');
-		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
-		
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);	
+	}
+	public static String modeloCajaNpc(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.WHITE);
 	}
 	public static String modeloCajaBatalla(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
@@ -56,9 +63,9 @@ public class Dialogos {
 				""};
 		return modeloCajaIntroduccion(textoParaCaja);
 	}
-	public static String cajaProta(){
+	public static String cajaProta(Personaje personaje){
 		String[] textoParaCaja = { "",
-				"Yo soy Sir Galvain, La espada ardiente. ",
+				"Yo soy Sir" +personaje.getNombre()+ " , La espada ardiente. ",
 				"Durante algún tiempo fui el verdugo de Gwyn, Señor de la eniza. Debido a mi lealtad y logros fui nombrado como el quinto miembro de 'Los caballeros de Gwyn'.",
 				"En algún momento de la guerra quedé encerrado en unas catacumbas para pasar mis últimos días. Ahora que he conseguido liberarme, quiero saber el resultado de la guerra y porqué nadie me nombra junto a mis compañeros",
 				""};
@@ -88,7 +95,7 @@ public class Dialogos {
 				"2 - Espada Oxidada",
 				"3 - Hacha de Mano",
 				""};
-		return modeloCajaProta(textoParaCaja);
+		return modeloCajaArma(textoParaCaja);
 	}
 	
 	public static String cajaEscogerHabilidad(){
@@ -146,13 +153,13 @@ public class Dialogos {
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
 	}
-	public static String cajaBoss(Nito personaje) {
+	public static String cajaBoss( Personaje personaje) {
 		String[] textoParaCaja = {"",
-				"Llegas a la 'Tumba de los gigantes', despues de superar las distintas trampas y lagos de veneno estas parado frente a: " +personaje.getNombre()+ "' El rey de los muertos' y 'Dios de la muerte'. "+
-				"'Galvain, quinto caballero de Gwyn, has llegado hasta aquí, supongo querrás saber la verdad hacerca de tu desaparición.' ",
+				"Llegas a la 'Tumba de los gigantes', despues de superar las distintas trampas y lagos de veneno estas parado frente a: Nito 'El rey de los muertos' y 'Dios de la muerte'. "+
+				personaje.getNombre() +"', quinto caballero de Gwyn, has llegado hasta aquí, supongo querrás saber la verdad hacerca de tu desaparición.' ",
 				"La verdad es que, Gwyn, el señor de la ceniza, fue sometido por la oscuridad del abismo, mandando a misiones suicidas a sus caballeros ",
-				"pero tu, Galvain, fuiste el único que se negó a seguir sus ordenes, por eso te encerraron, para que no pudieras interferir en sus planes. ",
-				"Lo que Gwyn hizo fue traicionar a su pueblo, y ahora, el mundo esta sumido en la oscuridad, pero no tienes el poder como para cambiar la historia, Galvain. ",
+				"pero tu" +personaje.getNombre()+ ", fuiste el único que se negó a seguir sus ordenes, por eso te encerraron, para que no pudieras interferir en sus planes. ",
+				"Lo que Gwyn hizo fue traicionar a su pueblo, y ahora, el mundo esta sumido en la oscuridad, pero no tienes el poder como para cambiar la historia, " +personaje.getNombre(),
 				"Si consigues mi alma podrías tener una oportunidad, pero no pienso entregar mi vida a un mortal como tu.'",
 				""
 		};
@@ -160,18 +167,18 @@ public class Dialogos {
 	}
 	public static String cajaBossDerrotado(Nito personaje) {
 		String[] textoParaCaja = {"",
-				"Has derrotado a: " +personaje.getNombre()+
-				" El rey de los muertos cae al suelo, y con su último aliento te dice: 'Galvain, no te confundas, el mundo no necesita un salvador, necesita una llama que alumbre su camino, pero ese mo es tu destino.'",
+				"Has derrotado a: Nito", 
+				" El rey de los muertos cae al suelo, y con su último aliento te dice:" +personaje.getNombre()+ "', no te confundas, el mundo no necesita un salvador, necesita una llama que alumbre su camino, pero ese no es tu destino.'",
 				""
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
 	}
 	public static String cajaBoss(Gwyn personaje) {
 		String[] textoParaCaja = {"",
-				"Despues de superar la 'Tumba de los gigantes' llegas al 'Horno de la primera llama', donde te encuentras con: " +personaje.getNombre()+ "' El señor de la ceniza'",
-				"'Galvain, mi quinto, has llegado hasta aquí, supongo querrás saber la verdad hacerca de tu desaparición.' ",
-				"'Tu lealtad y valentía me hubiesen creado problemas, por eso te borre de la historia, pero tu alma se negó a desaparecer y Nito, no quiso acabar con con tu vida.' ",
-				"'Ahora, Galvain, tu alma es la única que me falta para completar mi plan, y no pienso dejar que te interpongas en mi camino.'",							
+				"Despues de superar la 'Tumba de los gigantes' llegas al 'Horno de la primera llama', donde te encuentras con: Gwyn' El señor de la ceniza'",
+				personaje.getNombre()+ "', mi quinto, has llegado hasta aquí, supongo querrás saber la verdad hacerca de tu desaparición.' ",
+				"'Tu lealtad y valentía me hubiesen creado problemas, por eso te borre de la historia, pero tu alma se negó a desaparecer y Nito, no quiso acabar con ella.' ",
+				"'Ahora," +personaje.getNombre()+ ", tu alma es la única que me falta para completar mi plan, y no pienso dejar que te interpongas en mi camino.'",							
 				""
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
@@ -179,11 +186,53 @@ public class Dialogos {
 	public static String cajaBossDerrotado(Gwyn personaje) {
 		String[] textoParaCaja = {"",
 				"Has derrotado a: " +personaje.getNombre()+
-				" El señor de la ceniza cae al suelo, y con su último aliento te dice: 'Galvain, mi fiel soldado, gracias por liberarme de esta maldición.' ",
+				" El señor de la ceniza cae al suelo, y con su último aliento te dice: "+personaje.getNombre()+", mi fiel soldado, gracias por liberarme de esta maldición.' ",
 				"Las cenizas de Gwyn se dispersan por el viento, y ahora es tu cometido esperar a la llegada del 'Elegido' para que encienda la llama y devuelva la luz al mundo.",
 				""
 		};
 		return modeloCajaBossDerrotado(textoParaCaja);
+	}
+	public static String cajaCHEncuentro(Personaje personaje, CaballeroHueco enemigo) {
+		String[] textoParaCaja = {"",
+				"Te has topado con " +enemigo.getNombre(),
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
+	}
+	public static String cajaCHDerrotado(Personaje personaje, CaballeroHueco enemigo) {
+		String[] textoParaCaja = {"",
+				"Mataste con éxito al " +enemigo.getNombre(),
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
+	}
+	public static String cajaEqEncuentro(Personaje personaje, Esqueleto enemigo) {
+		String[] textoParaCaja = {"",
+				"Te has topado con " +enemigo.getNombre(),
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
+	}
+	public static String cajaEqDerrotado(Personaje personaje, Esqueleto enemigo) {
+		String[] textoParaCaja = {"",
+				"El " +enemigo.getNombre()+ " se combierte en polvo",
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
+	}
+	public static String cajaGCEncuentro(Personaje personaje, GolemCristal enemigo) {
+		String[] textoParaCaja = {"",
+				"Te has topado con " +enemigo.getNombre(),
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
+	}
+	public static String cajaGCDerrota(Personaje personaje, GolemCristal enemigo) {
+		String[] textoParaCaja = {"",
+				"Los restos del " +enemigo.getNombre()+ " terminan de resquebrajarse",
+				""
+		};
+		return modeloCajaNpc(textoParaCaja);
 	}
 	
 	public static String cajaPersonaje(Personaje personaje){
@@ -264,7 +313,7 @@ public class Dialogos {
 	}
 	
 	public static String cajaResultadoAtaque(Personaje personaje, Personaje enemigo, int dañoPersonaje) {
-		String[] textoParaCaja = {personaje.getNombre() + "ataca a " +  enemigo.getNombre() + "y le hace " + dañoPersonaje + " puntos de daño"};
+		String[] textoParaCaja = {personaje.getNombre() + " ataca a " +  enemigo.getNombre() + " y le hace " + dañoPersonaje + " puntos de daño"};
 		return modeloCajaAtaque(textoParaCaja);
 	}
 

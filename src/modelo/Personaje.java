@@ -283,7 +283,7 @@ public abstract class Personaje {
 
 		// Restar el daño al enemigo
 		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
-
+		System.out.println("VIDA ENEMIGO" + enemigo.getVitalidad());
 		// Imprimir mensaje de ataque
 		System.out.println();
 		System.out.println(Dialogos.cajaResultadoAtaque(this, enemigo, dañoPersonaje));
@@ -299,7 +299,7 @@ public abstract class Personaje {
 				int dañoEnemigo = enemigo.getFuerza();
 
 				this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
-
+				System.out.println("VIDA PERSONAJE" + this.getVitalidad());
 				System.out.println();
 				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, dañoEnemigo));
 				System.out.println();
