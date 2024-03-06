@@ -293,15 +293,27 @@ public abstract class Personaje {
 			Random random = new Random();
 
 			int probAtaqueEnemigo = random.nextInt(10) + 1;
+			
+			int danoPorFe = 0;
 
 			if (probAtaqueEnemigo != 1) {
+				
+				enemigo.setFe(enemigo.getFe() + 5);
+				
+				if (enemigo.getFe() == 20) {
+					danoPorFe = 5;
+					enemigo.setFe(0);
+					//TODO
+					//Dialogo de aumento de daño
+				}
+				
 				// Ser atacado
-				int dañoEnemigo = enemigo.getFuerza();
+				int danoEnemigo = enemigo.getFuerza();
 
-				this.setVitalidad(this.getVitalidad() - (dañoEnemigo - this.getResistencia()));
+				this.setVitalidad(this.getVitalidad() - ((danoEnemigo + danoPorFe) - this.getResistencia()));
 				System.out.println("VIDA PERSONAJE" + this.getVitalidad());
 				System.out.println();
-				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, dañoEnemigo));
+				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, danoEnemigo));
 				System.out.println();
 			} else {
 				System.out.println("\n" + enemigo.getNombre() + " falla el ataque");

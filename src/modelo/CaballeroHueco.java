@@ -12,8 +12,8 @@ public class CaballeroHueco extends Personaje {
 		super.setFuerzaMaxima(10);
 		super.setResistencia(12);
 		super.setResistenciaMaxima(12);
-		super.setFe(20);
-		super.setFeMaxima(20);
+		super.setFe(0);
+		super.setFeMaxima(0);
 	}
 	public CaballeroHueco(int vitalidad, int fuerza, int resistencia, int fe) {
 		super(vitalidad, fuerza, resistencia, fe);

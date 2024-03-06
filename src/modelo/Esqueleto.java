@@ -12,8 +12,8 @@ public class Esqueleto extends Personaje {
 		super.setFuerzaMaxima(14);
 		super.setResistencia(8);
 		super.setResistenciaMaxima(8);
-		super.setFe(18);
-		super.setFeMaxima(18);
+		super.setFe(0);
+		super.setFeMaxima(0);
 	}
 	
 	public Esqueleto(int vitalidad, int fuerza, int resistencia, int fe) {

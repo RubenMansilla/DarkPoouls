@@ -22,7 +22,7 @@ public class GolemCristal extends Personaje {
 	
 	@Override
 	public String toString() {
-		return "DemonioRefugio ["+super.toString()+  "]";
+		return "Golem de Cristal ["+super.toString()+  "]";
 	}
 	
 	

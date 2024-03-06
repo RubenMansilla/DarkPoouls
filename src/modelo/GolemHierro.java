@@ -2,10 +2,6 @@ package modelo;
 
 public class GolemHierro extends Personaje {
 	
-	//Atributos
-	
-	private int rabia;
-	
 	//Constructor 
 	
 	public GolemHierro() {
@@ -17,18 +13,17 @@ public class GolemHierro extends Personaje {
 		super.setFuerzaMaxima(14);
 		super.setResistencia(11);
 		super.setResistenciaMaxima(11);
-		super.setFe(10);
-		super.setFeMaxima(10);
+		super.setFe(0);
+		super.setFeMaxima(0);
 	}
 	
 	public GolemHierro(int vitalidad, int fuerza, int resistencia, int fe, int rabia) {
 		super(vitalidad, fuerza, resistencia, fe);
-		this.rabia = rabia;
 	}
 	
 	@Override
 	public String toString() {
-		return "DemonioRefugio ["+super.toString()+"rabia=" + rabia +  "]";
+		return "Golem de Hierro ["+super.toString() +  "]";
 	}
 	
 	
