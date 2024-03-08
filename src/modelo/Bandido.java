@@ -9,7 +9,7 @@ public class Bandido extends Personaje {
 		super.setVitalidad(999);
 		super.setVidaMaxima(999);
 		super.setFuerza(999);
-		super.setFuerzaMaxima(999); // Establece el valor por defecto de fuerzaMaxima
+		super.setFuerzaMaxima(super.getFuerza()); // Establece el valor por defecto de fuerzaMaxima
 		super.setResistencia(11);
 		super.setResistenciaMaxima(11);
 		super.setFe(10);

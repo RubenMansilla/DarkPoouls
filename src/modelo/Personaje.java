@@ -21,7 +21,7 @@ public abstract class Personaje {
 	private int resistenciaMaxima;
 	private int fe;
 	private int feMaxima;
-	private Arma arma;
+	protected Arma arma;
 	private Armadura armadura;
 	private ArrayList<Objeto> inventario;
 	private ArrayList<Habilidad> listaDeHabilidades;
@@ -218,13 +218,15 @@ public abstract class Personaje {
 	// Equipar arma
 	public void equiparArma(Arma nuevaArma) {
 		this.arma = nuevaArma;
-		this.fuerza = this.fuerza + nuevaArma.getDaño();
+		this.fuerza = this.fuerza + nuevaArma.getDano();
+		this.fuerzaMaxima = this.fuerzaMaxima + nuevaArma.getDano();
 	}
 
 	// Equipar armadura
 	public void equiparArmadura(Armadura nuevaArmadura) {
 		this.armadura = nuevaArmadura;
 		this.resistencia = this.resistencia + nuevaArmadura.getDefensa();
+		this.resistenciaMaxima = this.resistenciaMaxima + nuevaArmadura.getDefensa();
 	}
 
 	// Se suben nivel y estadísticas

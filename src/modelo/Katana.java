@@ -5,7 +5,7 @@ import java.util.Random;
 public class Katana extends Arma {
 
 	public Katana() {
-		super.setDaño(2);
+		super.setDano(2);
 		super.setDescripcion("Sangrado: otorga al portador la capacidad de infligir hemorragias en sus oponentes");
 	}
 
@@ -34,7 +34,7 @@ public class Katana extends Arma {
 
 	@Override
 	public String toString() {
-		return "Katana [Descripcion=  " + getDescripcion() + ", Daño()= " + getDaño() + "]";
+		return "Katana [Descripcion=  " + getDescripcion() + ", Daño()= " + getDano() + "]";
 	}
 	
 	
