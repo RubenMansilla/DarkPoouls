@@ -303,15 +303,14 @@ public abstract class Personaje {
 				if (enemigo.getFe() == 20) {
 					danoPorFe = 5;
 					enemigo.setFe(0);
-					//TODO
-					//Dialogo de aumento de daño
+					System.out.println(Dialogos.cajaEnfadoEnemigo(enemigo));
 				}
 				
 				// Ser atacado
 				int danoEnemigo = enemigo.getFuerza();
 
 				this.setVitalidad(this.getVitalidad() - ((danoEnemigo + danoPorFe) - this.getResistencia()));
-				System.out.println("VIDA PERSONAJE" + this.getVitalidad());
+				
 				System.out.println();
 				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, danoEnemigo));
 				System.out.println();

@@ -261,7 +261,7 @@ public class Dialogos {
 		return modeloCajaError(textoParaCaja);
 	}
 
-	public static String cajaEvolucion(String armaActual, String armaduraActual, String nuevoArma,
+	public static String cajaEvolucion(String armaActual, String nuevoArma , String armaduraActual,
 			String nuevaArmadura) {
 		String[] textoParaCaja = { "", 
 				"En la forja de la adversidad, tu " + armaActual+ " ha sido templada, y ahora, resplandece con el fulgor de una " +nuevoArma+"." ,
@@ -271,6 +271,13 @@ public class Dialogos {
 		return modeloCajaEvolucion(textoParaCaja);
 	}
 
+	
+	public static String cajaEnfadoEnemigo(Personaje enemigo ) {
+		String[] textoParaCaja = { "",
+				enemigo.getNombre()+ " se enfurece, su daño aumenta en 5",
+				""};
+		return modeloCajaError(textoParaCaja);
+	}
 	public static String cajaErrorInicio() {
 		String[] textoParaCaja = { "Error:", "¡Vaya!, parece que tiene que su nombre tiene que empezar por una letra" };
 		return modeloCajaError(textoParaCaja);

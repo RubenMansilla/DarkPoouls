@@ -209,9 +209,8 @@ public class Main {
 		
 		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaduraElegidaNombre,armaEvolucionadaNombre , armaduraEvolucionadaNombre));
 		
-		
+		//Batalla Demonio del refugio
 		System.out.println();
-		//System.out.println("Mientras recorres tu camino te encuentras");
 		System.out.println(Dialogos.cajaBoss(demonio));
 		personajeElegido.batalla(demonio);
 		if (personajeElegido.getVitalidad() < 0) {
@@ -222,20 +221,7 @@ public class Main {
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		
-		System.out.println();
-		System.out.println("Mientras recorres tu camino te encuentras");
-		
-		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
-		personajeElegido.batalla(esqueleto);
-		if (personajeElegido.getVitalidad() < 0) {
-			return "derrota";
-		}
-		
-		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
-		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
-		System.out.println(centrarLinea("Presione START para continuar"));
-		sc.nextLine();
-
+		//Batalla  Golems de cristal(2 batallas)
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));	
 		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
@@ -249,7 +235,75 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+		
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));	
+		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
+		personajeElegido.batalla(golemCristal);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		
+		System.out.println();
+		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre, armaduraEvolucionadaNombre));
+		personajeElegido.equiparArma(armaEvolucionada);		
+		personajeElegido.equiparArmadura(conjuntoHierro);
+		
+		//Batalla Golem de hierro
+		System.out.println(centrarLinea("Estadística"));
+		System.out.println();
+		System.out.println(Dialogos.cajaBoss(golemHierro));
+		personajeElegido.batalla(golemHierro);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		System.out.println(Dialogos.cajaBossDerrotado(golemHierro));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		
+		
+		//Batalla esqueletos 
+		System.out.println();		
+		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
+		personajeElegido.batalla(esqueleto);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		
+		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		System.out.println();		
+		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
+		personajeElegido.batalla(esqueleto);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		
+		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		
+		//Batalla Nito
+		System.out.println();
+		System.out.println(Dialogos.cajaBoss(nito));
+		personajeElegido.batalla(nito);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		System.out.println(Dialogos.cajaBossDerrotado(nito));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
 
+		//Batalla Caballeor hueco
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		
@@ -264,8 +318,37 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		
+		System.out.println(Dialogos.cajaCHEncuentro(personajeElegido, caballeroHueco));
+		personajeElegido.batalla(caballeroHueco);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
 		
+		System.out.println();
+		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		System.out.println(Dialogos.cajaEvolucion(armaEvolucionadaNombre, armaEvolucionadaNombre2, armaduraEvolucionadaNombre, armaduraEvolucionadaNombre2));
+		personajeElegido.equiparArma(armaEvolucionada2);		
+		personajeElegido.equiparArmadura(conjuntoTitanita);
+		
+		//Batalla final Gwyn
+		System.out.println();
+		System.out.println(Dialogos.cajaBoss(gwyn));
+		personajeElegido.batalla(gwyn);
+		if (personajeElegido.getVitalidad() < 0) {
+			return "derrota";
+		}
+		System.out.println(Dialogos.cajaBossDerrotado(gwyn));
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+		
+		//Evolucion Arma y Armadura
 		personajeElegido.equiparArma(armaEvolucionada);		
 		personajeElegido.equiparArmadura(conjuntoHierro);
 		
