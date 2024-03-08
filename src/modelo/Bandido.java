@@ -12,7 +12,7 @@ public class Bandido extends Personaje {
 		super.setFuerzaMaxima(super.getFuerza());
 		super.setResistencia(11);
 		super.setResistenciaMaxima(super.getResistencia());
-		super.setFe(10);
+		super.setFe(100);
 		super.setFeMaxima(super.getFe());
 	}
 	

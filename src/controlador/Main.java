@@ -125,6 +125,9 @@ public class Main {
 			armaEvolucionada2 = new HachaDragon();
 			armaEvolucionadaNombre2 = "Hacha del Dragon";
 		}
+		
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
 
 		// Equipar armadura y habilidad
 		personajeElegido.equiparArma(armaElegida);
