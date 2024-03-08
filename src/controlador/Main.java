@@ -59,6 +59,7 @@ public class Main {
 
 		// Variables
 		int opcion = 0;
+		int opcionHabilidad = 0;
 		String armaElegidaNombre = "";
 		String armaEvolucionadaNombre= "";
 		String armaEvolucionadaNombre2 = "";
@@ -66,9 +67,8 @@ public class Main {
 		String armaduraEvolucionadaNombre= "Conjunto de Hierro";
 		String armaduraEvolucionadaNombre2 = "Conjunto de Titanita";
 
+		//Inicio
 		
-		System.out.println(Recursos.vs);
-
 		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -180,18 +180,18 @@ public class Main {
 			sc.next();
 		}
 
-		opcion = sc.nextInt();
+		opcionHabilidad = sc.nextInt();
 		// Dependiendo de la opción elegida, se crea una habilidad
-		while (opcion < 1 || opcion > 3) {
+		while (opcionHabilidad < 1 || opcionHabilidad > 3) {
 			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
-			opcion = sc.nextInt();
+			opcionHabilidad = sc.nextInt();
 		}
 
-		if (opcion == 1) {
+		if (opcionHabilidad == 1) {
 			habilidadElegida = new Berserker();
-		} else if (opcion == 2) {
+		} else if (opcionHabilidad == 2) {
 			habilidadElegida = new AuraPurificadora();
-		} else if (opcion == 3) {
+		} else if (opcionHabilidad == 3) {
 			habilidadElegida = new EscudoMagico();
 		}
 
@@ -251,9 +251,7 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre, armaduraEvolucionadaNombre));
-		personajeElegido.equiparArma(armaEvolucionada);		
-		personajeElegido.equiparArmadura(conjuntoHierro);
+		
 		
 		//Batalla Golem de hierro
 		System.out.println(centrarLinea("Estadística"));
@@ -267,6 +265,11 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+		
+		//Evolucion arma y armadura
+		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre, armaduraEvolucionadaNombre));
+		personajeElegido.equiparArma(armaEvolucionada);		
+		personajeElegido.equiparArmadura(conjuntoHierro);
 		
 		
 		//Batalla esqueletos 
@@ -292,6 +295,39 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+		
+		//Escoger otra habilidad
+		sc.nextLine();
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
+		System.out.println(Dialogos.cajaEscogerHabilidad());
+		System.out.println("Ingrese el numero correspondiente a la habilidad: ");
+
+		while (!sc.hasNextInt()) {
+			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
+			sc.next();
+		}
+
+		opcion = sc.nextInt();
+		// Dependiendo de la opción elegida, se crea una habilidad
+		while (opcion < 1 || opcion > 3) {
+			System.out.println(Dialogos.cajaErrorOpcionHabilidad());
+			opcion = sc.nextInt();
+		}
+		
+		while (opcionHabilidad == opcion) {
+			System.out.println(Dialogos.cajaErrorOpcionHabilidad2());
+			opcion = sc.nextInt();
+		}
+
+		if (opcion == 1) {
+			habilidadElegida = new Berserker();
+		} else if (opcion == 2) {
+			habilidadElegida = new AuraPurificadora();
+		} else if (opcion == 3) {
+			habilidadElegida = new EscudoMagico();
+		}
 		
 		//Batalla Nito
 		System.out.println();
@@ -334,6 +370,8 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
+		
+		//Evolucion arma y armadura
 		System.out.println(Dialogos.cajaEvolucion(armaEvolucionadaNombre, armaEvolucionadaNombre2, armaduraEvolucionadaNombre, armaduraEvolucionadaNombre2));
 		personajeElegido.equiparArma(armaEvolucionada2);		
 		personajeElegido.equiparArmadura(conjuntoTitanita);
@@ -349,10 +387,6 @@ public class Main {
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-		
-		//Evolucion Arma y Armadura
-		personajeElegido.equiparArma(armaEvolucionada);		
-		personajeElegido.equiparArmadura(conjuntoHierro);
 		
 		System.out.println();
 		System.out.println(centrarLinea("Presione START para continuar"));

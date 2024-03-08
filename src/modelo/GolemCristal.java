@@ -11,7 +11,7 @@ public class GolemCristal extends Personaje {
 		super.setFuerza(6);
 		super.setFuerzaMaxima(6);
 		super.setResistencia(2);
-		super.setResistenciaMaxima(20);
+		super.setResistenciaMaxima(2);
 		super.setFe(0);
 		super.setFeMaxima(0);
 	}

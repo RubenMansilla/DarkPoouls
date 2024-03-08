@@ -64,6 +64,11 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.WHITE_BACKGROUND + Recursos.BLACK);
 	}
+	
+	public static String modeloCajaVS(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.RED);
+	}
 
 	/* Cajas de texto de Inicio */
 
@@ -297,11 +302,47 @@ public class Dialogos {
 		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente a la habilidad" };
 		return modeloCajaError(textoParaCaja);
 	}
+	
+	public static String cajaErrorOpcionHabilidad2() {
+		String[] textoParaCaja = { "Error:", "Habilidad ya obtendida" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorTurnoObjeto() {
+		String[] textoParaCaja = { "Error:", "No puedes usar más objetos en este turno" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorTurnoObjeto2() {
+		String[] textoParaCaja = { "Error:", "Opción no válida. Intenta de nuevo." };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorTurnoHabilidad() {
+		String[] textoParaCaja = { "Error:", "No puedes usar más habilidades en este turno" };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaErrorTurnoHabilidad2() {
+		String[] textoParaCaja = { "Error:", "Opción no válida. Intenta de nuevo." };
+		return modeloCajaError(textoParaCaja);
+	}
+	
+	public static String cajaInventarioVacio() {
+		String[] textoParaCaja = { "Error:", "No dispones de objetos en tu inventario" };
+		return modeloCajaError(textoParaCaja);
+	}
 
 	public static String cajaResultadoAtaque(Personaje personaje, Personaje enemigo, int dañoPersonaje) {
 		String[] textoParaCaja = { personaje.getNombre() + " ataca a " + enemigo.getNombre() + " y le hace "
 				+ dañoPersonaje + " puntos de daño" };
 		return modeloCajaAtaque(textoParaCaja);
+	}
+	
+	public static String cajaAtaque(Personaje personaje) {
+		String[] textoParaCaja = { "" + personaje.getNombre()
+				 };
+		return modeloCajaVS(textoParaCaja);
 	}
 
 }

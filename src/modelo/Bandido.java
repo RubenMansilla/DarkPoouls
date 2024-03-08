@@ -7,13 +7,13 @@ public class Bandido extends Personaje {
 		super();
 		super.setNombre(nombre);
 		super.setVitalidad(999);
-		super.setVidaMaxima(999);
+		super.setVidaMaxima(super.getVitalidad());
 		super.setFuerza(999);
-		super.setFuerzaMaxima(super.getFuerza()); // Establece el valor por defecto de fuerzaMaxima
+		super.setFuerzaMaxima(super.getFuerza());
 		super.setResistencia(11);
-		super.setResistenciaMaxima(11);
+		super.setResistenciaMaxima(super.getResistencia());
 		super.setFe(10);
-		super.setFeMaxima(10);
+		super.setFeMaxima(super.getFe());
 	}
 	
 	public Bandido(String nombre, int vitalidad, int fuerza, int resistencia, int fe) {

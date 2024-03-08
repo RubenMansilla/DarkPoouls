@@ -253,9 +253,13 @@ public abstract class Personaje {
 
 	// Reiniciar estadísticas
 	public void reiniciarEstadisticas() {
+		System.out.println(this.getNombre() + "se recupera de sus heridas");
+		System.out.println("vida actual" + this.getVitalidad());
+		System.out.println("vida maxima" + this.getVidaMaxima());
 		this.setVitalidad(this.getVidaMaxima());
 		this.setFuerza(this.getFuerzaMaxima());
 		this.setResistencia(this.getResistenciaMaxima());
+		this.setFe(this.getFeMaxima());
 	}
 
 	// Usar objetos y habilidades
@@ -266,6 +270,10 @@ public abstract class Personaje {
 	// Usar habilidades
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
+	}
+	
+	public void calculoDano() {
+		this.setFuerza(this.getFuerza() + arma.getDano());
 	}
 
 	// Atacar
@@ -319,8 +327,6 @@ public abstract class Personaje {
 			} else {
 				System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
 			}
-		}else {
-			enemigo.setVitalidad(0);
 		}
 
 	}
@@ -334,11 +340,13 @@ public abstract class Personaje {
 		boolean objetoUsado = false;
 		boolean habilidadUsada = false;
 		
-		System.out.println(FuncionesDialogo.centrarLinea("" + this.getNombre()));
+		System.out.println();
+		System.out.println(Dialogos.cajaAtaque(this));
 		System.out.println();
 		System.out.println(Recursos.vs);
 		System.out.println();
-		System.out.println(FuncionesDialogo.centrarLinea("" + enemigo.getNombre()));
+		System.out.println(Dialogos.cajaAtaque(enemigo));
+		System.out.println();
 		
 		scanner.nextLine();
 		System.out.println(centrarLinea("Presione START para continuar"));
@@ -392,7 +400,7 @@ public abstract class Personaje {
 						indiceObjeto = scanner.nextInt();
 
 						if (indiceObjeto <= 0 || indiceObjeto > inventario.size()) {
-							System.out.println("Opción no válida. Inténtalo de nuevo.");
+							System.out.println(Dialogos.cajaErrorTurnoObjeto2());
 						}
 
 					} while (indiceObjeto <= 0 || indiceObjeto > inventario.size());
@@ -402,8 +410,10 @@ public abstract class Personaje {
 
 					// Marcar el objeto como usado
 					objetoUsado = true;
-				} else {
-					System.out.println("No puedes usar más objetos en este turno.");
+				} else if (inventario.isEmpty()) {
+					System.out.println(Dialogos.cajaInventarioVacio());
+				}else {
+					System.out.println(Dialogos.cajaErrorTurnoObjeto());
 				}
 
 				scanner.nextLine();
@@ -412,19 +422,19 @@ public abstract class Personaje {
 			} else if (opcion == 3) {
 				// Usar habilidad
 				if (!listaDeHabilidades.isEmpty() && !habilidadUsada) {
-					System.out.println("Habilidades disponibles:");
+					System.out.println();
+					System.out.println(centrarLinea("Habilidades disponibles:"));
 					for (int i = 0; i < listaDeHabilidades.size(); i++) {
 						System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
 					}
 
 					int indiceHabilidad;
 					do {
-						System.out.print("Elige una habilidad introduciendo su número: ");
+						System.out.print(centrarLinea("Elige una habilidad introduciendo su número: "));
 						indiceHabilidad = scanner.nextInt();
 
 						if (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size()) {
-							System.out.println("Opción no válida. Intenta de nuevo.");
-						}
+							System.out.println(Dialogos.cajaErrorTurnoHabilidad2());						}
 					} while (indiceHabilidad <= 0 || indiceHabilidad > listaDeHabilidades.size());
 
 					// Llamar al método usarHabilidad con la habilidad seleccionada
@@ -433,7 +443,7 @@ public abstract class Personaje {
 					// Marcar la habilidad como usada
 					habilidadUsada = true;
 				} else {
-					System.out.println("No puedes usar más habilidades en este turno.");
+					System.out.println(Dialogos.cajaErrorTurnoHabilidad());
 				}
 
 				scanner.nextLine();
@@ -442,7 +452,7 @@ public abstract class Personaje {
 			}
 
 			// Fin del turno, imprimir estado actual de los personajes
-			System.out.println("Estado después del turno:");
+			System.out.println(centrarLinea(("Estado después del turno:")));
 			System.out.println(Dialogos.EstadoPersonaje(this));
 			System.out.println(Dialogos.EstadoEnemigo(enemigo));
 		}
@@ -451,11 +461,12 @@ public abstract class Personaje {
 		batallas++;
 		if (enemigo.getVitalidad() <= 0) {
 
+			enemigo.reiniciarEstadisticas();
+			this.reiniciarEstadisticas();
 			scanner.nextLine();
 			System.out.println(centrarLinea("Presione START para continuar"));
 			scanner.nextLine();
 			System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
-			enemigo.reiniciarEstadisticas();
 			}
 		if (batallas == 2) {
 			this.subirNivel();
