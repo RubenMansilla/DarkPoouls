@@ -1,12 +1,14 @@
 package controlador;
 
-import static view.FuncionesDialogo.centrarLinea;
+
 
 import java.util.Scanner;
 
 import modelo.*;
-
 import view.*;
+
+import static view.FuncionesDialogo.centrarLinea;
+
 
 public class Main {
 
