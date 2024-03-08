@@ -22,7 +22,7 @@ public class CaballeroHueco extends Personaje {
 	
 	@Override
 	public String toString() {
-		return "CaballeroHueco [toString()=" + super.toString() + "]";
+		return "Caballero Hueco [toString()=" + super.toString() + "]";
 	}
 	
 	

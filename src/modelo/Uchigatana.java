@@ -4,11 +4,16 @@ public class Uchigatana extends Katana {
 	
 	public Uchigatana() {
 		super();
-		super.setDaño(8);
+		super.setDano(8);
 	}
 	
 	public Uchigatana(String descripcion, int daño) {
 		super(descripcion, daño);
+	}
+
+	@Override
+	public String toString() {
+		return "Uchigatana " + super.toString() + "]";
 	}
 	
 	

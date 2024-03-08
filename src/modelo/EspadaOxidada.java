@@ -6,7 +6,7 @@ public class EspadaOxidada extends Arma {
 
 	public EspadaOxidada() {
 		super();
-		super.setDaño(4);
+		super.setDano(4);
 		super.setDescripcion("Quebranta huesos: reduce la resistencia del enemigo");
 	}
 
@@ -27,4 +27,10 @@ public class EspadaOxidada extends Arma {
 		}
 
 	}
+	
+	@Override
+	public String toString() {
+		return "Espada Oxidada " + super.toString() + "]";
+	}
+	
 }

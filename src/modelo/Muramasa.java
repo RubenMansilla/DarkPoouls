@@ -11,4 +11,10 @@ public class Muramasa extends Katana {
 		super(descripcion, daño);
 	}
 
+	@Override
+	public String toString() {
+		return "Muramasa " + super.toString() + "]";
+	}
+	
+	
 }
