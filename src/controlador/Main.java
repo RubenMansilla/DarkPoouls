@@ -125,7 +125,7 @@ public class Main {
 			armaEvolucionada2 = new HachaDragon();
 			armaEvolucionadaNombre2 = "Hacha del Dragon";
 		}
-		
+
 		personajeElegido.agregarObjeto(estus);
 		personajeElegido.agregarObjeto(estus);
 
@@ -139,8 +139,7 @@ public class Main {
 		sc.nextLine();
 
 		// Seleccion de Habilidad y añadir habilidad
-		Habilidad habilidadElegida = seleccionarHabilidad(sc, 0);
-		personajeElegido.agregarHabilidad(habilidadElegida);
+		seleccionarHabilidad(personajeElegido, sc);
 
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -151,8 +150,6 @@ public class Main {
 		System.out.println();
 		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(Dialogos.cajaProta(personajeElegido));
-
-	
 
 		// Batalla Demonio del refugio
 		System.out.println();
@@ -210,7 +207,7 @@ public class Main {
 				armaduraEvolucionadaNombre));
 		personajeElegido.equiparArma(armaEvolucionada);
 		personajeElegido.equiparArmadura(conjuntoHierro);
-		
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
@@ -242,12 +239,9 @@ public class Main {
 		sc.nextLine();
 
 		// Escoger otra habilidad
-		sc.nextLine();
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-
-		Habilidad habilidadElegida2 = seleccionarHabilidad(sc, 1);
-		personajeElegido.agregarHabilidad(habilidadElegida2);
+		seleccionarHabilidad(personajeElegido, sc);
 
 		// Batalla Nito
 		System.out.println();
@@ -287,19 +281,18 @@ public class Main {
 
 		System.out.println();
 		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
-		
+
 		// Evolucion arma y armadura
 		System.out.println(Dialogos.cajaEvolucion(armaEvolucionadaNombre, armaEvolucionadaNombre2,
 				armaduraEvolucionadaNombre, armaduraEvolucionadaNombre2));
 		personajeElegido.equiparArma(armaEvolucionada2);
 		personajeElegido.equiparArmadura(conjuntoTitanita);
-		
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-
 
 		// Batalla final Gwyn
 		System.out.println();
@@ -323,7 +316,9 @@ public class Main {
 		return "finDeLaPartida";
 	}
 
-	private static Habilidad seleccionarHabilidad(Scanner sc, int habilidadElegidaAnterior) {
+	private static int habilidadElegidaAnterior = 0;
+
+	private static void seleccionarHabilidad(Personaje personaje, Scanner sc) {
 		System.out.println(Dialogos.cajaEscogerHabilidad());
 		System.out.println("Ingrese el numero correspondiente a la habilidad: ");
 		int opcion = obtenerOpcionValida(sc, 1, 3);
@@ -334,16 +329,20 @@ public class Main {
 			opcion = obtenerOpcionValida(sc, 1, 3);
 		}
 
-		switch (opcion) {
-		case 1:
-			return new Berserker();
-		case 2:
-			return new AuraPurificadora();
-		case 3:
-			return new EscudoMagico();
-		default:
-			return null;
+		if (opcion == 1) {
+			habilidadElegidaAnterior = 1;
+			Berserker berserker = new Berserker();
+			personaje.agregarHabilidad(berserker);
+		} else if (opcion == 2) {
+			habilidadElegidaAnterior = 2;
+			AuraPurificadora auraPurificadora = new AuraPurificadora();
+			personaje.agregarHabilidad(auraPurificadora);
+		} else if (opcion == 3) {
+			habilidadElegidaAnterior = 3;
+			EscudoMagico escudoMagico = new EscudoMagico();
+			personaje.agregarHabilidad(escudoMagico);
 		}
+
 	}
 
 	public static Personaje seleccionarPersonaje(Scanner sc, String nombre) {
