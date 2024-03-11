@@ -126,9 +126,6 @@ public class Main {
 			armaEvolucionadaNombre2 = "Hacha del Dragon";
 		}
 
-		personajeElegido.agregarObjeto(estus);
-		personajeElegido.agregarObjeto(estus);
-
 		// Equipar armadura y habilidad
 		personajeElegido.equiparArma(armaElegida);
 		personajeElegido.equiparArmadura(conjuntoAnticuado);
@@ -159,6 +156,16 @@ public class Main {
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(demonio));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(estus, 5));
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -174,6 +181,13 @@ public class Main {
 
 		System.out.println();
 		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(amuletoDelResguardo, 2));
+		personajeElegido.agregarObjeto(amuletoDelResguardo);
+		personajeElegido.agregarObjeto(amuletoDelResguardo);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -188,6 +202,12 @@ public class Main {
 
 		System.out.println();
 		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(amuletoDelResguardo, 1));
+		personajeElegido.agregarObjeto(amuletoDelResguardo);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -223,6 +243,13 @@ public class Main {
 		}
 
 		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(cretina, 2));
+		personajeElegido.agregarObjeto(cretina);
+		personajeElegido.agregarObjeto(cretina);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -234,6 +261,13 @@ public class Main {
 		}
 
 		System.out.println(Dialogos.cajaEqDerrotado(personajeElegido, esqueleto));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(cretina, 2));
+		personajeElegido.agregarObjeto(cretina);
+		personajeElegido.agregarObjeto(cretina);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -251,6 +285,13 @@ public class Main {
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(nito));
+		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(cuerpoDeCristo, 3));
+		personajeElegido.agregarObjeto(cuerpoDeCristo);
+		personajeElegido.agregarObjeto(cuerpoDeCristo);
+		personajeElegido.agregarObjeto(cuerpoDeCristo);
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
 		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();

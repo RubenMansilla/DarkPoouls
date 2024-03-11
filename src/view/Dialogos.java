@@ -44,6 +44,10 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '*', '*');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
 	}
+	public static String modeloCajaObjetoRecogido(String[] texto) {
+		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '*', '*');
+		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
+	}
 
 	public static String modeloCajaNpc(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
@@ -275,7 +279,14 @@ public class Dialogos {
 				""};
 		return modeloCajaEvolucion(textoParaCaja);
 	}
-
+	
+	public static String cajaObjeto(Objeto objeto, int cantidad) {
+		String[] textoParaCaja = {"",
+				"Has recogido de los restos de tu enemigo "+ cantidad + " " + objeto.getNombre(),
+				""				
+		};
+		return modeloCajaObjetoRecogido(textoParaCaja);
+	}
 	
 	public static String cajaEnfadoEnemigo(Personaje enemigo ) {
 		String[] textoParaCaja = { "",

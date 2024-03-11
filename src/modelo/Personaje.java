@@ -391,7 +391,7 @@ public abstract class Personaje {
 				if (!inventario.isEmpty() && !objetoUsado) {
 					System.out.println("Objetos disponibles:");
 					for (int i = 0; i < inventario.size(); i++) {
-						System.out.println((i + 1) + ". " + inventario.get(i).getNombre());
+						System.out.println((i + 1) + ". " + inventario.get(i).getNombre()+ "(" + inventario.get(i).getCantidad() + ")");
 					}
 
 					int indiceObjeto;
