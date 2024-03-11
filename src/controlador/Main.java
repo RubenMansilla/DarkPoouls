@@ -152,10 +152,7 @@ public class Main {
 		System.out.println(Dialogos.cajaIntroduccion());
 		System.out.println(Dialogos.cajaProta(personajeElegido));
 
-		/*
-		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaduraElegidaNombre, armaEvolucionadaNombre,
-				armaduraEvolucionadaNombre));
-				*/
+	
 
 		// Batalla Demonio del refugio
 		System.out.println();
@@ -207,15 +204,18 @@ public class Main {
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(golemHierro));
-		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
-		System.out.println(centrarLinea("Presione START para continuar"));
-		sc.nextLine();
 
 		// Evolucion arma y armadura
 		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre,
 				armaduraEvolucionadaNombre));
 		personajeElegido.equiparArma(armaEvolucionada);
 		personajeElegido.equiparArmadura(conjuntoHierro);
+		
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
 
 		// Batalla esqueletos
 		System.out.println();
@@ -287,15 +287,19 @@ public class Main {
 
 		System.out.println();
 		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
-		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
-		System.out.println(centrarLinea("Presione START para continuar"));
-		sc.nextLine();
-
+		
 		// Evolucion arma y armadura
 		System.out.println(Dialogos.cajaEvolucion(armaEvolucionadaNombre, armaEvolucionadaNombre2,
 				armaduraEvolucionadaNombre, armaduraEvolucionadaNombre2));
 		personajeElegido.equiparArma(armaEvolucionada2);
 		personajeElegido.equiparArmadura(conjuntoTitanita);
+		
+		System.out.println(Dialogos.reiniciarEstadisticas(personajeElegido));
+		System.out.println(centrarLinea("Estadisticas"));
+		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 
 		// Batalla final Gwyn
 		System.out.println();
