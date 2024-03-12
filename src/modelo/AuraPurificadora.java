@@ -15,8 +15,10 @@ public class AuraPurificadora extends Habilidad {
 	public void usarHabilidad(Personaje personaje) {
 		
 		if (personaje.getFe() > getCosteFe()) {		
-			personaje.setVitalidad(personaje.getVitalidad() + 12);
+			personaje.setVitalidad(personaje.getVidaMaxima());
 			personaje.setFe(personaje.getFe() - getCosteFe());
+		}else {
+			System.out.println("No dispones de la Fe suficiente");
 		}
 
 	}

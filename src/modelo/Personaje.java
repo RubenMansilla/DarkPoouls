@@ -26,6 +26,7 @@ public abstract class Personaje {
 	private ArrayList<Objeto> inventario;
 	private ArrayList<Habilidad> listaDeHabilidades;
 	private int batallas = 0;
+	private int tiempoHabilidad = 0;
 
 	// Constructores
 	public Personaje() {
@@ -233,15 +234,14 @@ public abstract class Personaje {
 
 	public void subirNivel() {
 
-		this.reiniciarEstadisticas();
-
 		this.setNivel(nivel + 1);
-		this.setVitalidad(vidaMaxima + 2);
+		this.setVitalidad(vitalidad + 2);
+		this.setVidaMaxima(this.getVitalidad());
 		this.setFuerza(fuerzaMaxima + 2);
 		this.setFuerzaMaxima(this.getFuerza());
 		this.setResistencia(resistenciaMaxima + 2);
 		this.setResistenciaMaxima(this.getResistencia());
-		this.setFe(feMaxima + 2);
+		this.setFe(feMaxima + 5);
 		this.setFeMaxima(this.getFe());
 
 		System.out.println(Dialogos.subirNivel(this));
@@ -253,9 +253,6 @@ public abstract class Personaje {
 
 	// Reiniciar estadísticas
 	public void reiniciarEstadisticas() {
-		System.out.println(this.getNombre() + "se recupera de sus heridas");
-		System.out.println("vida actual" + this.getVitalidad());
-		System.out.println("vida maxima" + this.getVidaMaxima());
 		this.setVitalidad(this.getVidaMaxima());
 		this.setFuerza(this.getFuerzaMaxima());
 		this.setResistencia(this.getResistenciaMaxima());
@@ -289,7 +286,6 @@ public abstract class Personaje {
 
 		// Restar el daño al enemigo
 		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje));
-		System.out.println("VIDA ENEMIGO" + enemigo.getVitalidad());
 		// Imprimir mensaje de ataque
 		System.out.println();
 		System.out.println(Dialogos.cajaResultadoAtaque(this, enemigo, dañoPersonaje));
@@ -313,14 +309,15 @@ public abstract class Personaje {
 				}
 				
 				// Ser atacado
-				int danoEnemigo = enemigo.getFuerza() - this.getResistencia();
+				int danoEnemigo = enemigo.getFuerza() + danoPorFe - this.getResistencia();
 
-				this.setVitalidad(this.getVitalidad() - ((danoEnemigo + danoPorFe)));
+				this.setVitalidad(this.getVitalidad() - danoEnemigo);
 				
 				System.out.println();
 				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, danoEnemigo));
 				System.out.println();
 			} else {
+				//TODO dialogo fallo ataque
 				System.out.println("\n" + enemigo.getNombre() + " falla el ataque");
 			}
 		}
@@ -386,6 +383,16 @@ public abstract class Personaje {
 				scanner.nextLine();
 				System.out.println(centrarLinea("Presione START para continuar"));
 				scanner.nextLine();
+				
+				//Aumentar tiempo de uso de la habilidad
+				tiempoHabilidad++;
+				
+				//Reiniciar estadisticas por uso de habilidad
+				if (tiempoHabilidad == 2) {
+					this.setFuerza(this.getFuerzaMaxima());
+					this.setResistencia(this.getResistenciaMaxima());
+				}
+				
 			} else if (opcion == 2) {
 				// Usar objeto
 				if (!inventario.isEmpty() && !objetoUsado) {
@@ -408,7 +415,7 @@ public abstract class Personaje {
 
 					// Llamar al método usarObjeto con el objeto seleccionado
 					this.usarObjeto(inventario.get(indiceObjeto - 1));
-
+					this.eliminarObjeto(inventario.get(indiceObjeto - 1));
 					// Marcar el objeto como usado
 					objetoUsado = true;
 				} else if (inventario.isEmpty()) {
@@ -426,11 +433,12 @@ public abstract class Personaje {
 					System.out.println();
 					System.out.println(centrarLinea("Habilidades disponibles:"));
 					for (int i = 0; i < listaDeHabilidades.size(); i++) {
-						System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre());
+						System.out.println((i + 1) + ". " + listaDeHabilidades.get(i).getNombre() + "( Coste: " + listaDeHabilidades.get(i).getCosteFe() + " )");
 					}
 
 					int indiceHabilidad;
 					do {
+						System.out.println();
 						System.out.print(centrarLinea("Elige una habilidad introduciendo su número: "));
 						indiceHabilidad = scanner.nextInt();
 
@@ -440,7 +448,7 @@ public abstract class Personaje {
 
 					// Llamar al método usarHabilidad con la habilidad seleccionada
 					this.usarHabilidad(listaDeHabilidades.get(indiceHabilidad - 1));
-
+					
 					// Marcar la habilidad como usada
 					habilidadUsada = true;
 				} else {
@@ -461,15 +469,10 @@ public abstract class Personaje {
 		// Verificar si el personaje ha sido derrotado
 		batallas++;
 		if (enemigo.getVitalidad() <= 0) {
-
 			enemigo.reiniciarEstadisticas();
 			this.reiniciarEstadisticas();
-			scanner.nextLine();
-			System.out.println(centrarLinea("Presione START para continuar"));
-			scanner.nextLine();
-			System.out.println(FuncionesDialogo.centrarLinea("Has derrotado al enemigo"));
 			}
-		if (batallas == 2) {
+		if (batallas == 2 && this.getVitalidad() > 0) {
 			this.subirNivel();
 			batallas = 0;
 		}

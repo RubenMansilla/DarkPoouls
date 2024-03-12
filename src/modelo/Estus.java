@@ -1,4 +1,5 @@
 package modelo;
+import view.*;
 
 public class Estus extends Objeto {
 
@@ -13,7 +14,11 @@ public class Estus extends Objeto {
 	}
 	
 	 public void usarObjeto(Personaje personaje) {
-		 personaje.setVitalidad(personaje.getVidaMaxima());
+		 if (personaje.getVitalidad() != personaje.getVidaMaxima()) {		 
+			 personaje.setVitalidad(personaje.getVitalidad() + (personaje.getVidaMaxima() / 3));
+		 }else {
+			 System.out.println(FuncionesDialogo.centrarLinea(personaje.getNombre() + " tienes la vida al máximo. Dedicate a otra cosa"));
+		 }
 	 }
 	
 }

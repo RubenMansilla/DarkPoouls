@@ -6,10 +6,10 @@ public class Nito extends Personaje {
 	public Nito() {
 		super();
 		super.setNombre("Nito");
-		super.setVitalidad(12);
-		super.setVidaMaxima(12);
-		super.setFuerza(14);
-		super.setFuerzaMaxima(14);
+		super.setVitalidad(52);
+		super.setVidaMaxima(52);
+		super.setFuerza(25);
+		super.setFuerzaMaxima(25);
 		super.setResistencia(11);
 		super.setResistenciaMaxima(11);
 		super.setFe(0);

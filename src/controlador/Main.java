@@ -17,7 +17,7 @@ public class Main {
 
 		if (finalDeLaPartida.equals("derrota")) {
 			System.out.println(Recursos.gameOver);
-		} else if (finalDeLaPartida.equals("fin de la partida")) {
+		} else if (finalDeLaPartida.equals("finDeLaPartida")) {
 			System.out.println(Recursos.finDelJuego);
 		}
 
@@ -217,7 +217,8 @@ public class Main {
 		System.out.println();
 		System.out.println(Dialogos.cajaBoss(golemHierro));
 		personajeElegido.batalla(golemHierro);
-		if (personajeElegido.getVitalidad() < 0) {
+		if (personajeElegido.getVitalidad() <= 0) {
+			System.out.println("Buenas tardes");
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(golemHierro));

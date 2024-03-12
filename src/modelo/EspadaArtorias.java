@@ -1,10 +1,10 @@
 package modelo;
 
 
-public class EspadaArtorias extends EspadaOxidada {
+public class EspadaArtorias extends Excalibur {
 
 	public EspadaArtorias() {
-		super.setDano(10);
+		super.setDano(2);
 	}
 
 	public EspadaArtorias(String descripcion, int daño) {

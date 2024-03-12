@@ -4,7 +4,7 @@ public class Muramasa extends Katana {
 	
 
 	public Muramasa() {
-		super.setDano(5);
+		super.setDano(2);
 	}
 	
 	public Muramasa(String descripcion, int daño) {

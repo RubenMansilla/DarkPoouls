@@ -6,12 +6,12 @@ public class Esqueleto extends Personaje {
 	public Esqueleto() {
 		super();
 		super.setNombre("Esqueleto");
-		super.setVitalidad(9);
-		super.setVidaMaxima(9);
-		super.setFuerza(14);
-		super.setFuerzaMaxima(14);
-		super.setResistencia(8);
-		super.setResistenciaMaxima(8);
+		super.setVitalidad(15);
+		super.setVidaMaxima(15);
+		super.setFuerza(25);
+		super.setFuerzaMaxima(25);
+		super.setResistencia(11);
+		super.setResistenciaMaxima(11);
 		super.setFe(0);
 		super.setFeMaxima(0);
 	}

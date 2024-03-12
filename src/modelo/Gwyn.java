@@ -7,12 +7,12 @@ public class Gwyn extends Personaje {
 	public Gwyn() {
 		super();
 		super.setNombre("Gwyn");
-		super.setVitalidad(12);
-		super.setVidaMaxima(13);
-		super.setFuerza(14);
-		super.setFuerzaMaxima(14);
-		super.setResistencia(11);
-		super.setResistenciaMaxima(11);
+		super.setVitalidad(65);
+		super.setVidaMaxima(65);
+		super.setFuerza(31);
+		super.setFuerzaMaxima(31);
+		super.setResistencia(19);
+		super.setResistenciaMaxima(19);
 		super.setFe(0);
 		super.setFeMaxima(0);
 	}

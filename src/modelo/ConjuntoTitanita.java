@@ -1,10 +1,10 @@
 package modelo;
 
-public class ConjuntoTitanita extends Armadura{
+public class ConjuntoTitanita extends ConjuntoHierro{
 	
 	public ConjuntoTitanita() {
 		super();
-		super.setDefensa(8);
+		super.setDefensa(2);
 	}
 
 	public ConjuntoTitanita(String descripcion, int daño) {

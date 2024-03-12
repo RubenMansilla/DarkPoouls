@@ -5,7 +5,7 @@ import java.util.Random;
 public class Excalibur extends EspadaOxidada {
 	
 	public Excalibur() {
-		super.setDano(7);
+		super.setDano(2);
 	}
 
 	public Excalibur(String descripcion, int daño) {
