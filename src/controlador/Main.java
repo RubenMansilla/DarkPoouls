@@ -125,6 +125,7 @@ public class Main {
 			armaEvolucionada2 = new HachaDragon();
 			armaEvolucionadaNombre2 = "Hacha del Dragon";
 		}
+		System.out.println(Dialogos.cajaObjetoInfo());
 
 		// Equipar armadura y habilidad
 		personajeElegido.equiparArma(armaElegida);
@@ -222,7 +223,9 @@ public class Main {
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(golemHierro));
-
+		System.out.println(Dialogos.cajaObjeto(estus, 2));
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
 		// Evolucion arma y armadura
 		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre,
 				armaduraEvolucionadaNombre));
@@ -287,6 +290,9 @@ public class Main {
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(nito));
 		// Recoges objeto
+		System.out.println(Dialogos.cajaObjeto(estus, 2));
+		personajeElegido.agregarObjeto(estus);
+		personajeElegido.agregarObjeto(estus);
 		System.out.println(Dialogos.cajaObjeto(cuerpoDeCristo, 3));
 		personajeElegido.agregarObjeto(cuerpoDeCristo);
 		personajeElegido.agregarObjeto(cuerpoDeCristo);

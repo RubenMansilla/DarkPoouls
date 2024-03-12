@@ -287,6 +287,22 @@ public class Dialogos {
 		};
 		return modeloCajaObjetoRecogido(textoParaCaja);
 	}
+	public static String cajaObjetoInfo() {
+		String[] textoParaCaja = {"",
+				"A lo largo de tu viaje te encontrarás con cuatro objetos diferentes: Estus, Amuleto del Resguardo, Creatina y el Cuerpo de Cristo",
+
+				"El Estus te recuperará una parte de tu vida",
+
+				"El Amuleto del resguardo te aumentará la resistencia",
+
+				"La Creatina te aumentará el daño",
+
+				"y el Cuerpo de Cristo te recuperará la fe",
+				""				
+		};
+		return modeloCajaObjetoRecogido(textoParaCaja);
+	}
+	
 	
 	public static String cajaEnfadoEnemigo(Personaje enemigo ) {
 		String[] textoParaCaja = { "",
