@@ -8,8 +8,8 @@ public class GolemCristal extends Personaje {
 		super.setNombre("Golem de Cristal");
 		super.setVitalidad(30);
 		super.setVidaMaxima(30);
-		super.setFuerza(6);
-		super.setFuerzaMaxima(6);
+		super.setFuerza(15);
+		super.setFuerzaMaxima(15);
 		super.setResistencia(2);
 		super.setResistenciaMaxima(2);
 		super.setFe(0);

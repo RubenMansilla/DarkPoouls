@@ -6,11 +6,11 @@ public class DemonioRefugio extends Personaje {
 	public DemonioRefugio() {
 		super();
 		super.setNombre("Demonio del Refugio");
-		super.setVitalidad(40);
+		super.setVitalidad(21);
 		super.setVidaMaxima(super.getVitalidad());
-		super.setFuerza(1);
+		super.setFuerza(14);
 		super.setFuerzaMaxima(super.getFuerza());
-		super.setResistencia(11);
+		super.setResistencia(4);
 		super.setResistenciaMaxima(super.getResistencia());
 		super.setFe(0);
 		super.setFeMaxima(super.getFe());

@@ -5,7 +5,7 @@ import java.util.Random;
 public class Katana extends Arma {
 
 	public Katana() {
-		super.setDano(2);
+		super.setDano(4);
 		super.setDescripcion("Sangrado: otorga al portador la capacidad de infligir hemorragias en sus oponentes");
 	}
 

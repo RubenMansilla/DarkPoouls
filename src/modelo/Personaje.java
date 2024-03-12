@@ -236,12 +236,12 @@ public abstract class Personaje {
 		this.reiniciarEstadisticas();
 
 		this.setNivel(nivel + 1);
-		this.setVitalidad(vitalidad + 2);
-		this.setFuerza(fuerza + 2);
+		this.setVitalidad(vidaMaxima + 2);
+		this.setFuerza(fuerzaMaxima + 2);
 		this.setFuerzaMaxima(this.getFuerza());
-		this.setResistencia(resistencia + 2);
+		this.setResistencia(resistenciaMaxima + 2);
 		this.setResistenciaMaxima(this.getResistencia());
-		this.setFe(fe + 2);
+		this.setFe(feMaxima + 2);
 		this.setFeMaxima(this.getFe());
 
 		System.out.println(Dialogos.subirNivel(this));
@@ -276,7 +276,7 @@ public abstract class Personaje {
 	public void atacar(Personaje enemigo) {
 
 		// Calcular el daño base del ataque (fuerza)
-		int dañoPersonaje = this.fuerza;
+		int dañoPersonaje = this.fuerza - enemigo.getResistencia();
 
 		// Verificar si el personaje tiene un arma y si es una Katana
 		if (this.arma instanceof Katana) {
@@ -288,7 +288,7 @@ public abstract class Personaje {
 		}
 
 		// Restar el daño al enemigo
-		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje - enemigo.getResistencia()));
+		enemigo.setVitalidad(enemigo.getVitalidad() - (dañoPersonaje));
 		System.out.println("VIDA ENEMIGO" + enemigo.getVitalidad());
 		// Imprimir mensaje de ataque
 		System.out.println();
@@ -313,9 +313,9 @@ public abstract class Personaje {
 				}
 				
 				// Ser atacado
-				int danoEnemigo = enemigo.getFuerza();
+				int danoEnemigo = enemigo.getFuerza() - this.getResistencia();
 
-				this.setVitalidad(this.getVitalidad() - ((danoEnemigo + danoPorFe) - this.getResistencia()));
+				this.setVitalidad(this.getVitalidad() - ((danoEnemigo + danoPorFe)));
 				
 				System.out.println();
 				System.out.println(Dialogos.cajaResultadoAtaque(enemigo, this, danoEnemigo));

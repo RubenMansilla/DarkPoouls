@@ -1,7 +1,7 @@
 package view;
 
 public class FuncionesDialogo {
-	public static int anchoPredeterminado = 100;
+	public static int anchoPredeterminado = 30;
 
 	/**
 	 * Agrega color a un mensaje de texto
