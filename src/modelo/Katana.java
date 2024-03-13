@@ -7,10 +7,11 @@ public class Katana extends Arma {
 	public Katana() {
 		super.setDano(4);
 		super.setDescripcion("Sangrado: otorga al portador la capacidad de infligir hemorragias en sus oponentes");
+		super.setNombre("Katana");
 	}
 
-	public Katana(String descripcion, int daño) {
-		super(descripcion, daño);
+	public Katana(String descripcion, String nombre,  int daño) {
+		super(descripcion,nombre, daño);
 	}
 
 	// Habilidad de la katana

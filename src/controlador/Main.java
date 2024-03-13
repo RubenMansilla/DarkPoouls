@@ -52,15 +52,6 @@ public class Main {
 		Arma armaEvolucionada = null;
 		Arma armaEvolucionada2 = null;
 
-		// Variables
-		int opcion = 0;
-		String armaElegidaNombre = "";
-		String armaEvolucionadaNombre = "";
-		String armaEvolucionadaNombre2 = "";
-		String armaduraElegidaNombre = "Conjunto Anticuado";
-		String armaduraEvolucionadaNombre = "Conjunto de Hierro";
-		String armaduraEvolucionadaNombre2 = "Conjunto de Titanita";
-
 		// Inicio
 
 		System.out.println(Dialogos.cajaIntroduccion());
@@ -94,43 +85,10 @@ public class Main {
 		sc.nextLine();
 
 		// Seleccion de arma
-		System.out.println(Dialogos.cajaEscogerArma());
-		System.out.println("Ingrese el numero correspondiente al arma: ");
-
-		while (!sc.hasNextInt()) {
-			System.out.println(Dialogos.cajaErrorOpcionArma());
-			sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
-		}
-
-		opcion = sc.nextInt();
-
-		while (opcion < 1 || opcion > 3) {
-			System.out.println(Dialogos.cajaErrorOpcionArma());
-			opcion = sc.nextInt();
-		}
-
-		if (opcion == 1) {
-			armaElegida = new Katana();
-			armaElegidaNombre = "Katana";
-			armaEvolucionada = new Muramasa();
-			armaEvolucionadaNombre = "Muramasa";
-			armaEvolucionada2 = new Uchigatana();
-			armaEvolucionadaNombre2 = "Uchigatana";
-		} else if (opcion == 2) {
-			armaElegida = new EspadaOxidada();
-			armaElegidaNombre = "Espada";
-			armaEvolucionada = new Excalibur();
-			armaEvolucionadaNombre = "Excalibur";
-			armaEvolucionada2 = new EspadaArtorias();
-			armaEvolucionadaNombre2 = "Espada de Artorias";
-		} else if (opcion == 3) {
-			armaElegida = new HachaDeMano();
-			armaElegidaNombre = "Hacha de Mano";
-			armaEvolucionada = new HachaDeGuerra();
-			armaEvolucionadaNombre = "Hacha de Guerra";
-			armaEvolucionada2 = new HachaDragon();
-			armaEvolucionadaNombre2 = "Hacha del Dragon";
-		}
+		Arma[] armasElegidas = seleccionarArma(sc);
+		armaElegida = armasElegidas[0];
+		armaEvolucionada = armasElegidas[1];
+		armaEvolucionada2 = armasElegidas[2];
 
 		// Equipar armadura y habilidad
 		personajeElegido.equiparArma(armaElegida);
@@ -220,7 +178,6 @@ public class Main {
 		System.out.println(Dialogos.cajaBoss(golemHierro));
 		Batalla.batalla(personajeElegido, golemHierro);
 		if (personajeElegido.getVitalidad() <= 0) {
-			System.out.println("Buenas tardes");
 			return "derrota";
 		}
 		System.out.println(Dialogos.cajaBossDerrotado(golemHierro));
@@ -228,8 +185,8 @@ public class Main {
 		personajeElegido.agregarObjeto(estus, 2);
 
 		// Evolucion arma y armadura
-		System.out.println(Dialogos.cajaEvolucion(armaElegidaNombre, armaEvolucionadaNombre, armaduraElegidaNombre,
-				armaduraEvolucionadaNombre));
+		System.out.println(Dialogos.cajaEvolucion(armaElegida, armaEvolucionada, conjuntoAnticuado,
+				conjuntoHierro));
 		personajeElegido.equiparArma(armaEvolucionada);
 		personajeElegido.equiparArmadura(conjuntoHierro);
 
@@ -320,8 +277,8 @@ public class Main {
 		System.out.println(Dialogos.cajaCHDerrotado(personajeElegido, caballeroHueco));
 
 		// Evolucion arma y armadura
-		System.out.println(Dialogos.cajaEvolucion(armaEvolucionadaNombre, armaEvolucionadaNombre2,
-				armaduraEvolucionadaNombre, armaduraEvolucionadaNombre2));
+		System.out.println(Dialogos.cajaEvolucion(armaEvolucionada, armaEvolucionada2,
+				conjuntoHierro, conjuntoTitanita));
 		personajeElegido.equiparArma(armaEvolucionada2);
 		personajeElegido.equiparArmadura(conjuntoTitanita);
 
@@ -351,8 +308,10 @@ public class Main {
 		return "finDeLaPartida";
 	}
 
+	// Atributo para almacenar la habilidad seleccionada anteriormente
 	private static int habilidadElegidaAnterior = 0;
 
+	// Método para seleccionar la habilidad del personaje principal (3 habilidades) y añadirla al personaje
 	private static void seleccionarHabilidad(Personaje personaje, Scanner sc) {
 		System.out.println(Dialogos.cajaEscogerHabilidad());
 		System.out.println("Ingrese el numero correspondiente a la habilidad: ");
@@ -380,6 +339,7 @@ public class Main {
 
 	}
 
+	// Método para seleccionar el personaje principal (10 personajes) y devolver el personaje seleccionado
 	public static Personaje seleccionarPersonaje(Scanner sc, String nombre) {
 		System.out.println(Dialogos.cajaEscogerPersonaje());
 		System.out.println("Ingrese el numero correspondiente al personaje: ");
@@ -406,13 +366,51 @@ public class Main {
 			personajeElegido = new Piromantico(nombre);
 		} else if (opcion == 9) {
 			personajeElegido = new Vagabundo(nombre);
-		}else if (opcion == 10) {
+		} else if (opcion == 10) {
 			personajeElegido = new Hechizero(nombre);
 		}
 
 		return personajeElegido;
 	}
 
+	// Método para seleccionar el arma del personaje principal y sus evoluciones (3 armas)
+	// Se utiliza un array de Arma para devolver las 3 armas seleccionadas
+	public static Arma[] seleccionarArma(Scanner sc) {
+		Arma[] armas = new Arma[3];
+
+		System.out.println(Dialogos.cajaEscogerArma());
+		System.out.println("Ingrese el numero correspondiente al arma: ");
+
+		while (!sc.hasNextInt()) {
+			System.out.println(Dialogos.cajaErrorOpcionArma());
+			sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
+		}
+
+		int opcion = sc.nextInt();
+
+		while (opcion < 1 || opcion > 3) {
+			System.out.println(Dialogos.cajaErrorOpcionArma());
+			opcion = sc.nextInt();
+		}
+
+		if (opcion == 1) {
+			armas[0] = new Katana();
+			armas[1] = new Muramasa();
+			armas[2] = new Uchigatana();
+		} else if (opcion == 2) {
+			armas[0] = new EspadaOxidada();
+			armas[1] = new Excalibur();
+			armas[2] = new EspadaArtorias();
+		} else if (opcion == 3) {
+			armas[0] = new HachaDeMano();
+			armas[1] = new HachaDeGuerra();
+			armas[2] = new HachaDragon();
+		}
+
+		return armas;
+	}
+
+	// Método para obtener una opción válida (entero) entre un rango de valores (min y max)
 	private static int obtenerOpcionValida(Scanner sc, int min, int max) {
 
 		/*

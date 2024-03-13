@@ -6,10 +6,11 @@ public class HachaDeMano extends Arma {
 			super();
 			super.setDano(6);
 			super.setDescripcion("Sin descripcion");
+			super.setNombre("Hacha de Mano");
 		}
 
-		public HachaDeMano(String descripcion, int daño) {
-			super(descripcion, daño);
+		public HachaDeMano(String descripcion, String nombre,  int daño) {
+			super(descripcion,nombre, daño);
 		}
 		
 		@Override

@@ -6,10 +6,11 @@ public class HachaDragon extends HachaDeGuerra {
 			super();
 			super.setDescripcion("");
 			super.setDano(2);
+			super.setNombre("Hacha Dragon");
 		}
 
-		public HachaDragon(String descripcion, int daño) {
-			super(descripcion, daño);
+		public HachaDragon(String descripcion, String nombre,  int daño) {
+			super(descripcion,nombre, daño);
 		}
 		
 		@Override

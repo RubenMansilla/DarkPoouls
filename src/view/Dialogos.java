@@ -44,6 +44,7 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '*', '*');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
 	}
+
 	public static String modeloCajaObjetoRecogido(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '*', '*');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.CYAN);
@@ -68,7 +69,7 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.WHITE_BACKGROUND + Recursos.BLACK);
 	}
-	
+
 	public static String modeloCajaVS(String[] texto) {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.RED);
@@ -106,7 +107,8 @@ public class Dialogos {
 
 	public static String cajaEscogerPersonaje() {
 		String[] textoParaCaja = { "", "Escoge tu Personaje", "1 - Bandido", "2 - Caballero", "3 - Cazador",
-				"4 - Clerigo", "5 - Guerrero", "6 - Ladrón", "7 - Marginado", "8 - Piromantico", "9 - Vagabundo", "10 - Hechizero", "" };
+				"4 - Clerigo", "5 - Guerrero", "6 - Ladrón", "7 - Marginado", "8 - Piromantico", "9 - Vagabundo",
+				"10 - Hechizero", "" };
 		return modeloCajaProta(textoParaCaja);
 	}
 
@@ -270,25 +272,25 @@ public class Dialogos {
 		return modeloCajaError(textoParaCaja);
 	}
 
-	public static String cajaEvolucion(String armaActual, String nuevoArma , String armaduraActual,
-			String nuevaArmadura) {
-		String[] textoParaCaja = { "", 
-				"En la forja de la adversidad, tu " + armaActual+ " ha sido templada, y ahora, resplandece con el fulgor de una " +nuevoArma+"." ,
-				"",				
-				"De las llamas de la batalla, tu armadura " +armaduraActual+  " emerge como un fénix renacido. Ahora, impregnada con la esencia de un " +nuevaArmadura ,
-				""};
+	public static String cajaEvolucion(Arma armaActual, Arma nuevoArma, Armadura armaduraActual, Armadura nuevaArmadura) {
+		String[] textoParaCaja = { "",
+				"En la forja de la adversidad, tu " + armaActual.getNombre()
+						+ " ha sido templada, y ahora, resplandece con el fulgor de una " + nuevoArma.getNombre() + ".",
+				"",
+				"De las llamas de la batalla, tu armadura " + armaduraActual.getNombre()
+						+ " emerge como un fénix renacido. Ahora, impregnada con la esencia de un " + nuevaArmadura.getNombre() ,
+				"" };
 		return modeloCajaEvolucion(textoParaCaja);
 	}
-	
+
 	public static String cajaObjeto(Objeto objeto, int cantidad) {
-		String[] textoParaCaja = {"",
-				"Has recogido de los restos de tu enemigo "+ cantidad + " " + objeto.getNombre(),
-				""				
-		};
+		String[] textoParaCaja = { "",
+				"Has recogido de los restos de tu enemigo " + cantidad + " " + objeto.getNombre(), "" };
 		return modeloCajaObjetoRecogido(textoParaCaja);
 	}
+
 	public static String cajaObjetoInfo() {
-		String[] textoParaCaja = {"",
+		String[] textoParaCaja = { "",
 				"A lo largo de tu viaje te encontrarás con cuatro objetos diferentes: Estus, Amuleto del Resguardo, Creatina y el Cuerpo de Cristo",
 
 				"El Estus te recuperará una parte de tu vida",
@@ -297,19 +299,15 @@ public class Dialogos {
 
 				"La Creatina te aumentará el daño",
 
-				"y el Cuerpo de Cristo te recuperará la fe",
-				""				
-		};
+				"y el Cuerpo de Cristo te recuperará la fe", "" };
 		return modeloCajaObjetoRecogido(textoParaCaja);
 	}
-	
-	
-	public static String cajaEnfadoEnemigo(Personaje enemigo ) {
-		String[] textoParaCaja = { "",
-				enemigo.getNombre()+ " se enfurece, su daño aumenta en 5",
-				""};
+
+	public static String cajaEnfadoEnemigo(Personaje enemigo) {
+		String[] textoParaCaja = { "", enemigo.getNombre() + " se enfurece, su daño aumenta en 5", "" };
 		return modeloCajaError(textoParaCaja);
 	}
+
 	public static String cajaErrorInicio() {
 		String[] textoParaCaja = { "Error:", "¡Vaya!, parece que tiene que su nombre tiene que empezar por una letra" };
 		return modeloCajaError(textoParaCaja);
@@ -329,32 +327,32 @@ public class Dialogos {
 		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente a la habilidad" };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaErrorOpcionHabilidad2() {
 		String[] textoParaCaja = { "Error:", "Habilidad ya obtendida" };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaErrorTurnoObjeto() {
 		String[] textoParaCaja = { "Error:", "No puedes usar más objetos en este turno" };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaErrorTurnoObjeto2() {
 		String[] textoParaCaja = { "Error:", "Opción no válida. Intenta de nuevo." };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaErrorTurnoHabilidad() {
 		String[] textoParaCaja = { "Error:", "No puedes usar más habilidades en este turno" };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaErrorTurnoHabilidad2() {
 		String[] textoParaCaja = { "Error:", "Opción no válida. Intenta de nuevo." };
 		return modeloCajaError(textoParaCaja);
 	}
-	
+
 	public static String cajaInventarioVacio() {
 		String[] textoParaCaja = { "Error:", "No dispones de objetos en tu inventario" };
 		return modeloCajaError(textoParaCaja);
@@ -365,10 +363,9 @@ public class Dialogos {
 				+ dañoPersonaje + " puntos de daño" };
 		return modeloCajaAtaque(textoParaCaja);
 	}
-	
+
 	public static String cajaAtaque(Personaje personaje) {
-		String[] textoParaCaja = { "" + personaje.getNombre()
-				 };
+		String[] textoParaCaja = { "" + personaje.getNombre() };
 		return modeloCajaVS(textoParaCaja);
 	}
 
