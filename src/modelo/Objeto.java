@@ -1,19 +1,20 @@
 package modelo;
 
 public abstract class Objeto {
-	
+
 	private String nombre;
 	private String descripcion;
-    private int cantidad = 1;
+	private int cantidad = 1;
 
-    public Objeto() {
-    }
+	public Objeto() {
+	}
 
-    public Objeto(String nombre, String descripcion, int cantidad) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.cantidad = cantidad;
-    }
+	public Objeto(String nombre, String descripcion, int cantidad) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.cantidad = cantidad;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -37,12 +38,14 @@ public abstract class Objeto {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	
+
+	// Metodo abstracto para usar el objeto 
+	// Es abstracto porque cada objeto tiene un uso diferente
 	public abstract void usarObjeto(Personaje personaje);
 
 	@Override
 	public String toString() {
-	    return "\n - " + nombre + " (" + cantidad + ")\n";
+		return "\n - " + nombre + " (" + cantidad + ")\n";
 	}
-	
+
 }

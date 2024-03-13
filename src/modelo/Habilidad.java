@@ -40,11 +40,14 @@ public abstract class Habilidad {
 		this.costeFe = costeMana;
 	}
 
+	// Metodo abstracto para usar la habilidad
+	// Es abstracto porque cada habilidad tiene un uso diferente
+	protected abstract void usarHabilidad(Personaje personaje);
+
 	@Override
 	public String toString() {
 		return "Habilidad [nombre = " + nombre + " coste de fe = " + costeFe;
 	}
 
-	protected abstract void usarHabilidad(Personaje personaje);
 
 }

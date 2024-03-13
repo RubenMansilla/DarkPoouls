@@ -38,5 +38,4 @@ public class Katana extends Arma {
 	}
 	
 	
-	
 }

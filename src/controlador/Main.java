@@ -153,7 +153,7 @@ public class Main {
 		// Batalla Demonio del refugio
 		System.out.println();
 		System.out.println(Dialogos.cajaBoss(demonio));
-		personajeElegido.batalla(demonio);
+		Batalla.batalla(personajeElegido, demonio);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -169,7 +169,7 @@ public class Main {
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
-		personajeElegido.batalla(golemCristal);
+		Batalla.batalla(personajeElegido, golemCristal);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -186,7 +186,7 @@ public class Main {
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 		System.out.println(Dialogos.cajaGCEncuentro(personajeElegido, golemCristal));
-		personajeElegido.batalla(golemCristal);
+		Batalla.batalla(personajeElegido, golemCristal);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -205,7 +205,7 @@ public class Main {
 		System.out.println(centrarLinea("Estadística"));
 		System.out.println();
 		System.out.println(Dialogos.cajaBoss(golemHierro));
-		personajeElegido.batalla(golemHierro);
+		Batalla.batalla(personajeElegido, golemHierro);
 		if (personajeElegido.getVitalidad() <= 0) {
 			System.out.println("Buenas tardes");
 			return "derrota";
@@ -228,7 +228,7 @@ public class Main {
 		// Batalla esqueletos
 		System.out.println();
 		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
-		personajeElegido.batalla(esqueleto);
+		Batalla.batalla(personajeElegido, esqueleto);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -243,7 +243,7 @@ public class Main {
 		sc.nextLine();
 		System.out.println();
 		System.out.println(Dialogos.cajaEqEncuentro(personajeElegido, esqueleto));
-		personajeElegido.batalla(esqueleto);
+		Batalla.batalla(personajeElegido, esqueleto);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -264,7 +264,7 @@ public class Main {
 		// Batalla Nito
 		System.out.println();
 		System.out.println(Dialogos.cajaBoss(nito));
-		personajeElegido.batalla(nito);
+		Batalla.batalla(personajeElegido, nito);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -286,7 +286,7 @@ public class Main {
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 
 		System.out.println(Dialogos.cajaCHEncuentro(personajeElegido, caballeroHueco));
-		personajeElegido.batalla(caballeroHueco);
+		Batalla.batalla(personajeElegido, caballeroHueco);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -299,7 +299,7 @@ public class Main {
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 
 		System.out.println(Dialogos.cajaCHEncuentro(personajeElegido, caballeroHueco));
-		personajeElegido.batalla(caballeroHueco);
+		Batalla.batalla(personajeElegido, caballeroHueco);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
@@ -321,7 +321,7 @@ public class Main {
 		// Batalla final Gwyn
 		System.out.println();
 		System.out.println(Dialogos.cajaBoss(gwyn));
-		personajeElegido.batalla(gwyn);
+		Batalla.batalla(personajeElegido, gwyn);
 		if (personajeElegido.getVitalidad() < 0) {
 			return "derrota";
 		}
