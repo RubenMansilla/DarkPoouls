@@ -11,6 +11,8 @@ public class Batalla {
     private static int batallas = 0; // Variable estática para llevar el seguimiento de la cantidad de batallas
 
     // Ataque entre dos personajes
+    // un método estático puede ser llamado sin crear una instancia de la clase
+    // es decir, se puede llamar a un método estático sin crear un objeto de la clase
     public static void atacar(Personaje jugador, Personaje enemigo) {
         // Calcular el daño base del ataque (fuerza del jugador - resistencia del enemigo)
         int dañoPersonaje = jugador.getFuerza() - enemigo.getResistencia();

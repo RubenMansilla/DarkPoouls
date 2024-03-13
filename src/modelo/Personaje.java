@@ -24,8 +24,8 @@ public abstract class Personaje {
 
 	// Constructores
 	public Personaje() {
-		this.listaDeHabilidades = new ArrayList<>();
-		this.inventario = new ArrayList<>();
+		this.listaDeHabilidades = new ArrayList<>(); // Inicializa la lista de habilidades
+		this.inventario = new ArrayList<>(); // Inicializa el inventario
 	}
 
 	// Constructor con parámetros
@@ -36,8 +36,8 @@ public abstract class Personaje {
 		this.resistencia = resistencia;
 		this.fe = fe;
 		calcularVidaMaxima();
-		this.listaDeHabilidades = new ArrayList<Habilidad>();
-		this.inventario = new ArrayList<Objeto>();
+		this.listaDeHabilidades = new ArrayList<Habilidad>(); // Inicializa la lista de habilidades
+		this.inventario = new ArrayList<Objeto>(); // Inicializa el inventario
 		;
 	}
 
@@ -165,6 +165,10 @@ public abstract class Personaje {
 	public void agregarObjeto(Objeto objeto, int cantidad) {
 		boolean objetoExistente = false;
 
+		// for each para recorrer el inventario
+		// Si el objeto ya existe, se suma la cantidad
+		// Si el objeto no existe, se agrega al inventario
+		// tipoObjeto es el objeto que se encuentra en el inventario
 		for (Objeto tipoObjeto : inventario) {
 
 			if (tipoObjeto.getNombre().equals(objeto.getNombre())) {
@@ -174,6 +178,8 @@ public abstract class Personaje {
 			}
 		}
 
+		// Si el objeto no existe, se agrega al inventario
+		// solo si objetoExistente  es falso
 		if (!objetoExistente) {
 			inventario.add(objeto);
 			objeto.setCantidad(cantidad);
@@ -184,6 +190,9 @@ public abstract class Personaje {
 	public void eliminarObjeto(Objeto objeto) {
 		boolean objetoEncontrado = false;
 
+		// for each para recorrer el inventario
+		// Si el objeto ya existe, se resta la cantidad
+		// Si la cantidad es 0, se elimina el objeto
 		for (Objeto tipoObjeto : inventario) {
 
 			if (tipoObjeto.getNombre().equals(objeto.getNombre())) {

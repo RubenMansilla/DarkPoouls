@@ -400,6 +400,8 @@ public class Main {
 	}
 
 	private static int obtenerOpcionValida(Scanner sc, int min, int max) {
+
+		/*!sc.hasNextInt() verifica si el siguiente token es un entero. Si no es un entero, el bucle se repite. */
 		while (!sc.hasNextInt()) {
 			System.out.println(Dialogos.cajaErrorOpcionPersonje());
 			sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
