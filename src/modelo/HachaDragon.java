@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Random;
-
 public class HachaDragon extends HachaDeGuerra {
 
 		public HachaDragon() {

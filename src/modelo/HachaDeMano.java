@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Random;
-
 public class HachaDeMano extends Arma {
 
 		public HachaDeMano() {

@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.Random;
-
 public class Excalibur extends EspadaOxidada {
 	
 	public Excalibur() {
