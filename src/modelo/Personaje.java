@@ -166,20 +166,21 @@ public abstract class Personaje {
 
 //Metodos varios
 	// Agregar y eliminar objetos y habilidades
-	public void agregarObjeto(Objeto objeto) {
+	public void agregarObjeto(Objeto objeto, int cantidad) {
 		boolean objetoExistente = false;
 
 		for (Objeto tipoObjeto : inventario) {
 
 			if (tipoObjeto.getNombre().equals(objeto.getNombre())) {
 
-				tipoObjeto.setCantidad(tipoObjeto.getCantidad() + 1);
+				tipoObjeto.setCantidad(tipoObjeto.getCantidad() + cantidad);
 				objetoExistente = true;
 			}
 		}
 
 		if (!objetoExistente) {
 			inventario.add(objeto);
+			objeto.setCantidad(cantidad);
 		}
 	}
 
@@ -471,6 +472,7 @@ public abstract class Personaje {
 		if (enemigo.getVitalidad() <= 0) {
 			enemigo.reiniciarEstadisticas();
 			this.reiniciarEstadisticas();
+			System.out.println(Dialogos.reiniciarEstadisticas(this));
 			}
 		if (batallas == 2 && this.getVitalidad() > 0) {
 			this.subirNivel();
