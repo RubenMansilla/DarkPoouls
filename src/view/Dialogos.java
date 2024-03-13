@@ -106,7 +106,7 @@ public class Dialogos {
 
 	public static String cajaEscogerPersonaje() {
 		String[] textoParaCaja = { "", "Escoge tu Personaje", "1 - Bandido", "2 - Caballero", "3 - Cazador",
-				"4 - Clerigo", "5 - Guerrero", "6 - Ladrón", "7 - Marginado", "8 - Piromantico", "9 - Vagabundo", "" };
+				"4 - Clerigo", "5 - Guerrero", "6 - Ladrón", "7 - Marginado", "8 - Piromantico", "9 - Vagabundo", "10 - Hechizero", "" };
 		return modeloCajaProta(textoParaCaja);
 	}
 

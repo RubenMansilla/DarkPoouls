@@ -1,7 +1,6 @@
 package modelo;
 
-public class AmuletoDelResguardo extends Objeto{
-	
+public class AmuletoDelResguardo extends Objeto {
 
 	public AmuletoDelResguardo() {
 		super();
@@ -12,9 +11,9 @@ public class AmuletoDelResguardo extends Objeto{
 	public AmuletoDelResguardo(String nombre, String descripcion, int cantidad) {
 		super(nombre, descripcion, cantidad);
 	}
-	
-	 public void usarObjeto(Personaje personaje) {
-		 personaje.setResistencia(personaje.getResistencia() + 2);
-	 }
+
+	public void usarObjeto(Personaje personaje) {
+		personaje.setResistencia(personaje.getResistencia() + 2);
+	}
 
 }

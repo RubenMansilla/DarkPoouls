@@ -38,7 +38,6 @@ public abstract class Personaje {
 		calcularVidaMaxima();
 		this.listaDeHabilidades = new ArrayList<Habilidad>(); // Inicializa la lista de habilidades
 		this.inventario = new ArrayList<Objeto>(); // Inicializa el inventario
-		;
 	}
 
 	// Getters y Setters
@@ -265,12 +264,12 @@ public abstract class Personaje {
 		this.setFe(this.getFeMaxima());
 	}
 
-	// Usar objetos y habilidades
+	// Usar objeto
 	public void usarObjeto(Objeto objeto) {
 		objeto.usarObjeto(this);
 	}
 
-	// Usar habilidades
+	// Usar habilidad
 	public void usarHabilidad(Habilidad habilidad) {
 		habilidad.usarHabilidad(this);
 	}

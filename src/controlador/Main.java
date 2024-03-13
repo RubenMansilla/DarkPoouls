@@ -384,7 +384,7 @@ public class Main {
 		System.out.println(Dialogos.cajaEscogerPersonaje());
 		System.out.println("Ingrese el numero correspondiente al personaje: ");
 
-		int opcion = obtenerOpcionValida(sc, 1, 9);
+		int opcion = obtenerOpcionValida(sc, 1, 10);
 
 		Personaje personajeElegido = null;
 
@@ -406,6 +406,8 @@ public class Main {
 			personajeElegido = new Piromantico(nombre);
 		} else if (opcion == 9) {
 			personajeElegido = new Vagabundo(nombre);
+		}else if (opcion == 10) {
+			personajeElegido = new Hechizero(nombre);
 		}
 
 		return personajeElegido;
