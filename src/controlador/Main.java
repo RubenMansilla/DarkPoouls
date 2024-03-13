@@ -69,6 +69,12 @@ public class Main {
 
 		System.out.println(centrarLinea("Como te llamas?"));
 		String nombre = sc.nextLine();
+
+		// Si el usuario no ingreso nada, el nombre por defecto es Galvain
+		if (nombre.isEmpty()) {
+			nombre = "Galvain";
+		}
+
 		// Si el usuario no ingreso nada, o el primer carácter del nombre no es una
 		// letra, vuelve a pedirlo hasta que el dato sea correcto
 		while (nombre.isEmpty() || !Character.isLetter(nombre.charAt(0))) {
@@ -140,14 +146,21 @@ public class Main {
 
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
-		
+
 		System.out.println(Dialogos.cajaObjetoInfo());
 
 		System.out.println(centrarLinea("Estadisticas"));
 		System.out.println(Dialogos.cajaPersonaje(personajeElegido));
 
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println();
 		System.out.println(Dialogos.cajaIntroduccion());
+
+		System.out.println(centrarLinea("Presione START para continuar"));
+		sc.nextLine();
+
 		System.out.println(Dialogos.cajaProta(personajeElegido));
 
 		// Batalla Demonio del refugio
@@ -195,7 +208,7 @@ public class Main {
 		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
 		// Recoges objeto
 		System.out.println(Dialogos.cajaObjeto(amuletoDelResguardo, 1));
-		//personajeElegido.agregarObjeto(amuletoDelResguardo);
+		// personajeElegido.agregarObjeto(amuletoDelResguardo);
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		System.out.println(centrarLinea("Presione START para continuar"));
@@ -237,7 +250,6 @@ public class Main {
 		// Recoges objeto
 		System.out.println(Dialogos.cajaObjeto(cretina, 2));
 		personajeElegido.agregarObjeto(cretina, 2);
-
 
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
@@ -401,7 +413,10 @@ public class Main {
 
 	private static int obtenerOpcionValida(Scanner sc, int min, int max) {
 
-		/*!sc.hasNextInt() verifica si el siguiente token es un entero. Si no es un entero, el bucle se repite. */
+		/*
+		 * !sc.hasNextInt() verifica si el siguiente token es un entero. Si no es un
+		 * entero, el bucle se repite.
+		 */
 		while (!sc.hasNextInt()) {
 			System.out.println(Dialogos.cajaErrorOpcionPersonje());
 			sc.next(); // Consumir la entrada incorrecta para evitar un bucle infinito
