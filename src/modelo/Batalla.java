@@ -16,6 +16,8 @@ public class Batalla {
         int dañoPersonaje = jugador.getFuerza() - enemigo.getResistencia();
 
         // Verificar si el jugador tiene un arma y si es una Katana
+        // o una Espada Oxidada para ejecutar sus habilidades
+        //instanceof es un operador que verifica si un objeto es una instancia de una clase, subclase o interfaz
         if (jugador.arma instanceof Katana) {
             // Calcular el daño adicional de la habilidad de la Katana
             dañoPersonaje += ((Katana) jugador.getArma()).habilidadArma();
