@@ -74,6 +74,11 @@ public class Dialogos {
 		String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
 		return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.BLACK_BACKGROUND + Recursos.RED);
 	}
+	
+	public static String modeloCajaFinPartida(String[] texto) {
+        String textoEnCaja = FuncionesDialogo.formatearTextoCajaPersonalizada(texto, '=', '|');
+        return FuncionesDialogo.agregarColor(textoEnCaja, Recursos.YELLOW_BACKGROUND + Recursos.BLACK);
+    }
 
 	/* Cajas de texto de Inicio */
 
@@ -373,5 +378,13 @@ public class Dialogos {
 		String[] textoParaCaja = { "" + personaje.getNombre() };
 		return modeloCajaVS(textoParaCaja);
 	}
+	
+    public static String cajaFinPartida() {
+        String[] textoParaCaja = { "",
+                "Con la muerte de Gwyn, decides aguardas tu destino como:",
+                "la última alma que 'El Elegido' recogerá para mantener viva la llama",
+                ""};
+        return modeloCajaFinPartida(textoParaCaja);
+    }
 
 }

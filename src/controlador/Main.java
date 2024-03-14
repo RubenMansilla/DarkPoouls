@@ -16,10 +16,12 @@ public class Main {
 		String finalDeLaPartida = aventura(nombreFinal);
 
 		if (finalDeLaPartida.equals("derrota")) {
-			System.out.println(Recursos.gameOver);
-		} else if (finalDeLaPartida.equals("finDeLaPartida")) {
-			System.out.println(Recursos.finDelJuego);
-		}
+            System.out.println(Recursos.gameOver);
+        } else if (finalDeLaPartida.equals("finDeLaPartida")) {
+            System.out.println(Dialogos.cajaFinPartida());
+            System.out.println();
+            System.out.println(Recursos.finDelJuego);
+        }
 
 	}
 
