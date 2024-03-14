@@ -327,6 +327,11 @@ public class Dialogos {
 		String[] textoParaCaja = { "Error:", "Ingrese un número válido correspondiente a la habilidad" };
 		return modeloCajaError(textoParaCaja);
 	}
+	
+	public static String cajaErrorOpcionBatalla() {
+		String[] textoParaCaja = { "Error:", "Ingrese 1, 2 o 3 para escoger una opción de batalla" };
+		return modeloCajaError(textoParaCaja);
+	}
 
 	public static String cajaErrorOpcionHabilidad2() {
 		String[] textoParaCaja = { "Error:", "Habilidad ya obtendida" };

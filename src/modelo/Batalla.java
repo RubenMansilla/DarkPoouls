@@ -105,7 +105,7 @@ public class Batalla {
             System.out.print("Elige una opción: ");
 
             while (!scanner.hasNextInt()) {
-                System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+                System.out.println(Dialogos.cajaErrorOpcionBatalla());
                 scanner.next();
             }
 
@@ -113,7 +113,7 @@ public class Batalla {
 
             // Validar la opción
             while (opcion != 1 && opcion != 2 && opcion != 3) {
-                System.out.println("Ingrese 1, 2 o 3 para elegir una opción");
+            	System.out.println(Dialogos.cajaErrorOpcionBatalla());
                 opcion = scanner.nextInt();
             }
 
