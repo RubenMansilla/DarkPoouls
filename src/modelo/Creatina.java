@@ -13,7 +13,7 @@ public class Creatina extends Objeto {
 	}
 
 	public void usarObjeto(Personaje personaje) {
-		personaje.setFuerza(personaje.getFuerza() + 4);
+		personaje.setFuerza(personaje.getFuerza() + 2);
 	}
 
 }
