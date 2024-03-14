@@ -23,7 +23,7 @@ public class Recursos {
 	public static final String CYAN_BACKGROUND = "\u001B[46m";
 	public static final String WHITE_BACKGROUND = "\u001B[47m";
 	
-	public static String finDelJuego = "       █████████                ███████████         █████████           \r\n"
+	public static String finDelJuego = MAGENTA +  "       █████████                ███████████         █████████           \r\n"
 			+ "      ███████████████       ██████░█████████████████████████████        \r\n"
 			+ "     ███████████████████████████████████████  ████████████▓▓██████      \r\n"
 			+ "    ████████████▒█████████████████████████▒    ▓██████████▒ ███████     \r\n"
@@ -51,7 +51,7 @@ public class Recursos {
 			+ "         ██████████████               ████████████████                  \r\n"
 			+ "           █████████                            ██\r\n" + "";
 
-	public static String gameOver = "                                                                        \r\n"
+	public static String gameOver = RED + "                                                                        \r\n"
 			+ "  ███   ███                                                             \r\n"
 			+ "   ███████                                                ██████████    \r\n"
 			+ "    █████                                                 ████  ███     \r\n"
