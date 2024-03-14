@@ -164,10 +164,9 @@ public class Main {
 
 		System.out.println();
 		System.out.println(Dialogos.cajaGCDerrota(personajeElegido, golemCristal));
+		
 		// Recoges objeto
 		System.out.println(Dialogos.cajaObjeto(amuletoDelResguardo, 1));
-		// personajeElegido.agregarObjeto(amuletoDelResguardo);
-		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
 		System.out.println(centrarLinea("Presione START para continuar"));
 		sc.nextLine();
