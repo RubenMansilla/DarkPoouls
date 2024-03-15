@@ -263,7 +263,7 @@ public class Dialogos {
 	}
 
 	public static String EstadoPersonaje(Personaje personaje) {
-		String[] textoParaCaja = { "", "" + personaje.getNombre(), "Vitalidad: " + personaje.getVitalidad(),
+		String[] textoParaCaja = { "", "" + personaje.getNombre(), "Vitalidad: " + personaje.getVitalidad() + " | de " + personaje.getVidaMaxima() + " máximos",
 				"Fuerza: " + personaje.getFuerza(), "Resistencia: " + personaje.getResistencia(),
 				"Fe: " + personaje.getFe(), "Inventario: " + personaje.getInventario(),
 				"Habilidades" + personaje.getListaDeHabilidades(), "" };
