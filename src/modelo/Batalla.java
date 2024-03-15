@@ -18,7 +18,7 @@ public class Batalla {
     public static void atacar(Personaje jugador, Personaje enemigo) {
         // Calcular el daño base del ataque (fuerza del jugador - resistencia del
         // enemigo)
-        int dañoPersonaje = jugador.getFuerza() - enemigo.getResistencia();
+        int dañoPersonaje = jugador.getFuerza() - (enemigo.getResistencia() / 2);
 
         // Verificar si el jugador tiene un arma y si es una Katana
         // o una Espada Oxidada para ejecutar sus habilidades
@@ -66,7 +66,7 @@ public class Batalla {
                 }
 
                 // Calcular y aplicar el daño al jugador
-                int danoEnemigo = enemigo.getFuerza() + danoPorFe - jugador.getResistencia();
+                int danoEnemigo = enemigo.getFuerza() + danoPorFe - (jugador.getResistencia() / 2);
                 jugador.setVitalidad(jugador.getVitalidad() - danoEnemigo);
 
                 // Imprimir mensaje de ataque del enemigo
